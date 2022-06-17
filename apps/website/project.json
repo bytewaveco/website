@@ -1,0 +1,40 @@
+{
+  "projectType": "application",
+  "root": "apps/website",
+  "sourceRoot": "apps/website/src",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "NODE_ENV=production vite build",
+        "cwd": "apps/website"
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "NODE_ENV=development vite dev",
+        "cwd": "apps/website"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["apps/website/src/**/*.{ts,vue,html}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "vitest -c apps/website/vite.config.js --coverage"
+      }
+    },
+    "deploy": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "firebase deploy --only hosting"
+      }
+    }
+  },
+  "tags": []
+}

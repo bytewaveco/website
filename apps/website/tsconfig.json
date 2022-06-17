@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "useDefineForClassFields": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "jsx": "preserve",
+    "isolatedModules": true,
+    "lib": ["esnext", "dom"],
+    "allowJs": true,
+    "types": ["vitest/globals"]
+  },
+  "include": ["src/**/*.vue", "src/**/types/*.d.ts", "src/**/*.ts"]
+}
