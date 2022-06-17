@@ -26,8 +26,8 @@
       }
     ]
   },
-  "projects": {},
   "cli": {
     "defaultCollection": "@nrwl/workspace"
-  }
+  },
+  "defaultProject": "website"
 }

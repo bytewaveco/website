@@ -2,10 +2,14 @@
   <router-view />
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
-
-export default defineComponent({});
-</script>
-
-<style lang="scss"></style>
+<style lang="scss">
+html,
+body {
+  position: fixed;
+  margin: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+</style>
