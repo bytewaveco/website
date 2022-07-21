@@ -7,4 +7,8 @@ declare interface SlideManagerStore {
   };
   scrollPosition: number;
   scrollRange: [number, number];
+  raf: number | undefined;
+  targetY: number;
+  touchStartY: number;
+  ease: number;
 }

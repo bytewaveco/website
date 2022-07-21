@@ -1,0 +1,41 @@
+module.exports = {
+  root: true,
+  extends: ['prettier'],
+  plugins: ['@nrwl/nx'],
+  overrides: [
+    {
+      files: ['*.ts'],
+      rules: {
+        'no-duplicate-imports': 'error',
+        'no-self-compare': 'error',
+        camelcase: 'error',
+        'capitalized-comments': ['error', 'always', { ignoreConsecutiveComments: true }],
+        'dot-notation': 'error',
+        eqeqeq: 'error',
+        'new-cap': 'error',
+        'no-var': 'error',
+        'spaced-comment': 'error',
+        yoda: 'error',
+        'arrow-parens': 'error',
+        'max-len': ['error', { code: 90 }],
+        'no-extra-parens': 'error',
+        'no-tabs': 'error',
+        'prefer-spread': 'error',
+        'prefer-object-spread': 'error',
+        'prefer-object-has-own': 'error',
+        'no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+        '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+      },
+    },
+    {
+      files: ['*.ts'],
+      extends: ['plugin:@nrwl/nx/typescript'],
+      rules: {},
+    },
+    {
+      files: ['*.js'],
+      extends: ['plugin:@nrwl/nx/javascript'],
+      rules: {},
+    },
+  ],
+};

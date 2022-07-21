@@ -36,6 +36,7 @@ export default defineComponent({
   z-index: 0;
   opacity: 0;
   pointer-events: none;
+  transition: opacity var(--slide-animation-duration, 0.5s) ease-in-out;
 
   &.active {
     opacity: 1;
@@ -47,9 +48,8 @@ export default defineComponent({
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
-    width: calc(100% - 2rem);
-    height: calc(100% - 2rem);
-    margin: 1rem;
+    width: 100%;
+    height: 100%;
   }
 }
 </style>
