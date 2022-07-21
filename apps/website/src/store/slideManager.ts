@@ -10,8 +10,64 @@ export const useSlideManager = defineStore('slideManager', {
     },
     scrollPosition: 0,
     scrollRange: [0, 0],
+    raf: undefined,
+    targetY: 0,
+    touchStartY: 0,
+    ease: 0.075,
   }),
   actions: {
+    onWheel(event: WheelEvent) {
+      this.targetY = Math.max(
+        this.scrollRange[0],
+        Math.min(this.scrollRange[1], this.targetY + event.deltaY)
+      );
+      this.startAnimation();
+    },
+    onTouchstart(event: TouchEvent) {
+      if (event.touches.length > 0) {
+        this.touchStartY = event.touches[0].pageY;
+      }
+    },
+    onTouchmove(event: TouchEvent) {
+      if (event.touches.length > 0) {
+        this.targetY = Math.max(
+          this.scrollRange[0],
+          Math.min(
+            this.scrollRange[1],
+            this.targetY + (this.touchStartY - event.touches[0].pageY) * 0.05
+          )
+        );
+        this.startAnimation();
+      }
+    },
+    prevSlide() {
+      this.cancelAnimation();
+
+      document.documentElement.style.setProperty('--slide-animation-duration', '0s');
+
+      this.targetY = this.slideSize.height * (this.activeSlide - 2);
+
+      this.setScrollPosition(this.slideSize.height * (this.activeSlide - 2));
+
+      setTimeout(() => {
+        document.documentElement.style.removeProperty('--slide-animation-duration');
+      }, 100);
+    },
+    nextSlide() {
+      if (this.activeSlide < this.numberSlides) {
+        this.cancelAnimation();
+
+        document.documentElement.style.setProperty('--slide-animation-duration', '0s');
+
+        this.targetY = this.slideSize.height * this.activeSlide;
+
+        this.setScrollPosition(this.slideSize.height * this.activeSlide);
+
+        setTimeout(() => {
+          document.documentElement.style.removeProperty('--slide-animation-duration');
+        }, 100);
+      }
+    },
     setScrollRange() {
       const slides = document.getElementsByClassName('slide');
       this.numberSlides = slides.length;
@@ -49,6 +105,32 @@ export const useSlideManager = defineStore('slideManager', {
     },
     addToScrollPosition(amount: number) {
       this.setScrollPosition(this.scrollPosition + amount);
+    },
+    cancelAnimation() {
+      if (this.raf) {
+        cancelAnimationFrame(this.raf);
+        this.raf = undefined;
+      }
+    },
+    animate() {
+      const diff = this.targetY - this.scrollPosition;
+      const delta = Math.abs(diff) < 0.1 ? 0 : diff * this.ease;
+
+      if (delta !== 0) {
+        this.scrollPosition += delta;
+        this.scrollPosition = parseFloat(this.scrollPosition.toFixed(2));
+        this.raf = requestAnimationFrame(this.animate.bind(this));
+      } else {
+        this.scrollPosition = this.targetY;
+        this.cancelAnimation();
+      }
+
+      this.setScrollPosition(this.scrollPosition);
+    },
+    startAnimation() {
+      if (typeof this.raf === 'undefined') {
+        this.raf = requestAnimationFrame(this.animate.bind(this));
+      }
     },
   },
 });

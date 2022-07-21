@@ -8,6 +8,10 @@
   },
   "private": true,
   "dependencies": {
+    "@fontsource/raleway": "^4.5.9",
+    "@fortawesome/fontawesome-svg-core": "^6.1.1",
+    "@fortawesome/pro-duotone-svg-icons": "^6.1.1",
+    "@fortawesome/vue-fontawesome": "^3.0.1",
     "dayjs": "^1.11.3",
     "pinia": "^2.0.14",
     "tslib": "^2.4.0",

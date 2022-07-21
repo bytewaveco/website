@@ -1,12 +1,29 @@
 <template>
   <div id="slide-progress">
-    <button>Prev</button>
+    <button @click.stop.prevent="slideManager.prevSlide()">
+      <font-awesome-icon icon="fa-duotone fa-chevron-up" />
+    </button>
     <div id="slide-progress-bar-container">
       <div id="slide-progress-bar-progress" />
     </div>
-    <button>Next</button>
+    <button @click.stop.prevent="slideManager.nextSlide()">
+      <font-awesome-icon icon="fa-duotone fa-chevron-down" />
+    </button>
   </div>
 </template>
+
+<script lang="ts">
+import { defineComponent } from 'vue';
+import { useSlideManager } from '../store';
+
+export default defineComponent({
+  setup() {
+    const slideManager = useSlideManager();
+
+    return { slideManager };
+  },
+});
+</script>
 
 <style lang="scss" scoped>
 #slide-progress {
@@ -20,6 +37,14 @@
   align-items: center;
   justify-items: center;
   z-index: 999;
+
+  button {
+    appearance: none;
+    outline: none;
+    font-size: 22px;
+    background-color: transparent;
+    border: none;
+  }
 
   #slide-progress-bar-container {
     display: block;
