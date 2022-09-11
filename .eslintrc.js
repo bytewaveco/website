@@ -1,7 +1,8 @@
 module.exports = {
   root: true,
-  extends: ['prettier'],
-  plugins: ['@nrwl/nx'],
+  parser: '@typescript-eslint/parser',
+  plugins: ['jsdoc', '@typescript-eslint'],
+  extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended'],
   overrides: [
     {
       files: ['*.ts'],
@@ -27,15 +28,5 @@ module.exports = {
         '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
       },
     },
-    {
-      files: ['*.ts'],
-      extends: ['plugin:@nrwl/nx/typescript'],
-      rules: {},
-    },
-    {
-      files: ['*.js'],
-      extends: ['plugin:@nrwl/nx/javascript'],
-      rules: {},
-    },
   ],
-};
+}

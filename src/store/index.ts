@@ -1,0 +1,1 @@
+export { slidesStore } from './slidesStore'

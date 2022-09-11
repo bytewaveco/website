@@ -1,28 +1,27 @@
 <template>
   <div id="slide-progress">
-    <button @click.stop.prevent="slideManager.prevSlide()">
-      <font-awesome-icon icon="fa-duotone fa-chevron-up" />
+    <button @click.stop.prevent="slides.prevSlide()">
+      <icon name="ph:caret-double-up-duotone" />
     </button>
     <div id="slide-progress-bar-container">
       <div id="slide-progress-bar-progress" />
     </div>
-    <button @click.stop.prevent="slideManager.nextSlide()">
-      <font-awesome-icon icon="fa-duotone fa-chevron-down" />
+    <button @click.stop.prevent="slides.nextSlide()">
+      <icon name="ph:caret-double-down-duotone" />
     </button>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
-import { useSlideManager } from '../store';
+import { slidesStore } from '../store'
 
 export default defineComponent({
   setup() {
-    const slideManager = useSlideManager();
+    const slides = slidesStore()
 
-    return { slideManager };
+    return { slides }
   },
-});
+})
 </script>
 
 <style lang="scss" scoped>
