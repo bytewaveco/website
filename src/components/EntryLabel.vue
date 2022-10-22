@@ -28,10 +28,9 @@ export default defineComponent({
 })
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 label {
   font-size: 1rem;
-  font-weight: bold;
   margin: 0;
   cursor: default;
 

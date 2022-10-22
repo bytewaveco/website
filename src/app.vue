@@ -59,6 +59,15 @@ body {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
+*:-webkit-autofill,
+*:-webkit-autofill:hover,
+*:-webkit-autofill:focus,
+*:-webkit-autofill:active {
+  $box-shadow: 0 0 0 64px rgb(var(--c-background)) inset !important;
+  box-shadow: $box-shadow;
+  -webkit-box-shadow: $box-shadow;
+}
+
 // a {
 //   appearance: none;
 //   outline: none;

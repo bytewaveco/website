@@ -5,11 +5,10 @@
       :label-for="name"
       :disabled="status.isDisabled"
     />
-    <input
+    <select
       v-model="internalValue"
       :tabindex="0"
       :name="name"
-      :type="type"
       :placeholder="placeholder"
       :aria-label="label"
       :class="{
@@ -18,8 +17,15 @@
         disabled: status.isDisabled,
       }"
       :disabled="status.isDisabled"
-      :autocomplete="autocomplete"
-    />
+    >
+      <option
+        value=""
+        disabled
+      >
+        {{ placeholder }}
+      </option>
+      <slot />
+    </select>
     <entry-hint
       :hint-text="status.hintText"
       :has-success="status.isSuccess"
@@ -32,17 +38,13 @@
 <script lang="ts">
 import { defineComponent, ref, watch } from '#imports'
 
-const instances = {}
+let instance = 0
 
 export default defineComponent({
   props: {
     modelValue: {
       type: String,
       default: '',
-    },
-    type: {
-      type: String,
-      default: 'text',
     },
     label: {
       type: String,
@@ -51,10 +53,6 @@ export default defineComponent({
     placeholder: {
       type: String,
       default: '',
-    },
-    autocomplete: {
-      type: String,
-      default: 'off',
     },
     statusMap: {
       type: Object,
@@ -68,53 +66,46 @@ export default defineComponent({
   },
   emits: ['update:modelValue'],
   setup(props, { emit }) {
-    if (instances[props.type]) {
-      instances[props.type]++
-    } else {
-      instances[props.type] = 0
-    }
-
-    const name = ref(`entry-${props.type}-${instances[props.type]}`)
+    const name = ref(`entry-select-${instance++}`)
     const internalValue = ref(props.modelValue)
     const status = ref(useEntryStatus(props.statusMap))
 
     /**
      * Update the model value.
      */
-    const updateValue = useDebounceFn(() => {
+    function updateValue() {
       emit('update:modelValue', internalValue.value)
       status.value = useEntryStatus(props.statusMap)
-    }, 300)
+    }
 
     watch(internalValue, updateValue)
 
-    return {
-      name,
-      internalValue,
-      status,
-    }
+    return { name, internalValue, status }
   },
 })
 </script>
 
 <style lang="scss" scoped>
-input {
+select {
   appearance: none;
   outline: none;
   padding: 0.5rem;
   font-size: 1rem;
   margin: 0;
   background-color: transparent;
-  color: rgb(var(--c-text));
+  color: rgba(var(--c-text), 0.9);
   border: 1px solid rgba(var(--c-text), 0.9);
   border-radius: 4px;
-
-  &::placeholder {
-    color: rgb(var(--c-text));
-    opacity: 0.8;
-  }
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' \
+  width='20' height='20' viewBox='0 0 256 256'%3E%3Cpath fill='currentColor' \
+  d='M128 184a8.5 8.5 0 0 1-5.7-2.3l-80-80a8.1 8.1 0 0 1 11.4-11.4l74.3 \
+  74.4l74.3-74.4a8.1 8.1 0 0 1 11.4 11.4l-80 80a8.5 8.5 0 0 1-5.7 2.3Z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: 99.5% 50%;
 
   &:focus {
+    color: rgb(var(--c-text));
     border-color: rgb(var(--c-text));
   }
 
@@ -127,23 +118,10 @@ input {
   &[disabled]::placeholder {
     color: rgba(var(--c-text), 0.4);
   }
+}
 
-  &.error {
-    border-color: rgb(var(--c-error));
-    color: rgb(var(--c-error));
-
-    &::placeholder {
-      color: rgb(var(--c-error));
-    }
-  }
-
-  &.success {
-    border-color: rgb(var(--c-success));
-    color: rgb(var(--c-success));
-
-    &::placeholder {
-      color: rgb(var(--c-success));
-    }
-  }
+option:disabled {
+  color: rgb(var(--c-text));
+  opacity: 0.8;
 }
 </style>

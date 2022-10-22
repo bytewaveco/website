@@ -33,6 +33,41 @@
         disabled: [[() => true, 'Text']],
       }"
     />
+    <entry-select
+      label="Select input"
+      placeholder="Select input"
+      :status-map="{
+        default: [[() => true, 'Text']],
+      }"
+    >
+      <option value="1">Option 1</option>
+      <option value="2">Option 2</option>
+      <option value="3">Option 3</option>
+    </entry-select>
+    <entry-select
+      label="Select input"
+      placeholder="Select input"
+      :status-map="{
+        disabled: [[() => true, 'Text']],
+      }"
+    >
+      <option value="1">Option 1</option>
+      <option value="2">Option 2</option>
+      <option value="3">Option 3</option>
+    </entry-select>
+    <entry-radio
+      label="Radio input"
+      placeholder="Radio input"
+      hint-text="Radio input"
+      :status-map="{
+        default: [[() => true, 'Text']],
+      }"
+      :options="[
+        { label: 'Option 1', value: '1' },
+        { label: 'Option 2', value: '2' },
+        { label: 'Option 3', value: '3' },
+      ]"
+    />
   </section>
 </template>
 

@@ -4,7 +4,7 @@
   </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .entry-wrapper {
   display: grid;
   grid-template-columns: 1fr;
