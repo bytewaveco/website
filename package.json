@@ -5,7 +5,7 @@
     "dev": "nuxt dev",
     "cy:run": "cypress run",
     "cy:open": "cypress open",
-    "format": "prettier --no-error-on-unmatched-pattern --write **/*.{js,ts,json,vue,md}",
+    "format": "prettier --write .",
     "lint": "eslint --no-error-on-unmatched-pattern {src,__test__}/**/*.{js,ts,vue}",
     "preview": "npm run build && nuxt preview",
     "test": "npm run build && vitest --coverage",

@@ -8,11 +8,11 @@
 
 <style lang="scss">
 :root {
-  --text: 18, 18, 18;
-  --background: 255, 255, 255;
-  --primary: 84, 51, 255;
-  --secondary: 32, 189, 255;
-  --tertiary: 165, 254, 203;
+  --c-text: 0, 0, 0;
+  --c-background: 255, 255, 255;
+  --c-primary: 84, 51, 255;
+  --c-success: 0, 255, 0;
+  --c-error: 255, 0, 0;
 }
 
 html,
@@ -24,7 +24,6 @@ body {
   background-color: rgb(var(--background));
   width: 100%;
   height: 100%;
-  overflow: hidden;
 
   #__nuxt {
     width: 100%;

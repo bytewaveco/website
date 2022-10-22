@@ -1,47 +1,47 @@
-import path from "path";
+import path from 'path'
 
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
-  srcDir: "src",
+  srcDir: 'src',
   typescript: {
     shim: false,
   },
   head: {
-    title: "DEMO - Bytewave",
+    title: 'DEMO - Bytewave',
     meta: [
       {
-        name: "description",
-        content: "",
+        name: 'description',
+        content: '',
       },
     ],
     link: [
       {
-        rel: "icon",
-        type: "image/x-icon",
-        sizes: "any",
-        href: "/favicon.ico",
+        rel: 'icon',
+        type: 'image/x-icon',
+        sizes: 'any',
+        href: '/favicon.ico',
       },
       {
-        rel: "icon",
-        type: "image/svg+xml",
-        href: "/favicon.svg",
+        rel: 'icon',
+        type: 'image/svg+xml',
+        href: '/favicon.svg',
       },
     ],
   },
   hooks: {
-    "imports:dirs": (dirs: string[]) => {
-      dirs.push(path.resolve(__dirname, "src/store"));
+    'imports:dirs': (dirs: string[]) => {
+      dirs.push(path.resolve(__dirname, 'src/store'))
     },
   },
   modules: [
     [
-      "@pinia/nuxt",
+      '@pinia/nuxt',
       {
-        autoImports: [["defineStore", "definePiniaStore"]],
+        autoImports: [['defineStore', 'definePiniaStore']],
       },
     ],
-    "@vueuse/nuxt",
-    "@nuxtjs/supabase",
-    "nuxt-icon",
+    '@vueuse/nuxt',
+    // "@nuxtjs/supabase",
+    'nuxt-icon',
   ],
-});
+})
