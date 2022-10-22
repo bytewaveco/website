@@ -1,0 +1,78 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["prettier", "@typescript-eslint", "eslint-plugin-tsdoc"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:prettier/recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "overrides": [
+    {
+      "files": ["*.{js,ts,vue}"],
+      "rules": {
+        "no-duplicate-imports": "error",
+        "no-self-compare": "error",
+        "camelcase": "error",
+        "capitalized-comments": [
+          "error",
+          "always",
+          { "ignoreConsecutiveComments": true }
+        ],
+        "dot-notation": "error",
+        "eqeqeq": "error",
+        "new-cap": "error",
+        "no-var": "error",
+        "spaced-comment": "error",
+        "yoda": "error",
+        "arrow-parens": "error",
+        "max-len": ["error", { "code": 90 }],
+        "no-extra-parens": "error",
+        "no-tabs": "error",
+        "prefer-spread": "error",
+        "prefer-object-spread": "error",
+        "prefer-object-has-own": "error",
+        "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+        "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+        "prettier/prettier": "error",
+        "tsdoc/syntax": "warn"
+      }
+    },
+    {
+      "files": ["*.vue"],
+      "extends": [
+        "plugin:vue/vue3-essential",
+        "plugin:vue/vue3-strongly-recommended",
+        "plugin:vue/vue3-recommended"
+      ],
+      "parser": "vue-eslint-parser",
+      "parserOptions": {
+        "parser": "@typescript-eslint/parser",
+        "sourceType": "module"
+      },
+      "rules": {
+        "vue/singleline-html-element-content-newline": "off",
+        "vue/html-indent": "off",
+        "vue/html-self-closing": "off",
+        "vue/multi-word-component-names": "off",
+        "prettier/prettier": "off",
+        "no-undef": "off"
+      }
+    },
+    {
+      "files": ["**/*.spec.{j,t}s?(x)"],
+      "extends": ["plugin:vitest-globals/recommended"],
+      "env": {
+        "vitest-globals/env": true
+      }
+    },
+    {
+      "files": ["**/*.cy.{j,t}s?(x)"],
+      "plugins": ["cypress", "chai-friendly"],
+      "extends": ["plugin:cypress/recommended", "plugin:chai-friendly/recommended"],
+      "env": {
+        "cypress/globals": true
+      }
+    }
+  ]
+}
