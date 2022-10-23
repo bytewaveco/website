@@ -30,7 +30,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, watch } from '#imports'
+import { defineComponent, ref, watch } from 'vue'
 
 const instances = {}
 

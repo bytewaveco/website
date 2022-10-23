@@ -55,5 +55,9 @@ button {
       box-shadow: var(--shadow-1);
     }
   }
+
+  svg {
+    fill: currentColor;
+  }
 }
 </style>
