@@ -10,9 +10,11 @@
 :root {
   --c-text: 0, 0, 0;
   --c-background: 255, 255, 255;
-  --c-primary: 84, 51, 255;
-  --c-success: 0, 255, 0;
-  --c-error: 255, 0, 0;
+  --c-primary: 99, 78, 66;
+  --c-success: 35, 142, 78;
+  --c-error: 197, 1, 2;
+  --shadow-0: rgba(0, 0, 0, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  --shadow-1: rgba(0, 0, 0, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 
 html,

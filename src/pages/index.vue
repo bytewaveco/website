@@ -68,6 +68,49 @@
         { label: 'Option 3', value: '3' },
       ]"
     />
+    <entry-button @click.stop.prevent="log">Text</entry-button>
+    <entry-button
+      type="secondary"
+      @click.stop.prevent="log"
+    >
+      Text
+    </entry-button>
+    <entry-button
+      type="danger"
+      @click.stop.prevent="log"
+    >
+      Text
+    </entry-button>
+    <entry-button
+      disabled
+      @click.stop.prevent="log"
+    >
+      Text
+    </entry-button>
+    <br />
+    <entry-button-ghost @click.stop.prevent="log">Text</entry-button-ghost>
+    <entry-button-ghost
+      type="danger"
+      @click.stop.prevent="log"
+    >
+      Text
+    </entry-button-ghost>
+    <entry-button-ghost
+      disabled
+      @click.stop.prevent="log"
+    >
+      Text
+    </entry-button-ghost>
+    <br />
+    <entry-button-icon
+      icon="airplane"
+      @click.stop.prevent="log"
+    />
+    <entry-button-icon
+      icon="airplane"
+      disabled
+      @click.stop.prevent="log"
+    />
   </section>
 </template>
 
@@ -77,4 +120,8 @@ const test = ref('test')
 watch(test, () => {
   console.log('TEST', test.value)
 })
+
+function log(event) {
+  console.log('LOG', event)
+}
 </script>
