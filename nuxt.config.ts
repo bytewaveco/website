@@ -41,7 +41,7 @@ export default defineNuxtConfig({
       },
     ],
     '@vueuse/nuxt',
-    // "@nuxtjs/supabase",
+    '@nuxtjs/supabase',
     'nuxt-icon',
   ],
 })
