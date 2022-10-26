@@ -43,6 +43,7 @@ button {
   text-align: center;
   vertical-align: middle;
   white-space: nowrap;
+  transition: all 130ms ease-in-out;
 
   &::before {
     content: ' ';

@@ -37,6 +37,7 @@ button {
   vertical-align: middle;
   white-space: nowrap;
   box-shadow: var(--shadow-1);
+  transition: all 130ms ease-in-out;
 
   &:focus,
   &:hover {
