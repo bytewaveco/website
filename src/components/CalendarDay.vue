@@ -10,9 +10,6 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
-import { useTime } from '~/composables/useTime'
-
 export default defineComponent({
   props: {
     offset: {

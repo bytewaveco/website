@@ -6,27 +6,29 @@ export default defineNuxtConfig({
   typescript: {
     shim: false,
   },
-  head: {
-    title: 'DEMO - Bytewave',
-    meta: [
-      {
-        name: 'description',
-        content: '',
-      },
-    ],
-    link: [
-      {
-        rel: 'icon',
-        type: 'image/x-icon',
-        sizes: 'any',
-        href: '/favicon.ico',
-      },
-      {
-        rel: 'icon',
-        type: 'image/svg+xml',
-        href: '/favicon.svg',
-      },
-    ],
+  app: {
+    head: {
+      title: 'DEMO - Bytewave',
+      meta: [
+        {
+          name: 'description',
+          content: '',
+        },
+      ],
+      link: [
+        {
+          rel: 'icon',
+          type: 'image/x-icon',
+          sizes: 'any',
+          href: '/favicon.ico',
+        },
+        {
+          rel: 'icon',
+          type: 'image/svg+xml',
+          href: '/favicon.svg',
+        },
+      ],
+    },
   },
   hooks: {
     'imports:dirs': (dirs: string[]) => {
