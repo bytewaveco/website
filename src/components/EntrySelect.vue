@@ -36,7 +36,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, watch } from '#imports'
+// These are needed for storybook until we get some better working auto import plugins
+import useEntryStatus from '@/composables/useEntryStatus'
 
 let instance = 0
 
@@ -57,7 +58,7 @@ export default defineComponent({
     statusMap: {
       type: Object,
       default: () => ({
-        default: [() => [true, '']],
+        default: [[() => true, '']],
         success: [],
         error: [],
         disabled: [],
@@ -68,14 +69,14 @@ export default defineComponent({
   setup(props, { emit }) {
     const name = ref(`entry-select-${instance++}`)
     const internalValue = ref(props.modelValue)
-    const status = ref(useEntryStatus(props.statusMap))
+    let status = reactive(useEntryStatus(props.statusMap))
 
     /**
      * Update the model value.
      */
     function updateValue() {
       emit('update:modelValue', internalValue.value)
-      status.value = useEntryStatus(props.statusMap)
+      status = reactive(useEntryStatus(props.statusMap))
     }
 
     watch(internalValue, updateValue)

@@ -1,0 +1,33 @@
+import { Meta, Story } from '@storybook/addon-docs'
+import Component from '~/components/TileBase.vue'
+
+<Meta
+  title='Components/Tile/Base'
+  component={Component}
+/>
+
+# Tile Base
+
+This component renders an app tile.
+
+## Usage
+
+```html
+<tile-base>Text</tile-base>
+```
+
+export const Template = (args) => ({
+  components: { Component },
+  setup() {
+    return { args }
+  },
+  template: `<div style="width: 300px;height: 300px">
+  <Component v-bind="args">Text</Component>
+</div>`,
+})
+
+## Variants
+
+### Default
+
+<Story name='Default'>{Template.bind({})}</Story>

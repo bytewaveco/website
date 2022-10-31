@@ -1,5 +1,5 @@
 import { type StorybookConfig } from '@storybook/core-common'
-import { mergeConfig } from 'vite'
+import { mergeConfig, UserConfig } from 'vite'
 import vitestConfig from '../vitest.config'
 
 export default {
@@ -16,8 +16,8 @@ export default {
   },
   async viteFinal(config) {
     return mergeConfig(config, {
-      plugins: (vitestConfig as any).plugins,
-      resolve: (vitestConfig as any).resolve,
+      plugins: (vitestConfig as UserConfig).plugins,
+      resolve: (vitestConfig as UserConfig).resolve,
     })
   },
 } as StorybookConfig

@@ -1,11 +1,15 @@
 import path from 'path'
 import autoImport from 'unplugin-auto-import/vite'
+import autoComponent from 'unplugin-vue-components/vite'
 import { defineConfig } from 'vitest/config'
 
 const r = (p: string) => path.resolve(__dirname, p)
 
 export default defineConfig({
   plugins: [
+    autoComponent({
+      dts: 'src/types/auto-components-vitest.d.ts',
+    }),
     autoImport({
       imports: [
         'vue',

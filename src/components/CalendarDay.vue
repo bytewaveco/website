@@ -36,13 +36,12 @@ export default defineComponent({
 .calendar-day {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: auto 1fr 8px;
+  grid-template-rows: auto 1fr 40px;
   align-items: center;
   justify-content: center;
   justify-items: center;
   height: 100%;
-  width: fit-content;
-  padding: 2rem;
+  width: 80px;
   border-radius: 4px;
   user-select: none;
 
@@ -64,16 +63,18 @@ export default defineComponent({
     display: block;
     width: fit-content;
     font-size: 0.75rem;
+    margin: 16px 0 8px;
   }
 
   h2 {
     align-self: flex-start;
-    margin: 1rem 0 0.5rem;
+    margin: 16px 0 8px;
   }
 
   .calendar-day-event-indicator {
     width: 8px;
     height: 8px;
+    margin: 8px 0 24px;
     border-radius: 100%;
     background-color: rgb(var(--c-text));
   }

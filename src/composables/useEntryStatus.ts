@@ -6,13 +6,13 @@
  * @returns Entry status hint and type.
  */
 export default function useEntryStatus(statusMap: EntryStatusMap = {}) {
-  const status = {
+  const status = ref({
     isDisabled: false,
     isError: false,
     isSuccess: false,
     isDefault: false,
     hintText: '',
-  }
+  })
 
   for (const statusType of ['disabled', 'error', 'success', 'default']) {
     let statusFound = false
@@ -20,20 +20,20 @@ export default function useEntryStatus(statusMap: EntryStatusMap = {}) {
     if (Array.isArray(statusMap[statusType])) {
       for (const [condition, hint] of statusMap[statusType]) {
         if (typeof condition === 'function' && condition()) {
-          status.hintText = hint
+          status.value.hintText = hint
 
           switch (statusType) {
             case 'disabled':
-              status.isDisabled = true
+              status.value.isDisabled = true
               break
             case 'error':
-              status.isError = true
+              status.value.isError = true
               break
             case 'success':
-              status.isSuccess = true
+              status.value.isSuccess = true
               break
             case 'default':
-              status.isDefault = true
+              status.value.isDefault = true
               break
           }
 

@@ -30,7 +30,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, watch } from 'vue'
+// These are needed for storybook until we get some better working auto import plugins
+import useEntryStatus from '@/composables/useEntryStatus'
+import { useDebounceFn } from '@vueuse/core'
 
 const instances = {}
 
@@ -59,7 +61,7 @@ export default defineComponent({
     statusMap: {
       type: Object,
       default: () => ({
-        default: [() => [true, '']],
+        default: [[() => true, '']],
         success: [],
         error: [],
         disabled: [],
@@ -76,14 +78,14 @@ export default defineComponent({
 
     const name = ref(`entry-${props.type}-${instances[props.type]}`)
     const internalValue = ref(props.modelValue)
-    const status = ref(useEntryStatus(props.statusMap))
+    let status = reactive(useEntryStatus(props.statusMap))
 
     /**
      * Update the model value.
      */
     const updateValue = useDebounceFn(() => {
       emit('update:modelValue', internalValue.value)
-      status.value = useEntryStatus(props.statusMap)
+      status = reactive(useEntryStatus(props.statusMap))
     }, 300)
 
     watch(internalValue, updateValue)

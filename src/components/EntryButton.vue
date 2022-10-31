@@ -41,13 +41,13 @@ button {
   text-align: center;
   vertical-align: middle;
   white-space: nowrap;
-  box-shadow: var(--shadow-1);
+  box-shadow: var(--shadow-0);
   transition: all 130ms ease-in-out;
 
   &:focus,
   &:hover {
     filter: brightness(110%);
-    box-shadow: var(--shadow-0);
+    box-shadow: var(--shadow-1);
   }
 
   &.entry-button--secondary {
@@ -68,7 +68,7 @@ button {
     &:focus,
     &:hover {
       filter: none;
-      box-shadow: var(--shadow-1);
+      box-shadow: var(--shadow-0);
     }
   }
 }
