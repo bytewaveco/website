@@ -1,12 +1,14 @@
 {
   "root": true,
   "parser": "@typescript-eslint/parser",
-  "plugins": ["prettier", "@typescript-eslint", "eslint-plugin-tsdoc"],
+  "plugins": ["prettier", "nuxt", "@typescript-eslint", "eslint-plugin-tsdoc"],
   "extends": [
     "eslint:recommended",
-    "plugin:prettier/recommended",
-    "plugin:@typescript-eslint/recommended"
+    "prettier",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:nuxt/recommended"
   ],
+  "env": { "browser": true, "es2022": true, "node": true },
   "overrides": [
     {
       "files": ["*.{js,ts,vue}"],
@@ -32,24 +34,51 @@
         "prefer-spread": "error",
         "prefer-object-spread": "error",
         "prefer-object-has-own": "error",
+        "endOfLine": "off",
         "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
         "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
-        "prettier/prettier": "error",
-        "tsdoc/syntax": "warn"
+        "@typescript-eslint/no-extra-semi": "off",
+        "@typescript-eslint/naming-convention": [
+          "error",
+          {
+            "selector": "default",
+            "format": ["camelCase"]
+          },
+          {
+            "selector": "variableLike",
+            "format": ["camelCase"],
+            "leadingUnderscore": "allow"
+          },
+          {
+            "selector": "variable",
+            "modifiers": ["destructured"],
+            "format": null
+          },
+          {
+            "selector": ["class", "typeLike"],
+            "format": ["PascalCase"]
+          },
+          {
+            "selector": ["objectLiteralProperty", "objectLiteralMethod", "typeProperty"],
+            "format": null
+          }
+        ],
+        "tsdoc/syntax": "warn",
+        "prettier/prettier": "warn"
       }
     },
     {
       "files": ["*.vue"],
-      "extends": [
-        "plugin:vue/vue3-essential",
-        "plugin:vue/vue3-strongly-recommended",
-        "plugin:vue/vue3-recommended"
-      ],
       "parser": "vue-eslint-parser",
       "parserOptions": {
         "parser": "@typescript-eslint/parser",
         "sourceType": "module"
       },
+      "extends": [
+        "plugin:vue/vue3-essential",
+        "plugin:vue/vue3-recommended",
+        "plugin:vue/vue3-strongly-recommended"
+      ],
       "rules": {
         "vue/singleline-html-element-content-newline": "off",
         "vue/html-indent": "off",
@@ -63,7 +92,17 @@
       "files": ["**/*.spec.{j,t}s?(x)"],
       "extends": ["plugin:vitest-globals/recommended"],
       "env": {
+        "browser": true,
+        "es2022": true,
+        "node": true,
+        "jest": true,
         "vitest-globals/env": true
+      }
+    },
+    {
+      "files": ["**/__mocks__/**/*.ts"],
+      "rules": {
+        "@typescript-eslint/naming-convention": "off"
       }
     },
     {
@@ -71,7 +110,19 @@
       "plugins": ["cypress", "chai-friendly"],
       "extends": ["plugin:cypress/recommended", "plugin:chai-friendly/recommended"],
       "env": {
+        "browser": true,
+        "es2022": true,
+        "node": true,
+        "jest": true,
         "cypress/globals": true
+      }
+    },
+    {
+      "files": ["*auto*.d.ts"],
+      "rules": {
+        "capitalized-comments": "off",
+        "max-len": "off",
+        "@typescript-eslint/naming-convention": "off"
       }
     }
   ]

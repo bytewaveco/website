@@ -8,8 +8,6 @@
 definePageMeta({
   layout: 'dashboard',
 })
-
-const user = useUser()
 </script>
 
 <style lang="scss" scoped></style>

@@ -47,10 +47,15 @@ export default defineConfig({
     },
   },
   test: {
+    api: 2999,
     environment: 'happy-dom',
     globals: true,
+    deps: {
+      inline: [/@nuxt\/test-utils-edge/],
+    },
     coverage: {
-      reporter: ['text', 'html'],
+      provider: 'istanbul',
+      exclude: ['**/__mocks__/**'],
     },
   },
 })
