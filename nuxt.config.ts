@@ -9,7 +9,7 @@ export default defineNuxtConfig({
   },
   app: {
     head: {
-      title: 'DEMO - Bytewave',
+      title: 'The Show Portal',
       meta: [
         {
           name: 'description',
@@ -33,7 +33,7 @@ export default defineNuxtConfig({
   },
   hooks: {
     'imports:dirs': (dirs: string[]) => {
-      dirs.push(path.resolve(__dirname, 'src/store'))
+      dirs.push(path.resolve(__dirname, 'src/stores'))
     },
   },
   modules: [
@@ -44,7 +44,7 @@ export default defineNuxtConfig({
       },
     ],
     '@vueuse/nuxt',
-    // '@nuxtjs/supabase',
+    '@nuxtjs/supabase',
     'nuxt-icon',
   ],
 })

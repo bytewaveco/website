@@ -19,6 +19,12 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 button {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  justify-items: flex-start;
+  justify-content: flex-start;
+  column-gap: 0.5rem;
   appearance: none;
   outline: none;
   background-color: transparent;
@@ -26,25 +32,24 @@ button {
   border-radius: 4px;
   color: rgb(var(--c-text));
   cursor: pointer;
-  display: inline-block;
   width: 100%;
   font-size: 1rem;
   line-height: 1.5;
   margin-bottom: 0;
-  padding: 0.5rem 1.5rem;
+  padding: 1rem 1rem 1rem 0.5rem;
   text-align: center;
   vertical-align: middle;
   white-space: nowrap;
   transition: all 130ms ease-in-out;
 
   &.active {
-    background-color: rgb(var(--c-primary)) !important;
+    background-color: rgb(var(--c-primary-800)) !important;
     color: rgb(var(--c-background)) !important;
   }
 
   &:focus,
   &:hover {
-    background-color: rgba(var(--c-primary), 0.1);
+    background-color: rgb(var(--c-primary-50));
   }
 }
 </style>

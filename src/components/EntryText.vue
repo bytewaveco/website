@@ -78,14 +78,14 @@ export default defineComponent({
 
     const name = ref(`entry-${props.type}-${instances[props.type]}`)
     const internalValue = ref(props.modelValue)
-    let status = reactive(useEntryStatus(props.statusMap))
+    let status = ref(useEntryStatus(props.statusMap))
 
     /**
      * Update the model value.
      */
     const updateValue = useDebounceFn(() => {
       emit('update:modelValue', internalValue.value)
-      status = reactive(useEntryStatus(props.statusMap))
+      status.value = useEntryStatus(props.statusMap)
     }, 300)
 
     watch(internalValue, updateValue)

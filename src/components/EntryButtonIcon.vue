@@ -1,6 +1,7 @@
 <template>
   <button class="entry-button-icon">
     <icon :name="`ph:${icon}`" />
+    <slot />
   </button>
 </template>
 
@@ -19,16 +20,16 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 button {
+  display: grid;
+  grid-template-columns: 2.25rem auto;
   appearance: none;
   outline: none;
   width: 2.5rem;
   height: 2.5rem;
-  background-color: rgb(var(--c-background));
+  background-color: rgb(var(--c-primary-800));
   border: none;
   border-radius: 999px;
-  color: rgb(var(--c-text));
   cursor: pointer;
-  display: inline-block;
   font-size: 1rem;
   line-height: 1rem;
   margin-bottom: 0;
@@ -58,7 +59,9 @@ button {
   }
 
   svg {
-    fill: currentColor;
+    fill: rgb(var(--c-background));
+    stroke: rgb(var(--c-background));
+    color: rgb(var(--c-background));
   }
 }
 </style>

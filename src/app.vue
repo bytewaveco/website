@@ -6,13 +6,41 @@
   </main>
 </template>
 
+<script lang="ts" setup>
+import '@fontsource/montserrat/700.css'
+import '@fontsource/inter'
+
+const router = useRouter()
+const supabase = useSupabaseClient()
+
+supabase.auth.onAuthStateChange((event, session) => {
+  console.log(event, session)
+  if (event === 'SIGNED_IN') {
+    useUser().sync()
+    router.push('/dashboard')
+  }
+})
+</script>
+
 <style lang="scss">
 :root {
-  --c-text: 0, 0, 0;
+  --c-text: 35, 31, 18;
   --c-background: 255, 255, 255;
-  --c-primary: 99, 78, 66;
+  --c-info: 48, 50, 89;
   --c-success: 35, 142, 78;
   --c-error: 197, 1, 2;
+
+  --c-primary-50: 245, 243, 235;
+  --c-primary-100: 234, 230, 215;
+  --c-primary-200: 224, 218, 195;
+  --c-primary-300: 206, 197, 160;
+  --c-primary-400: 188, 175, 126;
+  --c-primary-500: 170, 154, 91;
+  --c-primary-600: 138, 124, 71;
+  --c-primary-700: 104, 93, 54;
+  --c-primary-800: 69, 62, 36;
+  --c-primary-900: 35, 31, 18;
+
   --shadow-0: rgba(0, 0, 0, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   --shadow-1: rgba(0, 0, 0, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
@@ -21,7 +49,7 @@ html,
 body {
   margin: 0;
   font-size: 16px;
-  font-family: sans-serif;
+  font-family: 'Inter', sans-serif;
   color: rgb(var(--text));
   background-color: rgb(var(--background));
   width: 100%;
@@ -36,6 +64,37 @@ body {
       height: 100%;
     }
   }
+}
+
+h1 {
+  font-size: 4rem;
+  margin: 0;
+
+  &.hero {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 4rem;
+    font-weight: 700;
+  }
+}
+
+h2 {
+  font-size: 3.5rem;
+  margin: 0;
+}
+
+h3 {
+  font-size: 3rem;
+  margin: 0;
+}
+
+h4 {
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+h5 {
+  font-size: 1.5rem;
+  margin: 0;
 }
 
 * {

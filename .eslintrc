@@ -13,7 +13,7 @@
       "rules": {
         "no-duplicate-imports": "error",
         "no-self-compare": "error",
-        "camelcase": "error",
+        "camelcase": "off",
         "capitalized-comments": [
           "error",
           "always",

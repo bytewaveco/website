@@ -2,8 +2,8 @@
   <button
     :class="{
       'entry-button': true,
-      'entry-button--secondary': type === 'secondary',
-      'entry-button--danger': type === 'danger',
+      'entry-button--secondary': variant === 'secondary',
+      'entry-button--danger': variant === 'danger',
     }"
   >
     <slot />
@@ -13,7 +13,7 @@
 <script lang="ts">
 export default defineComponent({
   props: {
-    type: {
+    variant: {
       type: String,
       default: 'default',
       validator: (value: string) => {
@@ -28,7 +28,7 @@ export default defineComponent({
 button {
   appearance: none;
   outline: none;
-  background-color: rgb(var(--c-primary));
+  background-color: rgb(var(--c-primary-800));
   border: none;
   border-radius: 4px;
   color: rgb(var(--c-background));
