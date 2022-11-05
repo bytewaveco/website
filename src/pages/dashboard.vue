@@ -9,10 +9,6 @@
 definePageMeta({
   layout: 'dashboard',
 })
-
-onMounted(() => {
-  useToast().warning('TEst')
-})
 </script>
 
 <style lang="scss" scoped>

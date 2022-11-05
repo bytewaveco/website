@@ -4,16 +4,13 @@
       <nuxt-page />
     </nuxt-layout>
     <div
+      v-if="toast.toasts.length"
       id="toasts"
-      ref="toasts"
     >
       <notify-toast
-        v-for="(t, index) in toast.toasts"
-        :key="index"
-        :ref-id="t.ref"
-        :message="t.message"
-        :offset="index"
-        :variant="t.variant"
+        v-for="t in toast.toasts"
+        :key="t.ref"
+        :toast="t"
       >
         {{ t }}
       </notify-toast>
@@ -28,8 +25,9 @@ import '@fontsource/inter'
 const router = useRouter()
 const supabase = useSupabaseClient()
 const user = useUser()
-const toasts = ref(null)
 const toast = useToast()
+
+console.log(toast.toasts)
 
 supabase.auth.onAuthStateChange(async (event, session) => {
   console.log(event, session)
@@ -64,6 +62,7 @@ await user.sync()
 
   --shadow-0: rgba(0, 0, 0, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   --shadow-1: rgba(0, 0, 0, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  --shadow-2: rgba(0, 0, 0, 0.2) 0px 7px 16px -3px, rgba(0, 0, 0, 0.25) 0px 4px 8px -4px;
 }
 
 html,
@@ -81,15 +80,28 @@ body {
     height: 100%;
 
     main {
+      position: relative;
       width: 100%;
       height: 100%;
+
+      #toasts {
+        position: absolute;
+        top: 16px;
+        left: 40vw;
+        display: flex;
+        flex-direction: column;
+        row-gap: 0.5rem;
+        width: 20vw;
+        height: fit-content;
+        z-index: 999;
+      }
     }
   }
 }
 
 h1 {
-  font-size: 4rem;
-  margin: 0;
+  font-size: 3.5rem;
+  margin: 0.5rem 0;
 
   &.hero {
     font-family: 'Montserrat', sans-serif;
@@ -99,23 +111,23 @@ h1 {
 }
 
 h2 {
-  font-size: 3.5rem;
-  margin: 0;
+  font-size: 3rem;
+  margin: 0.5rem 0;
 }
 
 h3 {
-  font-size: 3rem;
-  margin: 0;
+  font-size: 2.5rem;
+  margin: 0.5rem 0;
 }
 
 h4 {
-  font-size: 2.5rem;
-  margin: 0;
+  font-size: 2rem;
+  margin: 0.5rem 0;
 }
 
 h5 {
   font-size: 1.5rem;
-  margin: 0;
+  margin: 0.5rem 0;
 }
 
 * {

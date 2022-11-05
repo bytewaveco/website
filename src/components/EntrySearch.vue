@@ -35,6 +35,7 @@ const placeholder = ref(
     border: none;
     padding: 0;
     margin: 0;
+    width: 100%;
     background: none;
     font-size: 0.75rem;
     line-height: 1rem;

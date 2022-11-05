@@ -83,8 +83,10 @@ async function update() {
 
     if (error) {
       console.error(error)
+      useToast().error('Something went wrong.')
     } else {
       user.sync()
+      useToast().success('Profile updated.')
     }
   }
 }

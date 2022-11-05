@@ -1,98 +1,125 @@
 <template>
   <div
-    ref="toastElement"
     :class="{
       toast: true,
-      'toast--success': variant === 'success',
-      'toast--warning': variant === 'warning',
-      'toast--error': variant === 'error',
-      'toast--info': variant === 'info',
+      'toast--success': toast.variant === 'success',
+      'toast--warning': toast.variant === 'warning',
+      'toast--error': toast.variant === 'error',
+      'toast--info': toast.variant === 'info',
+      'toast--removing': isRemoving,
     }"
-    :style="{
-      '--toast-duration': `${toast.durationMs}ms`,
-      '--toast-offset': `${offset * 100}%`,
-    }"
-    @click.stop.prevent="toast.removeNow(refId)"
+    :style="{ '--toast-delay': `${toastService.delayMs}ms` }"
+    @mouseenter.stop.prevent="handleMouseenter"
+    @mouseleave.stop.prevent="handleMouseleave"
+    @click.stop.prevent="toastService.removeNow(toast.ref)"
   >
     <icon
-      v-if="variant === 'success'"
+      v-if="toast.variant === 'success'"
       name="ph:check-circle"
     />
     <icon
-      v-if="variant === 'error'"
+      v-if="toast.variant === 'error'"
       name="ph:x-circle"
     />
     <icon
-      v-if="variant === 'warning'"
+      v-if="toast.variant === 'warning'"
       name="ph:warning"
     />
     <icon
-      v-if="variant === 'info'"
+      v-if="toast.variant === 'info'"
       name="ph:info"
     />
-    {{ message }}
+    <span>{{ toast.message }}</span>
   </div>
 </template>
 
 <script lang="ts">
 export default defineComponent({
   props: {
-    refId: {
-      type: String,
+    toast: {
+      type: Object,
       required: true,
-    },
-    message: {
-      type: String,
-      required: true,
-    },
-    offset: {
-      type: Number,
-      required: true,
-    },
-    variant: {
-      type: String,
-      required: true,
-      validator: (value: string) =>
-        ['success', 'error', 'warning', 'info'].includes(value),
     },
   },
-  setup() {
-    const toastElement = ref(null)
-    const toast = useToast()
+  setup(props) {
+    const toastService = useToast()
+    const isHovered = ref(false)
+    const isRemoving = ref(false)
+
+    function onBeforeRemove(event: CustomEvent) {
+      if (event.detail.ref === props.toast.ref) {
+        isRemoving.value = true
+      }
+    }
+
+    function handleMouseenter() {
+      isHovered.value = true
+      toastService.holdToast(props.toast.ref)
+    }
+
+    function handleMouseleave() {
+      isHovered.value = false
+      toastService.unholdToast(props.toast.ref)
+    }
 
     return {
-      toastElement,
-      toast,
+      toastService,
+      isHovered,
+      isRemoving,
+      onBeforeRemove,
+      handleMouseenter,
+      handleMouseleave,
     }
+  },
+  mounted() {
+    window.addEventListener(
+      'toast-before-remove',
+      this.onBeforeRemove.bind(this) as EventListener,
+      false
+    )
+  },
+  unmounted() {
+    window.removeEventListener(
+      'toast-before-remove',
+      this.onBeforeRemove.bind(this) as EventListener,
+      false
+    )
   },
 })
 </script>
 
 <style lang="scss" scoped>
 .toast {
-  position: fixed;
-  top: 1rem;
-  left: 50%;
   display: flex;
   align-items: center;
   column-gap: 0.5rem;
-  min-width: calc(20vw - 4rem);
-  max-width: calc(100vw - 4rem);
+  width: calc(100% - 3.5rem);
   color: rgb(var(--c-text));
   background-color: rgb(var(--c-background));
   padding: 1rem 2rem 1rem 1.5rem;
   border-radius: 4px;
-  box-shadow: var(--shadow-1);
+  box-shadow: var(--shadow-2);
   cursor: pointer;
-  transition: all 130ms ease-in-out;
-  animation: appear-and-fade var(--toast-duration) ease-in-out;
-  transform: translateX(-50%) translateY(-100%);
+  transition: all var(--toast-delay) ease-in-out;
+  animation: appear var(--toast-delay) ease-in-out forwards;
   filter: blur(10px);
   opacity: 0;
-  z-index: 999;
+  overflow: hidden;
 
   &:hover {
-    filter: brightness(110%);
+    box-shadow: var(--shadow-0);
+
+    &::before {
+      opacity: 0;
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.05);
+      animation: brighten 130ms ease-in-out forwards;
+    }
   }
 
   &.toast--success {
@@ -109,28 +136,40 @@ export default defineComponent({
     color: rgb(var(--c-background));
     background-color: rgb(var(--c-error));
   }
+
+  &.toast--removing {
+    animation: disappear var(--toast-delay) ease-in-out forwards;
+  }
 }
 
-@keyframes appear-and-fade {
+@keyframes appear {
   0% {
     opacity: 0;
-    transform: translateX(-50%) translateY(-100%);
     filter: blur(10px);
   }
-  10% {
+  100% {
     opacity: 1;
-    transform: translateX(-50%) translateY(var(--toast-offset));
-    filter: blur(0px);
+    filter: blur(0);
   }
-  95% {
+}
+
+@keyframes disappear {
+  0% {
     opacity: 1;
-    transform: translateX(-50%) translateY(var(--toast-offset));
-    filter: blur(0px);
+    filter: blur(0);
   }
   100% {
     opacity: 0;
-    transform: translateX(-50%) translateY(var(--toast-offset));
     filter: blur(10px);
+  }
+}
+
+@keyframes brighten {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
 </style>

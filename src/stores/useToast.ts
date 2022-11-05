@@ -1,33 +1,46 @@
+import { type Stoppable } from '@vueuse/core'
 import { v4 } from 'uuid'
 
 let toastNumber = 0
 
 export const useToast = definePiniaStore('toast', {
   state: () => ({
+    delayMs: 200,
     durationMs: 5000,
-    toastMap: {} as Record<string, Toast & { timeout?: number }>,
+    toastMap: {} as Record<string, Toast & { timeout?: Stoppable }>,
+    toasts: [] as Toast[],
   }),
-  getters: {
-    toasts(): Toast[] {
-      return Object.values(this.toastMap).sort((a, b) => a.order - b.order)
-    },
-  },
   actions: {
+    setToasts() {
+      this.toasts = Object.values(this.toastMap).sort((a, b) => a.order - b.order)
+    },
+    holdToast(ref: string) {
+      this.toastMap[ref]?.timeout?.stop()
+    },
+    unholdToast(ref: string) {
+      this.toastMap[ref]?.timeout?.start()
+    },
     removeNow(ref: string) {
-      if (this.toastMap[ref]) {
-        if (typeof this.toastMap[ref].timeout === 'number') {
-          clearTimeout(this.toastMap[ref].timeout)
-        }
+      const onBeforeRemoveEvent = new CustomEvent('toast-before-remove', {
+        detail: {
+          ref,
+        },
+      })
 
+      window.dispatchEvent(onBeforeRemoveEvent)
+
+      setTimeout(() => {
+        this.toastMap[ref]?.timeout?.stop()
         delete this.toastMap[ref]
-      }
+
+        this.setToasts()
+      }, this.delayMs)
     },
     removeInFuture(ref: string) {
-      this.toastMap[ref].timeout = window.setTimeout(() => {
-        if (this.toastMap[ref]) {
-          delete this.toastMap[ref]
-        }
-      }, this.durationMs)
+      this.toastMap[ref].timeout = useTimeoutFn(() => {
+        this.removeNow(ref)
+        // Total duration minus the symmetric entry and exit animation durations
+      }, this.durationMs - 2 * this.delayMs)
     },
     doToast(message: string, variant: ToastType) {
       const ref = v4()
@@ -39,19 +52,23 @@ export const useToast = definePiniaStore('toast', {
         order: toastNumber++,
       }
 
+      this.setToasts()
+
       this.removeInFuture(ref)
+
+      return this.toastMap[ref]
     },
     info(message: string) {
-      this.doToast(message, 'info')
+      return this.doToast(message, 'info')
     },
     success(message: string) {
-      this.doToast(message, 'success')
+      return this.doToast(message, 'success')
     },
     warning(message: string) {
-      this.doToast(message, 'warning')
+      return this.doToast(message, 'warning')
     },
     error(message: string) {
-      this.doToast(message, 'error')
+      return this.doToast(message, 'error')
     },
   },
 })
