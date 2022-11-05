@@ -1,7 +1,11 @@
 <template>
-  <section data-testid="dashboard-main">
-    <h1 class="hero">Settings</h1>
-    <nuxt-link to="/settings/account">Account</nuxt-link>
+  <section
+    id="settings"
+    data-testid="main"
+  >
+    <entry-search />
+    <h3>Settings</h3>
+    <settings-account />
   </section>
 </template>
 
@@ -12,4 +16,8 @@ definePageMeta({
 })
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+#settings {
+  margin: 4rem 0 0;
+}
+</style>

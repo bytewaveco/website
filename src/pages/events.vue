@@ -1,6 +1,7 @@
 <template>
-  <section data-testid="dashboard-main">
-    <h1 class="hero">Events</h1>
+  <section data-testid="main">
+    <entry-search />
+    <h3>Events</h3>
   </section>
 </template>
 
@@ -10,4 +11,8 @@ definePageMeta({
 })
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+section {
+  margin: 4rem 0 0;
+}
+</style>

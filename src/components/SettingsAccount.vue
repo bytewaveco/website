@@ -1,7 +1,7 @@
 <template>
-  <section data-testid="dashboard-main">
-    <h1 class="hero">Account Settings</h1>
+  <section data-testid="sub">
     <p v-if="!user.user">Please take a moment to complete your profile.</p>
+    <h5>Account</h5>
     <form @submit.stop.prevent="update">
       <entry-text
         v-model="firstName"
@@ -42,11 +42,6 @@
 </template>
 
 <script lang="ts" setup>
-definePageMeta({
-  middleware: ['auth'],
-  layout: 'dashboard',
-})
-
 const supabase = useSupabaseClient()
 const supabaseUser = useSupabaseUser()
 const user = useUser()
@@ -57,7 +52,7 @@ const email = ref('')
 const phone = ref('')
 
 if (supabaseUser.value) {
-  email.value = supabaseUser.value.email
+  email.value = supabaseUser.value.email ?? ''
 }
 
 if (user.user) {
@@ -67,7 +62,7 @@ if (user.user) {
 }
 
 async function update() {
-  if (firstName.value && lastName.value) {
+  if (supabaseUser.value && firstName.value && lastName.value) {
     const { error } = user.user
       ? await supabase
           .from('users')
@@ -97,7 +92,8 @@ async function update() {
 
 <style lang="scss" scoped>
 section {
-  width: calc(100% - 2rem);
+  margin: 0;
+
   form {
     display: flex;
     flex-direction: column;

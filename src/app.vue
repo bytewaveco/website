@@ -3,6 +3,21 @@
     <nuxt-layout>
       <nuxt-page />
     </nuxt-layout>
+    <div
+      id="toasts"
+      ref="toasts"
+    >
+      <notify-toast
+        v-for="(t, index) in toast.toasts"
+        :key="index"
+        :ref-id="t.ref"
+        :message="t.message"
+        :offset="index"
+        :variant="t.variant"
+      >
+        {{ t }}
+      </notify-toast>
+    </div>
   </main>
 </template>
 
@@ -12,14 +27,20 @@ import '@fontsource/inter'
 
 const router = useRouter()
 const supabase = useSupabaseClient()
+const user = useUser()
+const toasts = ref(null)
+const toast = useToast()
 
-supabase.auth.onAuthStateChange((event, session) => {
+supabase.auth.onAuthStateChange(async (event, session) => {
   console.log(event, session)
-  if (event === 'SIGNED_IN') {
-    useUser().sync()
+  if (event === 'SIGNED_OUT') {
     router.push('/dashboard')
   }
+
+  await user.sync()
 })
+
+await user.sync()
 </script>
 
 <style lang="scss">
@@ -50,8 +71,8 @@ body {
   margin: 0;
   font-size: 16px;
   font-family: 'Inter', sans-serif;
-  color: rgb(var(--text));
-  background-color: rgb(var(--background));
+  color: rgb(var(--c-text));
+  background-color: rgb(var(--c-background));
   width: 100%;
   height: 100%;
 

@@ -1,4 +1,4 @@
-declare interface User {
+declare interface PortalUser {
   id: string
   name_first: string
   name_last: string

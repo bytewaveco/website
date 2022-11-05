@@ -2,13 +2,11 @@ import { PostgrestError } from '@supabase/supabase-js'
 
 export const useUser = definePiniaStore('user', {
   state: () => ({
-    user: null as User | null,
+    user: null as PortalUser | null,
     error: null as PostgrestError | null,
   }),
-  async hydrate() {
-    await this.sync()
-
-    if (this.error && this.error.code === 'PGRST116') {
+  hydrate(storeState) {
+    if (storeState.error && storeState.error.code === 'PGRST116') {
       navigateTo('/settings/account')
     }
   },
@@ -16,10 +14,10 @@ export const useUser = definePiniaStore('user', {
     async sync() {
       const supabase = useSupabaseClient()
       const supabaseUser = useSupabaseUser()
-      let user: User | null = null
+      let user: PortalUser | null = null
       let error: PostgrestError | null = null
 
-      if (supabaseUser) {
+      if (supabaseUser.value) {
         const { error: supabaseError, data } = await supabase
           .from('users')
           .select()
