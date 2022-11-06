@@ -1,20 +1,9 @@
 <template>
   <main data-testid="main">
+    <notify-toast-area />
     <nuxt-layout>
       <nuxt-page />
     </nuxt-layout>
-    <div
-      v-if="toast.toasts.length"
-      id="toasts"
-    >
-      <notify-toast
-        v-for="t in toast.toasts"
-        :key="t.ref"
-        :toast="t"
-      >
-        {{ t }}
-      </notify-toast>
-    </div>
   </main>
 </template>
 
@@ -22,23 +11,32 @@
 import '@fontsource/montserrat/700.css'
 import '@fontsource/inter'
 
-const router = useRouter()
 const supabase = useSupabaseClient()
 const user = useUser()
-const toast = useToast()
-
-console.log(toast.toasts)
 
 supabase.auth.onAuthStateChange(async (event, session) => {
   console.log(event, session)
-  if (event === 'SIGNED_OUT') {
-    router.push('/dashboard')
-  }
 
-  await user.sync()
+  if (event === 'PASSWORD_RECOVERY') {
+    navigateTo('/settings')
+  } else if (event === 'SIGNED_IN') {
+    navigateTo('/')
+  } else if (event === 'SIGNED_OUT') {
+    navigateTo('/sign-in')
+  }
 })
 
-await user.sync()
+user.hook()
+
+onUnmounted(() => {
+  user.unhook()
+})
+
+try {
+  await supabase.auth.refreshSession()
+} catch (error) {
+  console.error(error)
+}
 </script>
 
 <style lang="scss">
@@ -83,18 +81,6 @@ body {
       position: relative;
       width: 100%;
       height: 100%;
-
-      #toasts {
-        position: absolute;
-        top: 16px;
-        left: 40vw;
-        display: flex;
-        flex-direction: column;
-        row-gap: 0.5rem;
-        width: 20vw;
-        height: fit-content;
-        z-index: 999;
-      }
     }
   }
 }
@@ -105,7 +91,6 @@ h1 {
 
   &.hero {
     font-family: 'Montserrat', sans-serif;
-    font-size: 4rem;
     font-weight: 700;
   }
 }
@@ -130,21 +115,30 @@ h5 {
   margin: 0.5rem 0;
 }
 
+h6 {
+  font-size: 1.15rem;
+  margin: 0.5rem 0;
+}
+
+p {
+  margin-top: 0;
+}
+
 * {
   scrollbar-width: thin;
-  scrollbar-color: rgba(0, 0, 0, 0.15) rgba(0, 0, 0, 0.1);
+  scrollbar-color: rgba(var(--c-primary-800), 0.15) rgba(var(--c-primary-800), 0.15);
 }
 
 *::-webkit-scrollbar {
-  width: 10px;
+  width: 4px;
 }
 
 *::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(var(--c-primary-800), 0.15);
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: rgba(0, 0, 0, 0.15);
+  background-color: rgba(var(--c-primary-800), 0.15);
   border-radius: 0;
   border: none;
 }

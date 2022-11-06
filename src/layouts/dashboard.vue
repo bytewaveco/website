@@ -1,17 +1,20 @@
 <template>
   <section
     id="dashboard"
-    data-testid="main-section"
+    data-testid="main"
   >
-    <div id="dashboard-sidebar">
+    <div
+      id="dashboard-sidebar"
+      data-testid="sidebar"
+    >
       <img
         src="~/assets/img/logo.png"
         alt="The Show Portal"
       />
       <div id="dashboard-sidebar-body">
         <div id="dashboard-sidebar-body-nav-items">
-          <nuxt-link to="/dashboard">
-            <sidebar-button :active="/^\/dashboard/.test(route.path)">
+          <nuxt-link to="/">
+            <sidebar-button :active="/^\/$/.test(route.path)">
               <icon name="ph:gauge" />
               <span>Dashboard</span>
             </sidebar-button>
@@ -23,7 +26,7 @@
             </sidebar-button>
           </nuxt-link>
           <nuxt-link
-            v-if="user"
+            v-if="user.isLoggedIn"
             to="/settings"
           >
             <sidebar-button :active="/^\/settings/.test(route.path)">
@@ -31,24 +34,39 @@
               <span>Settings</span>
             </sidebar-button>
           </nuxt-link>
+          <nuxt-link
+            v-if="!user.isLoggedIn"
+            to="/sign-in"
+          >
+            <sidebar-button>
+              <icon name="ph:sign-in" />
+              <span>Sign in</span>
+            </sidebar-button>
+          </nuxt-link>
         </div>
         <entry-button-icon
-          v-if="user"
+          v-if="user.isLoggedIn"
           icon="sign-out"
-          @click.stop.prevent="supabase.auth.signOut()"
+          @click.stop.prevent="user.signOut"
         >
           Sign out
         </entry-button-icon>
       </div>
     </div>
-    <slot />
+
+    <div
+      id="dashboard-content"
+      data-testid="content"
+    >
+      <entry-search />
+      <slot />
+    </div>
   </section>
 </template>
 
 <script lang="ts" setup>
 const route = useRoute()
-const user = useSupabaseUser()
-const supabase = useSupabaseClient()
+const user = useUser()
 </script>
 
 <style lang="scss" scoped>
@@ -64,7 +82,7 @@ const supabase = useSupabaseClient()
     display: flex;
     flex-direction: column;
     height: 100%;
-    padding: 1.25rem 1rem 4rem 2rem;
+    padding: 1.25rem 0.5rem 4rem 2rem;
     user-select: none;
     overflow: hidden;
 
@@ -99,6 +117,17 @@ const supabase = useSupabaseClient()
     button {
       justify-self: flex-end;
     }
+  }
+
+  #dashboard-content {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    width: calc(100% - 1rem);
+    height: calc(100% - 6.5rem);
+    padding: 4rem 0.5rem 2.5rem;
+    overflow: hidden;
+    overflow-y: overlay;
   }
 }
 </style>

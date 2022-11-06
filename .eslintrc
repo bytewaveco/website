@@ -29,7 +29,7 @@
         "yoda": "error",
         "arrow-parens": "error",
         "max-len": ["error", { "code": 90 }],
-        "no-extra-parens": "error",
+        "no-extra-parens": "off",
         "no-tabs": "error",
         "prefer-spread": "error",
         "prefer-object-spread": "error",

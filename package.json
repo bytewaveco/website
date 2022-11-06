@@ -3,7 +3,7 @@
   "scripts": {
     "build": "npm run clean && nuxt build",
     "clean": "rimraf .nuxt .output",
-    "dev": "nuxt dev",
+    "dev": "npm run clean && nuxt dev",
     "cy:run": "cypress run",
     "cy:open": "cypress open",
     "format": "prettier --write .",

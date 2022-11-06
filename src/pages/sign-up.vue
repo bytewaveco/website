@@ -1,5 +1,5 @@
 <template>
-  <tile-base id="sign-in">
+  <tile-base>
     <form @submit.stop.prevent="signUp">
       <h1 class="hero">Sign up</h1>
       <entry-text
@@ -7,6 +7,9 @@
         label="Email"
         placeholder="Email"
         autocomplete="email"
+        :status-map="{
+          error: [[() => isEmailValid === false, 'Please enter a valid email.']],
+        }"
       />
       <entry-text
         v-model="password"
@@ -16,7 +19,7 @@
         autocomplete="new-password"
         :status-map="{
           default: [[() => true, 'Password must be at least 8 characters.']],
-          success: [[() => password.length > 8, 'Your password is strong.']],
+          success: [[() => isPasswordValid, 'Your password is strong.']],
         }"
       />
       <entry-text
@@ -28,19 +31,21 @@
         :status-map="{
           error: [
             [
-              () => passwordConfirm.length && passwordConfirm !== password,
+              () => isPasswordValid && passwordConfirm !== password,
               'Passwords must match.',
             ],
           ],
           success: [
-            [
-              () => passwordConfirm.length && passwordConfirm === password,
-              'Passwords match!',
-            ],
+            [() => isPasswordValid && passwordConfirm === password, 'Passwords match!'],
           ],
         }"
       />
-      <entry-button type="submit">Sign up</entry-button>
+      <entry-button
+        type="submit"
+        :disabled="!isEmailValid || !isPasswordValid || password !== passwordConfirm"
+      >
+        Sign up
+      </entry-button>
     </form>
     <p>Already have an account? <nuxt-link to="/sign-in">Sign in.</nuxt-link></p>
   </tile-base>
@@ -55,35 +60,27 @@ definePageMeta({
 const email = ref('')
 const password = ref('')
 const passwordConfirm = ref('')
-const supabase = useSupabaseClient()
+const isEmailValid = ref<boolean | null>(null)
+const isPasswordValid = ref<boolean | null>(null)
+const emailValidator = useEmailValidator()
+const passwordValidator = usePasswordValidator()
+const user = useUser()
+
+watch(email, (updatedEmailValue) => {
+  isEmailValid.value = emailValidator.validate(updatedEmailValue)
+})
+
+watch(password, (updatedPasswordValue) => {
+  isPasswordValid.value = passwordValidator.validate(updatedPasswordValue)
+})
 
 async function signUp() {
-  const { error } = await supabase.auth.signUp({
-    email: email.value,
-    password: password.value,
-  })
-
-  if (error) {
-    console.error(error)
+  if (
+    isEmailValid.value &&
+    isPasswordValid.value &&
+    password.value === passwordConfirm.value
+  ) {
+    user.signUp(email.value, password.value)
   }
 }
 </script>
-
-<style lang="scss" scoped>
-#sign-in {
-  width: calc(100% - 4rem);
-  height: calc(100% - 10rem);
-  padding: 3rem 0;
-
-  form {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    width: calc(100% - 4rem);
-
-    h1 {
-      width: 100%;
-    }
-  }
-}
-</style>

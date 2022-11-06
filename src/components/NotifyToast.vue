@@ -2,10 +2,7 @@
   <div
     :class="{
       toast: true,
-      'toast--success': toast.variant === 'success',
-      'toast--warning': toast.variant === 'warning',
-      'toast--error': toast.variant === 'error',
-      'toast--info': toast.variant === 'info',
+      [`toast--${toast.variant}`]: true,
       'toast--removing': isRemoving,
     }"
     :style="{ '--toast-delay': `${toastService.delayMs}ms` }"
@@ -90,7 +87,8 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .toast {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr;
   align-items: center;
   column-gap: 0.5rem;
   width: calc(100% - 3.5rem);
@@ -139,6 +137,11 @@ export default defineComponent({
 
   &.toast--removing {
     animation: disappear var(--toast-delay) ease-in-out forwards;
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
   }
 }
 

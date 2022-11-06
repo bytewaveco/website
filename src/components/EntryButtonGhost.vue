@@ -17,9 +17,7 @@ export default defineComponent({
     type: {
       type: String,
       default: 'default',
-      validator: (value: string) => {
-        return ['default', 'danger'].includes(value)
-      },
+      validator: (value: string) => ['default', 'danger'].includes(value),
     },
   },
 })
