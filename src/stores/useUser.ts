@@ -12,14 +12,31 @@ const initialState: UserStore = {
   error: null,
   isLoggedIn: false,
   hasCompletedSetup: false,
+  hasRequestedPasswordReset: false,
 }
 
 export const useUser = definePiniaStore('user', {
   state: () => initialState,
   actions: {
-    hook() {
+    async hook() {
       const supabase = useSupabaseClient()
       const supabaseUser = useSupabaseUser()
+
+      // Watch for session changes
+      supabase.auth.onAuthStateChange(async (event, session) => {
+        console.log(event, session)
+
+        if (event === 'PASSWORD_RECOVERY') {
+          this.hasRequestedPasswordReset = true
+          return navigateTo('/settings')
+        } else if (event === 'SIGNED_IN') {
+          return navigateTo('/')
+        } else if (event === 'SIGNED_OUT') {
+          return navigateTo('/sign-in')
+        }
+
+        return navigateTo(useRoute().path)
+      })
 
       watch(supabaseUser, async (updatedSupabaseUser) => {
         if (updatedSupabaseUser) {
@@ -76,6 +93,12 @@ export const useUser = definePiniaStore('user', {
           this.$patch(update)
         }
       })
+
+      try {
+        await supabase.auth.refreshSession()
+      } catch (error) {
+        console.error(error)
+      }
     },
     unhook() {
       if (changeSubscription) {
@@ -94,16 +117,19 @@ export const useUser = definePiniaStore('user', {
 
         if (error) {
           console.error(error)
-          toast.error('Could not create account.')
 
           if (error.message === 'User already registered') {
             navigateTo('/sign-in')
-            toast.info('It looks like you already have an account. Please try loggin in!')
+            toast.info(
+              'It looks like you already have an account. Please try logging in!'
+            )
+          } else {
+            toast.error('Could not create account.')
           }
         }
       } catch (error) {
         console.error(error)
-        toast.error('Something went wrong. Please try again.')
+        toast.error()
       }
     },
     async signIn(email: string, password: string) {
@@ -125,7 +151,54 @@ export const useUser = definePiniaStore('user', {
         // Update to state will occur when a Supabase user is detected by hook
       } catch (error) {
         console.error(error)
-        toast.error('Something went wrong.')
+        toast.error()
+      }
+    },
+    async updatePassword(newPassword: string) {
+      const toast = useToast()
+
+      try {
+        const { error } = await supabase.auth.updateUser({
+          password: newPassword,
+        })
+
+        if (error) {
+          console.error(error)
+          toast.error('Password update failed.')
+        }
+      } catch (error) {
+        console.error(error)
+        toast.error()
+      }
+    },
+    async updateAccount(update: Partial<PortalUser>) {
+      const toast = useToast()
+
+      try {
+        const supabase = useSupabaseClient()
+        const { error } = this.hasCompletedSetup
+          ? await supabase
+              .from('users')
+              .update({
+                ...update,
+                updated_at: useTime().utc().toISOString(),
+              })
+              .eq('id', this.id)
+          : await supabase.from('users').insert({
+              ...update,
+              id: this.id,
+              email: this.email,
+            })
+
+        if (error) {
+          console.error(error)
+          toast.error('Account could not be updated.')
+        } else {
+          toast.success('Account updated.')
+        }
+      } catch (error) {
+        console.error(error)
+        toast.error()
       }
     },
     async signOut() {
@@ -140,7 +213,7 @@ export const useUser = definePiniaStore('user', {
         toast.success('Signed out. See you next time!')
       } catch (error) {
         console.error(error)
-        toast.error('Something went wrong.')
+        toast.error()
       }
     },
   },

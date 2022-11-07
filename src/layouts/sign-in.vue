@@ -22,13 +22,18 @@ section {
   user-select: none;
 
   img {
-    max-width: 500px;
+    min-width: 100px;
+    width: calc(100% - 2rem);
+    max-width: 700px;
     pointer-events: none;
   }
 
   :deep(.tile) {
+    min-width: fit-content;
     width: calc(100% - 4rem) !important;
-    height: calc(100% - 10rem) !important ;
+    max-width: 800px;
+    height: calc(100% - 10rem) !important;
+    max-height: 960px;
     padding: 3rem 0;
 
     form {

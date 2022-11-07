@@ -67,7 +67,7 @@ export const useToast = definePiniaStore('toast', {
     warning(message: string) {
       return this.doToast(message, 'warning')
     },
-    error(message: string) {
+    error(message = 'Something went wrong.') {
       return this.doToast(message, 'error')
     },
   },

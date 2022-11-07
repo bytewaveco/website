@@ -1,11 +1,5 @@
 <template>
-  <p
-    :class="{
-      success: hasSuccess,
-      error: hasError,
-      disabled: disabled,
-    }"
-  >
+  <p :class="`entry-hint entry-hint--${type}`">
     {{ hintText }}
   </p>
 </template>
@@ -15,28 +9,22 @@ import { defineComponent } from 'vue'
 
 export default defineComponent({
   props: {
+    type: {
+      type: String,
+      required: true,
+      validator: (value: string) =>
+        ['default', 'disabled', 'success', 'error'].includes(value),
+    },
     hintText: {
       type: String,
       required: true,
-    },
-    hasSuccess: {
-      type: Boolean,
-      default: false,
-    },
-    hasError: {
-      type: Boolean,
-      default: false,
-    },
-    disabled: {
-      type: Boolean,
-      default: false,
     },
   },
 })
 </script>
 
 <style lang="scss" scoped>
-p {
+.entry-hint {
   width: 100%;
   height: 1rem;
   margin: 0;
@@ -44,15 +32,15 @@ p {
   color: rgba(var(--c-text), 0.8);
   cursor: default;
 
-  &.success {
+  &.entry-hint--success {
     color: rgb(var(--c-success));
   }
 
-  &.error {
+  &.entry-hint--error {
     color: rgb(var(--c-error));
   }
 
-  &.disabled {
+  &.entry-hint--disabled {
     color: rgba(var(--c-text), 0.4);
   }
 }

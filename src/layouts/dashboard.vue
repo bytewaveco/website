@@ -59,6 +59,14 @@
       data-testid="content"
     >
       <entry-search />
+      <notify-banner
+        v-if="
+          !/^\/settings/.test(route.path) && user.isLoggedIn && !user.hasCompletedSetup
+        "
+      >
+        <p>Please take a moment to complete your profile.</p>
+        <nuxt-link to="/settings">Take me there.</nuxt-link>
+      </notify-banner>
       <slot />
     </div>
   </section>

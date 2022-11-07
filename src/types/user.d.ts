@@ -14,6 +14,7 @@ declare global {
   interface UserStore extends PortalUser {
     error: PostgrestError | null
     hasCompletedSetup: boolean
+    hasRequestedPasswordReset: boolean
     isLoggedIn: boolean
   }
 }

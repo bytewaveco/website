@@ -1,6 +1,8 @@
+declare type EntryValidator = [(value) => boolean, string]
+
 declare interface EntryStatusMap {
-  disabled?: [() => boolean, string][]
-  error?: [() => boolean, string][]
-  success?: [() => boolean, string][]
-  default?: [() => boolean, string][]
+  disabled?: EntryValidator[]
+  error?: EntryValidator[]
+  success?: EntryValidator[]
+  default?: EntryValidator[]
 }

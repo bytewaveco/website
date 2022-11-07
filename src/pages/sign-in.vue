@@ -20,7 +20,7 @@
       />
       <entry-button
         type="submit"
-        :disabled="!email.length || !isEmailValid || !password.length"
+        :disabled="!isEmailValid || !isPasswordValid"
       >
         Sign in
       </entry-button>
@@ -36,18 +36,24 @@ definePageMeta({
   layout: 'sign-in',
 })
 
+const user = useUser()
 const email = ref('')
 const password = ref('')
-const isEmailValid = ref<boolean | null>(null)
 const emailValidator = useEmailValidator()
-const user = useUser()
+const passwordValidator = usePasswordValidator()
+const isEmailValid = ref<boolean | null>(null)
+const isPasswordValid = ref<boolean | null>(null)
 
 watch(email, (newEmail) => {
   isEmailValid.value = emailValidator.validate(newEmail)
 })
 
+watch(password, (newPassword) => {
+  isPasswordValid.value = passwordValidator.validate(newPassword)
+})
+
 async function signIn() {
-  if (isEmailValid && password.value.length >= 8) {
+  if (isEmailValid && isPasswordValid) {
     await user.signIn(email.value, password.value)
   }
 }

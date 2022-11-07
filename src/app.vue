@@ -11,32 +11,13 @@
 import '@fontsource/montserrat/700.css'
 import '@fontsource/inter'
 
-const supabase = useSupabaseClient()
 const user = useUser()
 
-supabase.auth.onAuthStateChange(async (event, session) => {
-  console.log(event, session)
-
-  if (event === 'PASSWORD_RECOVERY') {
-    navigateTo('/settings')
-  } else if (event === 'SIGNED_IN') {
-    navigateTo('/')
-  } else if (event === 'SIGNED_OUT') {
-    navigateTo('/sign-in')
-  }
-})
-
-user.hook()
+await user.hook()
 
 onUnmounted(() => {
   user.unhook()
 })
-
-try {
-  await supabase.auth.refreshSession()
-} catch (error) {
-  console.error(error)
-}
 </script>
 
 <style lang="scss">

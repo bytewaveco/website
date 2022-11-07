@@ -1,20 +1,21 @@
 <template>
-  <tile-base>
-    <form @submit.stop.prevent="signUp">
-      <h1 class="hero">Sign up</h1>
+  <section data-testid="main">
+    <form @submit.stop.prevent="update">
+      <h5>Password Reset</h5>
       <entry-text
         v-model="email"
         label="Email"
         placeholder="Email"
-        autocomplete="email"
+        type="email"
+        autocomplete="username"
         :status-map="{
-          error: [[() => isEmailValid === false, 'Please enter a valid email.']],
+          disabled: [[() => true, 'We do not support changing your email at this time.']],
         }"
       />
       <entry-text
         v-model="password"
-        label="Password"
-        placeholder="Password"
+        label="New password"
+        placeholder="New password"
         type="password"
         autocomplete="new-password"
         :status-map="{
@@ -31,56 +32,58 @@
         :status-map="{
           error: [
             [
-              () => isPasswordValid && passwordConfirm !== password,
+              () => passwordConfirm.length && passwordConfirm !== password,
               'Passwords must match.',
             ],
           ],
           success: [
             [() => isPasswordValid && passwordConfirm === password, 'Passwords match!'],
           ],
+          disabled: [
+            [
+              () => !isPasswordValid,
+              'Please enter a valid new password to enable this field.',
+            ],
+          ],
         }"
       />
       <entry-button
         type="submit"
-        :disabled="!isEmailValid || !isPasswordValid || password !== passwordConfirm"
+        :disabled="
+          !password.length || !passwordConfirm.length || password !== passwordConfirm
+        "
       >
-        Sign up
+        Update Password
       </entry-button>
     </form>
-    <p>Already have an account? <nuxt-link to="/sign-in">Sign in.</nuxt-link></p>
-  </tile-base>
+  </section>
 </template>
 
 <script lang="ts" setup>
-definePageMeta({
-  middleware: ['unauth'],
-  layout: 'sign-in',
-})
-
 const user = useUser()
-const email = ref('')
+const email = ref(user.email ?? '')
 const password = ref('')
 const passwordConfirm = ref('')
-const isEmailValid = ref<boolean | null>(null)
 const isPasswordValid = ref<boolean | null>(null)
-const emailValidator = useEmailValidator()
 const passwordValidator = usePasswordValidator()
 
-watch(email, (updatedEmailValue) => {
-  isEmailValid.value = emailValidator.validate(updatedEmailValue)
+user.$subscribe(() => {
+  if (user.isLoggedIn) {
+    email.value = user.email
+  }
 })
 
 watch(password, (updatedPasswordValue) => {
   isPasswordValid.value = passwordValidator.validate(updatedPasswordValue)
 })
 
-async function signUp() {
+async function update() {
   if (
-    isEmailValid.value &&
-    isPasswordValid.value &&
+    password.value.length &&
+    passwordConfirm.value.length &&
     password.value === passwordConfirm.value
   ) {
-    user.signUp(email.value, password.value)
+    await user.updatePassword(password.value)
   }
 }
 </script>

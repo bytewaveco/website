@@ -1,9 +1,9 @@
 <template>
   <entry-wrapper :class="`${name}--wrapper`">
     <entry-label
-      :label="label"
+      :label="`${label}${required ? '*' : ''}`"
       :label-for="name"
-      :disabled="status.isDisabled"
+      :disabled="status[0] === 'disabled'"
     />
     <input
       v-model="internalValue"
@@ -12,19 +12,13 @@
       :type="type"
       :placeholder="placeholder"
       :aria-label="label"
-      :class="{
-        success: status.isSuccess,
-        error: status.isError,
-        disabled: status.isDisabled,
-      }"
-      :disabled="status.isDisabled"
+      :class="`entry-input entry-input--${status[0]}`"
+      :disabled="status[0] === 'disabled'"
       :autocomplete="autocomplete"
     />
     <entry-hint
-      :hint-text="status.hintText"
-      :has-success="status.isSuccess"
-      :has-error="status.isError"
-      :disabled="status.isDisabled"
+      :type="status[0]"
+      :hint-text="status[1]"
     />
   </entry-wrapper>
 </template>
@@ -34,7 +28,7 @@
 import useEntryStatus from '@/composables/useEntryStatus'
 import { useDebounceFn } from '@vueuse/core'
 
-const instances = {}
+const instances: Record<string, number> = {}
 
 export default defineComponent({
   props: {
@@ -58,6 +52,10 @@ export default defineComponent({
       type: String,
       default: 'off',
     },
+    required: {
+      type: Boolean,
+      default: false,
+    },
     statusMap: {
       type: Object,
       default: () => ({
@@ -78,23 +76,38 @@ export default defineComponent({
 
     const name = ref(`entry-${props.type}-${instances[props.type]}`)
     const internalValue = ref(props.modelValue)
-    let status = ref(useEntryStatus(props.statusMap))
+    const status = ref(useEntryStatus(props.statusMap, internalValue.value))
 
-    /**
-     * Update the model value.
-     */
-    const updateValue = useDebounceFn(() => {
-      emit('update:modelValue', internalValue.value)
-      status.value = useEntryStatus(props.statusMap)
-    }, 300)
-
-    watch(internalValue, updateValue)
+    watch(
+      internalValue,
+      useDebounceFn((updatedValue) => {
+        status.value = useEntryStatus(props.statusMap, internalValue.value)
+        emit('update:modelValue', updatedValue)
+      }, 300) as (updatedValue: string) => void
+    )
 
     return {
       name,
       internalValue,
       status,
     }
+  },
+  watch: {
+    modelValue: {
+      handler(update) {
+        if (update !== this.internalValue) {
+          this.internalValue = update
+        }
+      },
+      immediate: true,
+    },
+    statusMap: {
+      handler(update) {
+        this.status = useEntryStatus(update, this.internalValue)
+      },
+      deep: true,
+      immediate: true,
+    },
   },
 })
 </script>
@@ -111,6 +124,14 @@ input {
   border: 1px solid rgba(var(--c-text), 0.9);
   border-radius: 4px;
 
+  &:-webkit-autofill {
+    -webkit-text-fill-color: rgb(var(--c-text));
+  }
+
+  &:-webkit-autofill:focus {
+    -webkit-text-fill-color: rgb(var(--c-text));
+  }
+
   &::placeholder {
     color: rgb(var(--c-text));
     opacity: 0.8;
@@ -124,24 +145,48 @@ input {
     border-color: rgba(var(--c-text), 0.4);
     color: rgba(var(--c-text), 0.4);
     cursor: not-allowed;
+
+    &:-webkit-autofill {
+      -webkit-text-fill-color: rgba(var(--c-text), 0.4);
+    }
+
+    &:-webkit-autofill:focus {
+      -webkit-text-fill-color: rgba(var(--c-text), 0.4);
+    }
   }
 
   &[disabled]::placeholder {
     color: rgba(var(--c-text), 0.4);
   }
 
-  &.error {
+  &.entry-input--error {
     border-color: rgb(var(--c-error));
     color: rgb(var(--c-error));
+
+    &:-webkit-autofill {
+      -webkit-text-fill-color: rgb(var(--c-error));
+    }
+
+    &:-webkit-autofill:focus {
+      -webkit-text-fill-color: rgb(var(--c-error));
+    }
 
     &::placeholder {
       color: rgb(var(--c-error));
     }
   }
 
-  &.success {
+  &.entry-input--success {
     border-color: rgb(var(--c-success));
     color: rgb(var(--c-success));
+
+    &:-webkit-autofill {
+      -webkit-text-fill-color: rgb(var(--c-success));
+    }
+
+    &:-webkit-autofill:focus {
+      -webkit-text-fill-color: rgb(var(--c-success));
+    }
 
     &::placeholder {
       color: rgb(var(--c-success));

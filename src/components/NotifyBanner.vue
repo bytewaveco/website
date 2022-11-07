@@ -25,10 +25,13 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .notify-banner {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  padding: 3rem;
-  column-gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  justify-content: center;
+  padding: 2rem 3rem;
+  row-gap: 1rem;
   background-color: rgb(var(--c-primary-50));
+  border-radius: 4px;
 }
 </style>
