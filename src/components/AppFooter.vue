@@ -64,7 +64,7 @@
                 width="200"
                 height="42"
                 loading="lazy"
-                style="border: 0"
+                style="border: 0; pointer-events: none; user-select: none"
                 alt="Byte Wave, LLC BBB Business Review"
             /></a>
           </li>
