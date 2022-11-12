@@ -9,11 +9,13 @@ export default defineNuxtConfig({
   },
   app: {
     head: {
-      title: 'The Show Portal',
+      title: 'Bytewave of Sheridan, WY',
       meta: [
         {
           name: 'description',
-          content: '',
+          content:
+            /* eslint-disable-next-line max-len */
+            'Bytewave is a software company located in Sheridan, WY that offers website design, marketing, social media management, SEO optimization, and more.',
         },
       ],
       link: [
@@ -36,15 +38,5 @@ export default defineNuxtConfig({
       dirs.push(path.resolve(__dirname, 'src/stores'))
     },
   },
-  modules: [
-    [
-      '@pinia/nuxt',
-      {
-        autoImports: [['defineStore', 'definePiniaStore']],
-      },
-    ],
-    '@vueuse/nuxt',
-    '@nuxtjs/supabase',
-    'nuxt-icon',
-  ],
+  modules: ['@vueuse/nuxt', 'nuxt-icon', '@nuxt/content'],
 })

@@ -1,5 +1,3 @@
 <template>
-  <section data-testid="main-section">
-    <slot />
-  </section>
+  <slot />
 </template>
