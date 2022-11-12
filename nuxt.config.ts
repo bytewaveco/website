@@ -38,5 +38,5 @@ export default defineNuxtConfig({
       dirs.push(path.resolve(__dirname, 'src/stores'))
     },
   },
-  modules: ['@vueuse/nuxt', 'nuxt-icon', '@nuxt/content'],
+  modules: ['nuxt-icon', '@nuxt/content'],
 })
