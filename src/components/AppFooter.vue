@@ -14,10 +14,17 @@
       <div>
         <h5>SITE MAP</h5>
         <ul>
-          <li><a href="#projects">PROJECTS</a></li>
           <li>
             <a
-              href="#services"
+              href="/#projects"
+              aria-label="Our past projects"
+            >
+              PROJECTS
+            </a>
+          </li>
+          <li>
+            <a
+              href="/#services"
               aria-label="Our services"
             >
               SERVICES
@@ -25,7 +32,7 @@
           </li>
           <li>
             <a
-              href="#about-us"
+              href="/#about-us"
               aria-label="About us"
             >
               ABOUT US

@@ -7,7 +7,6 @@
           <img
             src="~/assets/img/projects/catfish.webp"
             alt="Catfish"
-            loading="lazy"
             :style="{
               width: '100%',
               height: '100%',
@@ -20,7 +19,6 @@
           <img
             src="~/assets/img/projects/procar.svg"
             alt="Procar"
-            loading="lazy"
             :style="{
               width: '20vw',
               height: '20vw',
@@ -33,7 +31,6 @@
           <img
             src="~/assets/img/projects/austin.svg"
             alt="Procar"
-            loading="lazy"
             :style="{
               width: '80vw',
               top: 'calc(50% - 40vw)',
@@ -48,7 +45,6 @@
           <img
             src="~/assets/img/projects/signal.webp"
             alt="Signal"
-            loading="lazy"
             :style="{
               width: '20vw',
               height: '20vw',
@@ -63,7 +59,6 @@
           <img
             src="~/assets/img/projects/rogue-ocean.webp"
             alt="Rogue Ocean"
-            loading="lazy"
             :style="{
               width: '100%',
               height: '100%',
@@ -76,7 +71,6 @@
           <img
             src="~/assets/img/projects/wilsons-lawn-landscape.svg"
             alt="Wilson's Lawn and Landscape"
-            loading="lazy"
             :style="{
               width: '20vw',
               height: '20vw',
@@ -91,7 +85,6 @@
           <img
             src="~/assets/img/projects/justin-time.svg"
             alt="Justin Time Tile & Design"
-            loading="lazy"
             :style="{
               width: '20vw',
               height: '20vw',
@@ -106,7 +99,6 @@
           <img
             src="~/assets/img/projects/broken-heart-stables.svg"
             alt="Broken Heart Stables"
-            loading="lazy"
             :style="{
               width: '20vw',
               height: '20vw',
@@ -121,7 +113,6 @@
           <img
             src="~/assets/img/projects/inorganic-audio.svg"
             alt="Inorganic Audio"
-            loading="lazy"
             :style="{
               width: '20vw',
               height: '20vw',
@@ -136,7 +127,6 @@
           <img
             src="~/assets/img/projects/wyo-pruitt-writing.svg"
             alt="Wyo Pruitt Writing"
-            loading="lazy"
             :style="{
               width: '20vw',
               height: '20vw',
@@ -151,7 +141,6 @@
           <img
             src="~/assets/img/projects/heidi-gross-ward-3.webp"
             alt="Heidi Gross Ward 3 Campaign"
-            loading="lazy"
             :style="{
               width: '20vw',
               height: '20vw',
@@ -166,7 +155,6 @@
           <img
             src="~/assets/img/projects/nathan-mcleland-mayor.webp"
             alt="Nathan McLeland Mayoral Campaign"
-            loading="lazy"
             :style="{
               width: '20vw',
               height: '20vw',

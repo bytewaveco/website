@@ -3,7 +3,6 @@
     src="~/assets/img/water.webp"
     height="600"
     alt="Moody water"
-    loading="lazy"
   />
 </template>
 
