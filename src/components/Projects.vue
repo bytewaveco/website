@@ -28,7 +28,7 @@
             }" />
           <img
             src="~/assets/img/projects/austin.svg"
-            alt="Procar"
+            alt="Procar - Austin Track"
             :style="{
               width: '80vw',
               top: 'calc(50% - 40vw)',
