@@ -6,6 +6,9 @@ export default defineNuxtConfig({
   typescript: {
     shim: false,
   },
+  nitro: {
+    preset: "vercel-edge",
+  },
   app: {
     head: {
       title: "Bytewave of Sheridan, WY",
@@ -33,17 +36,12 @@ export default defineNuxtConfig({
     },
   },
   schemaOrg: {
-    canonicalHost: 'https://bytewave.co',
+    canonicalHost: "https://bytewave.co",
   },
   hooks: {
     "imports:dirs": (dirs: string[]) => {
       dirs.push(path.resolve(__dirname, "src/stores"));
     },
   },
-  modules: [
-    "nuxt-icon",
-    "@nuxt/content",
-    "@nuxtjs/robots",
-    "nuxt-schema-org",
-  ],
+  modules: ["nuxt-icon", "@nuxt/content", "@nuxtjs/robots", "nuxt-schema-org"],
 });
