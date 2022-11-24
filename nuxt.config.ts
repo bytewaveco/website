@@ -46,7 +46,4 @@ export default defineNuxtConfig({
     "@nuxtjs/robots",
     "nuxt-schema-org",
   ],
-  buildModules: [
-    "@nuxtjs/web-vitals",
-  ]
 });
