@@ -3,8 +3,7 @@
     <img
       src="~/assets/img/hero.svg"
       height="600"
-      alt="Digital Marketing & Software Development"
-    />
+      alt="Digital Marketing & Software Development" />
     <p>BYTEWAVE SPECIALIZES IN CRAFTING ELEGANT & BOLD BRANDS</p>
   </section>
 </template>

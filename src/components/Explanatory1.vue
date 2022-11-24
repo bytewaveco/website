@@ -1,10 +1,6 @@
 <template>
   <section>
-    <img
-      src="~/assets/img/us.webp"
-      alt="Bytewave Staff"
-      loading="lazy"
-    />
+    <img src="~/assets/img/us.webp" alt="Bytewave Staff" loading="lazy" />
     <h4>
       WE ARE DARING CREATORS <br />
       &amp; EDUCATORS THAT HELP <br />

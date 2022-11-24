@@ -6,14 +6,8 @@
       THRIVE ONLINE. WE CULTIVATE MEANINGFUL BRANDS USING DATA-BACKED STRATEGIES.
     </p>
     <div id="staff">
-      <div
-        class="member"
-        aria-label="Kaden, Founder and Software Engineer"
-      >
-        <img
-          src="~/assets/img/kaden.webp"
-          alt="Kaden, Founder and Software Engineer"
-        />
+      <div class="member" aria-label="Kaden, Founder and Software Engineer">
+        <img src="~/assets/img/kaden.webp" alt="Kaden, Founder and Software Engineer" />
         <h5><strong>KADEN GRIFFITH</strong></h5>
         <h5>FOUNDER AND SOFTWARE ENGINEER</h5>
         <p>
@@ -22,14 +16,10 @@
           TECHNOLOGY, AND THE MOUNTAINS.
         </p>
       </div>
-      <div
-        class="member"
-        aria-label="Winter, our Multi-media Creative Director"
-      >
+      <div class="member" aria-label="Winter, our Multi-media Creative Director">
         <img
           src="~/assets/img/winter.webp"
-          alt="Winter, our Multi-media Creative Director"
-        />
+          alt="Winter, our Multi-media Creative Director" />
         <h5><strong>WINTER BLOCK</strong></h5>
         <h5>MULTI-MEDIA CREATIVE DIRECTOR</h5>
         <p>
@@ -37,14 +27,8 @@
           THINK THE HEAD OF PUPLICK RELATIONS IS CUTE AND KIND OF OBSESSED WITH ME.
         </p>
       </div>
-      <div
-        class="member"
-        aria-label="Koda, our Head of Puplick Relations"
-      >
-        <img
-          src="~/assets/img/koda.webp"
-          alt="Koda, our Head of Puplick Relations"
-        />
+      <div class="member" aria-label="Koda, our Head of Puplick Relations">
+        <img src="~/assets/img/koda.webp" alt="Koda, our Head of Puplick Relations" />
         <h5><strong>KODA BEAR </strong></h5>
         <h5>HEAD OF PUPLICK RELATIONS</h5>
         <p>

@@ -1,9 +1,5 @@
 <template>
-  <img
-    src="~/assets/img/water.webp"
-    height="600"
-    alt="Moody water"
-  />
+  <img src="~/assets/img/water.webp" height="600" alt="Moody water" />
 </template>
 
 <style lang="scss" scoped>

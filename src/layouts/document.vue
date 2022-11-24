@@ -2,10 +2,7 @@
   <div id="document-content">
     <main>
       <nuxt-link to="/">
-        <img
-          src="~/assets/img/bytewave-text.svg"
-          width="200"
-        />
+        <img src="~/assets/img/bytewave-text.svg" width="200" />
       </nuxt-link>
       <slot />
     </main>

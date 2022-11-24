@@ -1,9 +1,6 @@
 <template>
   <nav>
-    <img
-      src="~/assets/img/bytewave-text.svg"
-      alt="Bytewave text logo"
-    />
+    <img src="~/assets/img/bytewave-text.svg" alt="Bytewave text logo" />
   </nav>
 </template>
 

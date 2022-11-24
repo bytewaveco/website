@@ -16,8 +16,7 @@
           href="https://app.hellobonsai.com/f/0bba8a399d2b23a"
           aria-label="Bytewave's Social Media Onboarding Form"
           target="_blank"
-          rel="nofollow"
-        >
+          rel="nofollow">
           <button>CONTACT US</button>
         </a>
       </div>
@@ -34,8 +33,7 @@
           href="https://app.hellobonsai.com/f/eca04dfcfb4d84c"
           aria-label="Bytewave's Graphic Design Onboarding Form"
           target="_blank"
-          rel="nofollow"
-        >
+          rel="nofollow">
           <button>CONTACT US</button>
         </a>
       </div>
@@ -48,10 +46,7 @@
           <li>ALWAYS CUSTOM DESIGN</li>
           <li>INDUSTRY LEADING PERFORMANCE</li>
         </ul>
-        <a
-          href="mailto:info@bytewave.co"
-          aria-label="Contact us"
-        >
+        <a href="mailto:info@bytewave.co" aria-label="Contact us">
           <button>CONTACT US</button>
         </a>
       </div>
@@ -64,10 +59,7 @@
           <li>MODERN AND FAST</li>
           <li>IOS / ANDROID / WINDOWS / LINUX / MAC OS / CLOUD</li>
         </ul>
-        <a
-          href="mailto:info@bytewave.co"
-          aria-label="Contact us"
-        >
+        <a href="mailto:info@bytewave.co" aria-label="Contact us">
           <button>CONTACT US</button>
         </a>
       </div>

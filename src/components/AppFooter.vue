@@ -15,36 +15,16 @@
         <h5>SITE MAP</h5>
         <ul>
           <li>
-            <a
-              href="/#projects"
-              aria-label="Our past projects"
-            >
-              PROJECTS
-            </a>
+            <a href="/#projects" aria-label="Our past projects"> PROJECTS </a>
           </li>
           <li>
-            <a
-              href="/#services"
-              aria-label="Our services"
-            >
-              SERVICES
-            </a>
+            <a href="/#services" aria-label="Our services"> SERVICES </a>
           </li>
           <li>
-            <a
-              href="/#about-us"
-              aria-label="About us"
-            >
-              ABOUT US
-            </a>
+            <a href="/#about-us" aria-label="About us"> ABOUT US </a>
           </li>
           <li>
-            <a
-              href="mailto:info@bytewave.co"
-              aria-label="Contact us"
-            >
-              CONTACT US
-            </a>
+            <a href="mailto:info@bytewave.co" aria-label="Contact us"> CONTACT US </a>
           </li>
         </ul>
       </div>
@@ -56,8 +36,7 @@
             <a
               href="https://www.bbb.org/us/wy/sheridan/profile/graphic-designer/byte-wave-llc-0805-46128974/#sealclick"
               target="_blank"
-              rel="nofollow"
-            >
+              rel="nofollow">
               <!-- eslint-enable max-len -->
               <img
                 src="https://seal-wynco.bbb.org/seals/blue-seal-200-42-bbb-46128974.png"
@@ -79,8 +58,7 @@
               aria-label="Bytewave's Facebook Page"
               target="_blank"
               rel="nofollow"
-              class="social"
-            >
+              class="social">
               <icon name="ph:facebook-logo" />
             </a>
           </li>
@@ -89,8 +67,7 @@
               href="https://www.instagram.com/bytewaveco"
               target="_blank"
               rel="nofollow"
-              class="social"
-            >
+              class="social">
               <icon name="ph:instagram-logo" />
             </a>
           </li>
@@ -100,8 +77,7 @@
               aria-label="Bytewave's GitHub"
               target="_blank"
               rel="nofollow"
-              class="social"
-            >
+              class="social">
               <icon name="ph:github-logo" />
             </a>
           </li>
@@ -111,8 +87,7 @@
               aria-label="Bytewave's Ko-fi"
               target="_blank"
               rel="nofollow"
-              class="social"
-            >
+              class="social">
               <icon name="ph:coffee" />
             </a>
           </li>

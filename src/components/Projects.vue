@@ -12,8 +12,7 @@
               height: '100%',
               objectFit: 'cover',
               objectPosition: 'center',
-            }"
-          />
+            }" />
         </div>
         <div class="project padded">
           <img
@@ -26,8 +25,7 @@
               left: 'calc(50% - 10vw)',
               objectFit: 'contain',
               objectPosition: 'center',
-            }"
-          />
+            }" />
           <img
             src="~/assets/img/projects/austin.svg"
             alt="Procar"
@@ -38,8 +36,7 @@
               objectFit: 'contain',
               objectPosition: 'center',
               opacity: '0.2',
-            }"
-          />
+            }" />
         </div>
         <div class="project padded">
           <img
@@ -52,8 +49,7 @@
               left: 'calc(50% - 10vw)',
               objectFit: 'contain',
               objectPosition: 'center',
-            }"
-          />
+            }" />
         </div>
         <div class="project">
           <img
@@ -64,8 +60,7 @@
               height: '100%',
               objectFit: 'cover',
               objectPosition: 'center',
-            }"
-          />
+            }" />
         </div>
         <div class="project">
           <img
@@ -78,8 +73,7 @@
               left: 'calc(50% - 10vw)',
               objectFit: 'contain',
               objectPosition: 'center',
-            }"
-          />
+            }" />
         </div>
         <div class="project dark">
           <img
@@ -92,8 +86,7 @@
               left: 'calc(50% - 10vw)',
               objectFit: 'contain',
               objectPosition: 'center',
-            }"
-          />
+            }" />
         </div>
         <div class="project">
           <img
@@ -106,8 +99,7 @@
               left: 'calc(50% - 10vw)',
               objectFit: 'contain',
               objectPosition: 'center',
-            }"
-          />
+            }" />
         </div>
         <div class="project dark">
           <img
@@ -120,8 +112,7 @@
               left: 'calc(50% - 10vw)',
               objectFit: 'contain',
               objectPosition: 'center',
-            }"
-          />
+            }" />
         </div>
         <div class="project">
           <img
@@ -134,8 +125,7 @@
               left: 'calc(50% - 10vw)',
               objectFit: 'contain',
               objectPosition: 'center',
-            }"
-          />
+            }" />
         </div>
         <div class="project">
           <img
@@ -148,8 +138,7 @@
               left: 'calc(50% - 10vw)',
               objectFit: 'contain',
               objectPosition: 'center',
-            }"
-          />
+            }" />
         </div>
         <div class="project">
           <img
@@ -162,8 +151,7 @@
               left: 'calc(50% - 10vw)',
               objectFit: 'contain',
               objectPosition: 'center',
-            }"
-          />
+            }" />
         </div>
       </div>
     </div>
