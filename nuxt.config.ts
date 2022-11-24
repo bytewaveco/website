@@ -43,6 +43,5 @@ export default defineNuxtConfig({
       dirs.push(path.resolve(__dirname, 'src/stores'))
     },
   },
-  modules: ['nuxt-icon', '@nuxtjs/robots', 'nuxt-schema-org'],
-  buildModules: ['@nuxt/content', '@nuxtjs/web-vitals'],
+  modules: ['nuxt-icon', '@nuxt/content', '@nuxtjs/robots', 'nuxt-schema-org'],
 })
