@@ -1,18 +1,31 @@
 {
   "root": true,
   "parser": "@typescript-eslint/parser",
-  "plugins": ["prettier", "nuxt", "@typescript-eslint"],
+  "plugins": ["nuxt", "prettier", "@typescript-eslint", "eslint-plugin-tsdoc"],
   "extends": [
     "eslint:recommended",
-    "prettier",
     "plugin:@typescript-eslint/recommended",
-    "plugin:nuxt/recommended"
+    "plugin:nuxt/recommended",
+    "plugin:prettier/recommended"
   ],
   "env": { "browser": true, "es2022": true, "node": true },
   "overrides": [
     {
       "files": ["*.{js,ts,vue}"],
       "rules": {
+        "sort-imports": ["error", {
+          "ignoreCase": true,
+          "ignoreDeclarationSort": true
+        }],
+        "comma-dangle": ["error", "always-multiline"],
+        "quotes": ["error", "single"],
+        "block-spacing": "error",
+        "semi": ["error", "never"],
+        "space-infix-ops": "error",
+        "space-in-parens": ["error", "never"],
+        "keyword-spacing": "error",
+        "no-multiple-empty-lines": ["error", { "max": 1, "maxEOF": 1 }],
+        "padded-blocks": ["error", "never"],
         "no-duplicate-imports": "error",
         "no-self-compare": "error",
         "camelcase": "off",
@@ -35,8 +48,14 @@
         "prefer-object-spread": "error",
         "prefer-object-has-own": "error",
         "endOfLine": "off",
-        "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
-        "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+        "no-unused-vars": [
+          "error",
+          { "argsIgnorePattern": "^_", "varsIgnorePattern": "^_" }
+        ],
+        "@typescript-eslint/no-unused-vars": [
+          "error",
+          { "argsIgnorePattern": "^_", "varsIgnorePattern": "^_" }
+        ],
         "@typescript-eslint/no-extra-semi": "off",
         "@typescript-eslint/naming-convention": [
           "error",
@@ -59,11 +78,27 @@
             "format": ["PascalCase"]
           },
           {
-            "selector": ["objectLiteralProperty", "objectLiteralMethod", "typeProperty"],
+            "selector": [
+              "objectLiteralProperty",
+              "objectLiteralMethod",
+              "typeProperty"
+            ],
             "format": null
           }
         ],
-        "prettier/prettier": "warn"
+        "tsdoc/syntax": "warn",
+        "prettier/prettier": [
+          "error",
+          {
+            "endOfLine": "lf",
+            "semi": false,
+            "singleQuote": true,
+            "trailingComma": "all",
+            "printWidth": 90,
+            "tabWidth": 2,
+            "bracketSameLine": true
+          }
+        ]
       }
     },
     {
@@ -79,12 +114,55 @@
         "plugin:vue/vue3-strongly-recommended"
       ],
       "rules": {
-        "vue/singleline-html-element-content-newline": "off",
-        "vue/html-indent": "off",
         "vue/html-self-closing": "off",
         "vue/multi-word-component-names": "off",
-        "prettier/prettier": "off",
-        "no-undef": "off"
+        "vue/singleline-html-element-content-newline": "off",
+        "vue/html-closing-bracket-newline": "off",
+        "vue/max-attributes-per-line": "off",
+        "vue/html-indent": "off",
+        "no-undef": "off",
+        "prettier/prettier": ["error", {
+          "parser": "vue",
+          "endOfLine": "lf",
+          "semi": false,
+          "singleQuote": true,
+          "trailingComma": "all",
+          "printWidth": 90,
+          "tabWidth": 2,
+          "bracketSameLine": true
+        }]
+      }
+    },
+    {
+      "files": ["**/*.spec.{j,t}s?(x)"],
+      "extends": ["plugin:vitest-globals/recommended"],
+      "env": {
+        "browser": true,
+        "es2022": true,
+        "node": true,
+        "jest": true,
+        "vitest-globals/env": true
+      }
+    },
+    {
+      "files": ["**/__mocks__/**/*.ts"],
+      "rules": {
+        "@typescript-eslint/naming-convention": "off"
+      }
+    },
+    {
+      "files": ["**/*.cy.{j,t}s?(x)"],
+      "plugins": ["cypress", "chai-friendly"],
+      "extends": [
+        "plugin:cypress/recommended",
+        "plugin:chai-friendly/recommended"
+      ],
+      "env": {
+        "browser": true,
+        "es2022": true,
+        "node": true,
+        "jest": true,
+        "cypress/globals": true
       }
     },
     {

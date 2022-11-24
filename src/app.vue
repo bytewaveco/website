@@ -8,7 +8,26 @@
 </template>
 
 <script lang="ts" setup>
-import '@fontsource/raleway/variable.css'
+import "@fontsource/raleway/variable.css";
+
+useSchemaOrg([
+  defineOrganization({
+    name: "Bytewave",
+    logo: "/logo.png",
+    sameAs: [
+      "https://www.facebook.com/bytewaveco",
+      "https://www.instagram.com/bytewaveco",
+      "https://github.com/bytewaveco",
+    ],
+  }),
+  defineWebSite({
+    name: "Bytewave of Sheridan, WY",
+
+  }),
+  defineWebPage({
+    canonicalHost: "https://bytewave.co",
+  }),
+]);
 </script>
 
 <style lang="scss">
@@ -24,7 +43,7 @@ html,
 body {
   margin: 0;
   font-size: 16px;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   color: rgb(var(--c-text));
   background-color: rgb(var(--c-background));
   width: 100%;

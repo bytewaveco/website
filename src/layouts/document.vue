@@ -12,14 +12,6 @@
   </div>
 </template>
 
-<script lang="ts" setup>
-onMounted(() => {
-  useRouter().beforeEach(() => {
-    window.scrollTo(0, 0)
-  })
-})
-</script>
-
 <style lang="scss" scoped>
 #document-content {
   display: grid;
