@@ -113,7 +113,7 @@ footer {
 
   #footer-content {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, auto);
     column-gap: 1rem;
     row-gap: 1rem;
     align-items: flex-start;

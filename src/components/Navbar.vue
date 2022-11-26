@@ -6,8 +6,9 @@
 
 <style lang="scss" scoped>
 nav {
-  width: 100%;
-  padding: 3rem 2rem;
+  width: 80vw;
+  margin: 0 auto;
+  padding: 3rem;
   user-select: none;
 
   img {
