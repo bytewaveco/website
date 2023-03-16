@@ -21,6 +21,7 @@ useSchemaOrg([
       'https://linktr.ee/bytewaveco',
       'https://github.com/bytewaveco',
       'https://ko-fi.com/bytewaveco',
+      'https://bytewaveco.gumroad.com/',
     ],
   }),
   defineWebSite({

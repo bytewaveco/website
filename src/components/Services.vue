@@ -70,8 +70,10 @@
 <style lang="scss" scoped>
 #services {
   width: 80vw;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 8rem 0;
+  box-sizing: border-box;
 
   #services-list {
     display: grid;
@@ -107,7 +109,7 @@
 
 @media only screen and (max-width: 1260px) {
   #services {
-    width: calc(100% - 4rem);
+    width: 100%;
     padding: 8rem 2rem;
   }
 }

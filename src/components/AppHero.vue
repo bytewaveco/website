@@ -35,13 +35,15 @@ section {
 @media only screen and (max-width: 1260px) {
   section {
     img {
-      width: calc(100% - 4rem);
+      width: 100%;
       margin: 0 auto;
+      box-sizing: border-box;
     }
 
     p {
-      width: calc(100% - 4rem);
+      width: 100%;
       padding: 0 2rem;
+      box-sizing: border-box;
     }
   }
 }

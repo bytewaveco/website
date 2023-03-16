@@ -15,6 +15,15 @@
         <h5>SITE MAP</h5>
         <ul>
           <li>
+            <a
+              href="https://bytewaveco.gumroad.com/"
+              target="_blank"
+              rel="nofollow"
+              aria-label="The Bytewave Shop">
+              SHOP
+            </a>
+          </li>
+          <li>
             <a href="/#projects" aria-label="Our past projects"> PROJECTS </a>
           </li>
           <li>
@@ -128,11 +137,12 @@ footer {
   background-color: rgb(var(--c-text));
   padding-top: 2rem;
   padding-bottom: 8rem;
+  box-sizing: border-box;
 
   #footer-content {
     display: grid;
     grid-template-columns: repeat(4, auto);
-    column-gap: 1rem;
+    column-gap: 2rem;
     row-gap: 1rem;
     align-items: flex-start;
     width: fit-content;

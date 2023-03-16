@@ -7,9 +7,11 @@
 <style lang="scss" scoped>
 nav {
   width: 80vw;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 3rem;
   user-select: none;
+  box-sizing: border-box;
 
   img {
     min-width: 100px;

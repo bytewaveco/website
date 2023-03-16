@@ -13,9 +13,11 @@
 #document-content {
   display: grid;
   padding: 4rem 2rem;
+  box-sizing: border-box;
 
   main {
     width: 80vw;
+    max-width: 1200px;
     margin: 0 auto;
 
     :deep(h2) {

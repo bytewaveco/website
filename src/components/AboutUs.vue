@@ -44,8 +44,10 @@
 <style lang="scss" scoped>
 #about-us {
   width: 80vw;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 8rem 0;
+  box-sizing: border-box;
 
   #staff {
     display: flex;
@@ -73,8 +75,9 @@
 
 @media only screen and (max-width: 1260px) {
   #about-us {
-    width: calc(100% - 4rem);
+    width: 100%;
     padding: 8rem 2rem;
+    box-sizing: border-box;
 
     #staff {
       flex-direction: column;

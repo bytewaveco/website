@@ -21,6 +21,7 @@ section {
   width: fit-content;
   height: fit-content;
   margin: 8rem auto;
+  box-sizing: border-box;
 
   h4 {
     margin: 0;
@@ -39,7 +40,6 @@ section {
 @media only screen and (max-width: 1260px) {
   section {
     grid-template-columns: 1fr;
-    width: calc(100% - 4rem) !important;
     padding: 0 2rem;
   }
 }

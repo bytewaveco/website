@@ -198,8 +198,10 @@ onUnmounted(() => {
 
   #projects-container {
     width: 80vw;
+    max-width: 1200px;
     padding: 8rem 0;
     margin: 0 auto;
+    box-sizing: border-box;
 
     #project-carousel {
       position: relative;
@@ -227,16 +229,18 @@ onUnmounted(() => {
         }
 
         &.dark {
-          width: calc(40vw - 6px);
-          height: calc(500px - 6px);
+          width: 40vw;
+          height: 500px;
           background-color: rgb(var(--c-text));
           border: 3px solid rgb(var(--c-background));
+          box-sizing: border-box;
         }
 
         &.padded {
           padding: 2rem;
-          width: calc(40vw - 4rem);
-          height: calc(500px - 4rem);
+          width: 40vw;
+          height: 500px;
+          box-sizing: border-box;
         }
 
         img {
@@ -251,19 +255,16 @@ onUnmounted(() => {
 @media only screen and (max-width: 1260px) {
   #projects {
     #projects-container {
-      width: calc(100% - 4rem);
+      width: 100%;
       padding: 8rem 2rem;
 
       #project-carousel {
         .project {
           width: 80vw;
 
-          &.dark {
-            width: calc(80vw - 6px);
-          }
-
+          &.dark,
           &.padded {
-            width: calc(80vw - 4rem);
+            width: 80vw;
           }
         }
       }
