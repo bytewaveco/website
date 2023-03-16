@@ -17,7 +17,10 @@ useSchemaOrg([
     sameAs: [
       'https://www.facebook.com/bytewaveco',
       'https://www.instagram.com/bytewaveco',
+      'https://www.tiktok.com/@bytewaveco',
+      'https://linktr.ee/bytewaveco',
       'https://github.com/bytewaveco',
+      'https://ko-fi.com/bytewaveco',
     ],
   }),
   defineWebSite({
@@ -33,9 +36,8 @@ useSchemaOrg([
 :root {
   --c-text: 0, 0, 0;
   --c-background: 255, 255, 255;
-  --c-gray: 119, 119, 119;
-  --c-primary: 54, 139, 163;
-  --c-secondary: 113, 172, 188;
+  --c-primary: 0, 102, 255;
+  --c-secondary: 0, 102, 255;
 }
 
 html,

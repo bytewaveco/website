@@ -73,6 +73,24 @@
           </li>
           <li>
             <a
+              href="https://www.tiktok.com/@bytewaveco"
+              target="_blank"
+              rel="nofollow"
+              class="social">
+              <icon name="ph:tiktok-logo" />
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://linktr.ee/bytewaveco"
+              target="_blank"
+              rel="nofollow"
+              class="social">
+              <icon name="simple-icons:linktree" />
+            </a>
+          </li>
+          <li>
+            <a
               href="https://github.com/bytewaveco"
               aria-label="Bytewave's GitHub"
               target="_blank"

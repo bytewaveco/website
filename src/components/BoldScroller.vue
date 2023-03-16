@@ -2,9 +2,9 @@
   <div class="bold-scroll">
     <div class="bold-scroll-text">
       <div>
-        <img src="~/assets/img/bytewave-logo.svg" alt="Bytewave logo" />
+        <img src="~/assets/img/Bytewave-Secondary-Logo.svg" alt="Bytewave logo" />
         <h1>CRAFTING ELEGANT &amp; BOLD BRANDS</h1>
-        <img src="~/assets/img/bytewave-logo.svg" alt="Bytewave logo" />
+        <img src="~/assets/img/Bytewave-Secondary-Logo.svg" alt="Bytewave logo" />
         <h1>CRAFTING ELEGANT &amp; BOLD BRANDS</h1>
       </div>
     </div>

@@ -60,4 +60,5 @@ export default defineNuxtConfig({
     },
   },
   modules: ['nuxt-icon', '@nuxt/content', '@nuxtjs/robots', 'nuxt-schema-org'],
+  telemetry: false,
 })
