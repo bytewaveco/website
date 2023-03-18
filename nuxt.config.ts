@@ -9,6 +9,12 @@ export default defineNuxtConfig({
   nitro: {
     preset: 'vercel-edge',
   },
+  runtimeConfig: {
+    public: {
+      googleAnalyticsId: process.env.GOOGLE_ANALYTICS_ID,
+      isAnalyticsEnabled: process.env.ANALYTICS_ENABLED === 'true',
+    },
+  },
   app: {
     head: {
       title: 'Bytewave of Sheridan, WY',
@@ -59,15 +65,6 @@ export default defineNuxtConfig({
       dirs.push(path.resolve(__dirname, 'src/stores'))
     },
   },
-  modules: [
-    'nuxt-icon',
-    '@nuxt/content',
-    '@nuxtjs/robots',
-    'nuxt-schema-org',
-    'nuxt-gtag',
-  ],
-  gtag: {
-    id: 'G-MJHYXZ3354',
-  },
+  modules: ['nuxt-icon', '@nuxt/content', '@nuxtjs/robots', 'nuxt-schema-org'],
   telemetry: false,
 })
