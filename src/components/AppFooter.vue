@@ -16,11 +16,11 @@
         <ul>
           <li>
             <a
-              href="https://bytewaveco.gumroad.com/"
+              href="https://store.bytewave.co"
               target="_blank"
               rel="nofollow"
-              aria-label="The Bytewave Shop">
-              SHOP
+              aria-label="The Bytewave Store">
+              STORE
             </a>
           </li>
           <li>
