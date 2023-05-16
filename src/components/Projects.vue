@@ -169,12 +169,16 @@ onMounted(() => {
     const newLast = projectArray.shift()
     projectArray.push(newLast as HTMLElement)
 
+    newLast?.classList.add('blur')
+
     for (const [index, project] of projectArray.entries()) {
       project.style.setProperty('top', `-${index * 80}px`)
       project.style.setProperty('left', `${index * 300}px`)
     }
 
     setTimeout(() => {
+      newLast?.classList.remove('blur')
+
       for (const [index, project] of projectArray.entries()) {
         project.style.setProperty('z-index', `${1000 - index}`)
       }
@@ -228,6 +232,10 @@ onUnmounted(() => {
           }
         }
 
+        &.blur {
+          animation: blur 600ms ease-in forwards;
+        }
+
         &.dark {
           width: 40vw;
           height: 500px;
@@ -237,7 +245,7 @@ onUnmounted(() => {
         }
 
         &.padded {
-          padding: 2rem;
+          padding: 2rem 1rem;
           width: 40vw;
           height: 500px;
           box-sizing: border-box;
@@ -256,7 +264,7 @@ onUnmounted(() => {
   #projects {
     #projects-container {
       width: 100%;
-      padding: 8rem 2rem;
+      padding: 8rem 1rem;
 
       #project-carousel {
         .project {
@@ -269,6 +277,12 @@ onUnmounted(() => {
         }
       }
     }
+  }
+}
+
+@keyframes blur {
+  100% {
+    filter: blur(2px);
   }
 }
 </style>

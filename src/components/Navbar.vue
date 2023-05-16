@@ -20,4 +20,11 @@ nav {
     pointer-events: none;
   }
 }
+
+@media only screen and (max-width: 1260px) {
+  nav {
+    width: 100vw;
+    padding: 3rem 1rem;
+  }
+}
 </style>

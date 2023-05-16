@@ -3,9 +3,6 @@ import path from 'path'
 export default defineNuxtConfig({
   ssr: true,
   srcDir: 'src',
-  typescript: {
-    shim: false,
-  },
   nitro: {
     preset: 'vercel-edge',
   },
@@ -44,7 +41,6 @@ export default defineNuxtConfig({
           sizes: '16x16',
           href: '/favicon-16x16.png',
         },
-
         {
           rel: 'icon',
           type: 'image/svg+xml',

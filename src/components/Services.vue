@@ -103,6 +103,10 @@
           border-color: rgb(var(--c-background));
         }
       }
+
+      ul {
+        padding: 1rem;
+      }
     }
   }
 }
@@ -110,7 +114,7 @@
 @media only screen and (max-width: 1260px) {
   #services {
     width: 100%;
-    padding: 8rem 2rem;
+    padding: 8rem 1rem;
   }
 }
 

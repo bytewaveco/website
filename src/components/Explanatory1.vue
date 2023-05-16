@@ -34,13 +34,16 @@ section {
     height: 13vw;
     pointer-events: none;
     user-select: none;
+    border: 8px solid rgb(var(--c-text));
+    box-sizing: border-box;
+    border-radius: 4px;
   }
 }
 
 @media only screen and (max-width: 1260px) {
   section {
     grid-template-columns: 1fr;
-    padding: 0 2rem;
+    padding: 0 1rem;
   }
 }
 </style>

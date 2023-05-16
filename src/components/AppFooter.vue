@@ -142,11 +142,10 @@ footer {
   #footer-content {
     display: grid;
     grid-template-columns: repeat(4, auto);
-    column-gap: 2rem;
-    row-gap: 1rem;
+    grid-gap: 2.5rem;
     align-items: flex-start;
     width: fit-content;
-    margin: 0 auto;
+    margin: 0 auto 4rem;
 
     a {
       color: rgb(var(--c-background));
@@ -172,7 +171,7 @@ footer {
 
         &.socials {
           display: flex;
-          column-gap: 1rem;
+          column-gap: 1.5rem;
 
           li {
             .social {
@@ -204,7 +203,7 @@ footer {
         }
 
         li {
-          margin: 0.5rem 0;
+          margin: 1rem 0;
           font-size: 0.75rem;
         }
       }
@@ -222,7 +221,8 @@ footer {
       grid-template-columns: repeat(2, 1fr);
       width: fit-content;
       margin: 0 auto;
-      padding: 0;
+      padding: 0 1rem;
+      box-sizing: border-box;
     }
   }
 }
@@ -230,6 +230,8 @@ footer {
 @media only screen and (max-width: 500px) {
   footer {
     #footer-content {
+      width: 100vw;
+      margin: 0;
       grid-template-columns: 1fr;
     }
   }

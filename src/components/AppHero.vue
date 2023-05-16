@@ -16,6 +16,7 @@ section {
   justify-content: center;
   align-items: center;
   width: 100%;
+  padding-top: 4rem;
   padding-bottom: 8rem;
   text-align: center;
   row-gap: 6rem;
@@ -24,6 +25,8 @@ section {
     height: auto;
     pointer-events: none;
     user-select: none;
+    padding: 1rem;
+    box-sizing: border-box;
   }
 
   p {
@@ -42,7 +45,7 @@ section {
 
     p {
       width: 100%;
-      padding: 0 2rem;
+      padding: 0 1rem;
       box-sizing: border-box;
     }
   }

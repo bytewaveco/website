@@ -64,6 +64,9 @@
         max-width: 350px;
         pointer-events: none;
         user-select: none;
+        border: 8px solid rgb(var(--c-text));
+        box-sizing: border-box;
+        border-radius: 4px;
       }
 
       p {
@@ -76,7 +79,7 @@
 @media only screen and (max-width: 1260px) {
   #about-us {
     width: 100%;
-    padding: 8rem 2rem;
+    padding: 8rem 1rem;
     box-sizing: border-box;
 
     #staff {
