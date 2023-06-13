@@ -25,7 +25,7 @@
         <h5>BRAND DESIGN</h5>
         <ul>
           <li>PRIMARY LOGO, SECONDARY LOGO, SUBMARK, LOGO MARK</li>
-          <li>COLOR PALLETE</li>
+          <li>COLOR PALETTE</li>
           <li>TYPOGRAPHY</li>
           <li>MOCKUPS</li>
         </ul>
@@ -41,7 +41,7 @@
         <icon name="ph:browsers" />
         <h5>WEBSITE DESIGN</h5>
         <ul>
-          <li>DOMAIN NAME AQUISITION AND MANAGEMENT</li>
+          <li>DOMAIN NAME ACQUISITION AND MANAGEMENT</li>
           <li>SEO OPTIMIZED APPLICATION</li>
           <li>ALWAYS CUSTOM DESIGN</li>
           <li>INDUSTRY LEADING PERFORMANCE</li>
