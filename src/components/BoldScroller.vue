@@ -53,7 +53,7 @@
 
       @supports (font-variation-settings: normal) {
         h1 {
-          font-family: 'RalewayVariable';
+          font-family: 'Raleway';
           font-variation-settings: 'wght' 800;
         }
       }

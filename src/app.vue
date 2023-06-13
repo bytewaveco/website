@@ -8,7 +8,7 @@
 </template>
 
 <script lang="ts" setup>
-import '@fontsource/raleway/variable.css'
+import '@fontsource-variable/raleway'
 
 useSchemaOrg([
   defineOrganization({
@@ -100,7 +100,7 @@ p {
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: rgba(var(--c-primary), 0) rgba(var(--c-primary), 0.15);
+  scrollbar-color: rgba(var(--c-primary), 0) rgba(var(--c-primary), 1);
 }
 
 *::-webkit-scrollbar {
@@ -112,7 +112,7 @@ p {
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: rgba(var(--c-primary), 0.15);
+  background-color: rgba(var(--c-primary), 1);
   border-radius: 0;
   border: none;
 }
