@@ -50,13 +50,6 @@
         white-space: nowrap;
         margin: 0;
       }
-
-      @supports (font-variation-settings: normal) {
-        h1 {
-          font-family: 'Raleway';
-          font-variation-settings: 'wght' 800;
-        }
-      }
     }
   }
 }
