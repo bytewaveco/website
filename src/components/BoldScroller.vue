@@ -1,59 +1,43 @@
 <template>
-  <div class="bold-scroll">
-    <div class="bold-scroll-text">
-      <div>
-        <img src="~/assets/img/Bytewave-Secondary-Logo.svg" alt="Bytewave logo" />
-        <h1>CRAFTING ELEGANT &amp; BOLD BRANDS</h1>
-        <img src="~/assets/img/Bytewave-Secondary-Logo.svg" alt="Bytewave logo" />
+  <div
+    :class="{
+      'h-[130px]': true,
+      flex: true,
+      'w-full': true,
+      'bg-black': true,
+      'pointer-events-none': true,
+      'user-select-none': true,
+      relative: true,
+      'overflow-hidden': true,
+    }">
+    <div absolute flex items-center justify-start w-full h-full whitespace-nowrap>
+      <div class="flex animate-[scroll_40s_linear_infinite]">
+        <img
+          src="~/assets/img/Bytewave-Secondary-Logo.svg"
+          alt="Bytewave logo"
+          class="h-[40px] my-auto mx-8" />
+        <h1
+          :class="{
+            'inline-block': true,
+            'text-[120px]': true,
+            'font-extrabold': true,
+            'text-white': true,
+            'whitespace-nowrap': true,
+            'm-0': true,
+          }">
+          CRAFTING ELEGANT &amp; BOLD BRANDS
+        </h1>
+        <img
+          src="~/assets/img/Bytewave-Secondary-Logo.svg"
+          alt="Bytewave logo"
+          class="h-[40px]" />
         <h1>CRAFTING ELEGANT &amp; BOLD BRANDS</h1>
       </div>
     </div>
   </div>
 </template>
 
-<style lang="scss" scoped>
-.bold-scroll {
-  position: relative;
-  display: flex;
-  width: 100%;
-  height: 130px;
-  background-color: rgb(var(--c-text));
-  overflow: hidden;
-  pointer-events: none;
-  user-select: none;
-
-  .bold-scroll-text {
-    display: flex;
-    position: absolute;
-    top: 0;
-    left: 0;
-    align-items: center;
-    justify-content: flex-start;
-    width: 100%;
-    height: 100%;
-    white-space: nowrap;
-
-    div {
-      display: flex;
-      animation: scroll 40s infinite linear;
-
-      img {
-        height: 40px;
-        margin: auto 2rem;
-      }
-
-      h1 {
-        display: inline-block;
-        font-size: 120px;
-        font-weight: 800;
-        color: rgb(var(--c-background));
-        white-space: nowrap;
-        margin: 0;
-      }
-    }
-  }
-}
-
+<style lang="scss">
 @keyframes scroll {
   0% {
     transform: translateX(0);

@@ -1,45 +1,78 @@
 <template>
-  <footer>
-    <div id="footer-content">
+  <footer
+    :class="{
+      grid: true,
+      'grid-cols-1': true,
+      'items-center': true,
+      'justify-center': true,
+      'justify-items-center': true,
+      'row-gap-8': true,
+      'w-full': true,
+      'bg-black': true,
+      'text-white': true,
+      'pt-8': true,
+      'pb-32': true,
+      'px-4': true,
+      'box-border': true,
+    }">
+    <div
+      :class="{
+        'w-full': true,
+        grid: true,
+        'grid-cols-1': true,
+        'gap-y-10': true,
+        'gap-x-4': true,
+        'items-start': true,
+        'self-start': true,
+        'mb-16': true,
+        'lg:max-w-[992px]': true,
+        'lg:mx-auto': true,
+        'lg:grid-cols-4': true,
+      }">
       <div>
         <h5>INFORMATION</h5>
-        <ul>
+        <ul list-none p-0 m-0 grid gap-y-2>
           <li>SHERIDAN, WY</li>
           <li>bytewave.crypto</li>
-          <li><a href="tel:307-429-2163">(307) 429-2163</a></li>
-          <li><nuxt-link to="/terms">TERMS</nuxt-link></li>
-          <li><nuxt-link to="/privacy">PRIVACY POLICY</nuxt-link></li>
+          <li><footer-link to="tel:307-429-2163">(307) 429-2163</footer-link></li>
+          <li><footer-link to="/terms">TERMS</footer-link></li>
+          <li><footer-link to="/privacy">PRIVACY POLICY</footer-link></li>
         </ul>
       </div>
       <div>
         <h5>SITE MAP</h5>
-        <ul>
+        <ul list-none p-0 m-0 grid gap-y-2>
           <li>
-            <a
+            <footer-link
+              external
               href="https://store.bytewave.co"
-              target="_blank"
-              rel="nofollow"
               aria-label="The Bytewave Store">
               STORE
-            </a>
+            </footer-link>
           </li>
           <li>
-            <a href="/#projects" aria-label="Our past projects"> PROJECTS </a>
+            <footer-link to="/#projects" aria-label="Our past projects">
+              PROJECTS
+            </footer-link>
           </li>
           <li>
-            <a href="/#services" aria-label="Our services"> SERVICES </a>
+            <footer-link to="/#services" aria-label="Our services">
+              SERVICES
+            </footer-link>
           </li>
           <li>
-            <a href="/#about-us" aria-label="About us"> ABOUT US </a>
+            <footer-link to="/#about-us" aria-label="About us"> ABOUT US </footer-link>
           </li>
           <li>
-            <a href="mailto:info@bytewave.co" aria-label="Contact us"> CONTACT US </a>
+            <footer-link to="mailto:info@bytewave.co" aria-label="Contact us">
+              CONTACT US
+            </footer-link>
           </li>
         </ul>
       </div>
       <div>
         <h5>ACCREDITATION</h5>
-        <ul>
+        <ul list-none p-0 m-0>
           <li>
             <!-- eslint-disable max-len -->
             <a
@@ -60,63 +93,63 @@
       </div>
       <div>
         <h5>FOLLOW US</h5>
-        <ul class="socials">
+        <ul list-none p-0 m-0 flex gap-x-2>
           <li>
-            <a
+            <social-button
               href="https://www.facebook.com/bytewaveco"
               aria-label="Bytewave's Facebook Page"
               target="_blank"
               rel="nofollow"
               class="social">
-              <icon name="ph:facebook-logo" />
-            </a>
+              <div i-ph-facebook-logo />
+            </social-button>
           </li>
           <li>
-            <a
+            <social-button
               href="https://www.instagram.com/bytewaveco"
               target="_blank"
               rel="nofollow"
               class="social">
-              <icon name="ph:instagram-logo" />
-            </a>
+              <div i-ph-instagram-logo />
+            </social-button>
           </li>
           <li>
-            <a
+            <social-button
               href="https://www.tiktok.com/@bytewaveco"
               target="_blank"
               rel="nofollow"
               class="social">
-              <icon name="ph:tiktok-logo" />
-            </a>
+              <div i-ph-tiktok-logo />
+            </social-button>
           </li>
           <li>
-            <a
+            <social-button
               href="https://linktr.ee/bytewaveco"
               target="_blank"
               rel="nofollow"
               class="social">
-              <icon name="simple-icons:linktree" />
-            </a>
+              <div i-simple-icons-linktree />
+            </social-button>
           </li>
           <li>
-            <a
+            <social-button
               href="https://github.com/bytewaveco"
               aria-label="Bytewave's GitHub"
               target="_blank"
               rel="nofollow"
               class="social">
-              <icon name="ph:github-logo" />
-            </a>
+              <div i-ph-github-logo />
+            </social-button>
           </li>
           <li>
-            <a
+            <social-button
               href="https://ko-fi.com/bytewaveco"
               aria-label="Bytewave's Ko-fi"
               target="_blank"
               rel="nofollow"
               class="social">
-              <icon name="ph:coffee" />
-            </a>
+              <div i-ph-coffee />
+            </social-button>
           </li>
         </ul>
       </div>
@@ -124,116 +157,3 @@
     <span>Copyright 2018-Present © Byte Wave LLC. All rights reserved.</span>
   </footer>
 </template>
-
-<style lang="scss" scoped>
-footer {
-  display: grid;
-  align-items: center;
-  justify-content: center;
-  justify-items: center;
-  row-gap: 2rem;
-  width: 100%;
-  color: rgb(var(--c-background));
-  background-color: rgb(var(--c-text));
-  padding-top: 2rem;
-  padding-bottom: 8rem;
-  box-sizing: border-box;
-
-  #footer-content {
-    display: grid;
-    grid-template-columns: repeat(4, auto);
-    grid-gap: 2.5rem;
-    align-items: flex-start;
-    width: fit-content;
-    margin: 0 auto 4rem;
-
-    a {
-      color: rgb(var(--c-background));
-      transition: all 130ms ease-in-out;
-      text-decoration: none;
-
-      &:hover {
-        color: rgb(var(--c-secondary));
-        text-decoration: underline;
-      }
-    }
-
-    div {
-      display: grid;
-      width: 100%;
-      text-align: left;
-
-      ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        text-align: left;
-
-        &.socials {
-          display: flex;
-          column-gap: 1.5rem;
-
-          li {
-            .social {
-              display: flex;
-              align-items: center;
-              justify-items: center;
-              justify-content: center;
-              width: 2rem;
-              height: 2rem;
-              background-color: rgb(var(--c-background));
-              border-radius: 50%;
-              text-decoration: none;
-              transition: all 130ms ease-in-out;
-
-              &:hover {
-                background-color: rgb(var(--c-secondary));
-
-                svg {
-                  color: rgb(var(--c-background));
-                }
-              }
-
-              svg {
-                font-size: 1.5rem;
-                color: rgb(var(--c-text));
-              }
-            }
-          }
-        }
-
-        li {
-          margin: 1rem 0;
-          font-size: 0.75rem;
-        }
-      }
-    }
-  }
-
-  span {
-    font-size: 0.75rem;
-  }
-}
-
-@media only screen and (max-width: 900px) {
-  footer {
-    #footer-content {
-      grid-template-columns: repeat(2, 1fr);
-      width: fit-content;
-      margin: 0 auto;
-      padding: 0 1rem;
-      box-sizing: border-box;
-    }
-  }
-}
-
-@media only screen and (max-width: 500px) {
-  footer {
-    #footer-content {
-      width: 100vw;
-      margin: 0;
-      grid-template-columns: 1fr;
-    }
-  }
-}
-</style>

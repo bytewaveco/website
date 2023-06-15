@@ -41,7 +41,8 @@
               "vercel",
               "len",
               "favicon",
-              "webmanifest"
+              "webmanifest",
+              "@unocss/nuxt"
             ]
           }
         ],

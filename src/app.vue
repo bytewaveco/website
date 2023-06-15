@@ -1,10 +1,7 @@
 <template>
-  <main>
-    <nuxt-layout>
-      <nuxt-page />
-    </nuxt-layout>
-    <app-footer />
-  </main>
+  <nuxt-layout>
+    <nuxt-page />
+  </nuxt-layout>
 </template>
 
 <script lang="ts" setup>
@@ -35,20 +32,13 @@ useSchemaOrg([
 </script>
 
 <style lang="scss">
-:root {
-  --c-text: 0, 0, 0;
-  --c-background: 255, 255, 255;
-  --c-primary: 0, 102, 255;
-  --c-secondary: 0, 102, 255;
-}
-
 html,
 body {
   margin: 0;
   font-size: 16px;
   font-family: 'Raleway', sans-serif;
-  color: rgb(var(--c-text));
-  background-color: rgb(var(--c-background));
+  color: black;
+  background-color: white;
   width: 100%;
   overflow: hidden;
   overflow-y: overlay;
@@ -100,7 +90,7 @@ p {
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: rgba(var(--c-primary), 0) rgba(var(--c-primary), 1);
+  scrollbar-color: rgba(0, 102, 255, 0) rgba(0, 102, 255, 1);
 }
 
 *::-webkit-scrollbar {
@@ -108,11 +98,11 @@ p {
 }
 
 *::-webkit-scrollbar-track {
-  background: rgba(var(--c-primary), 0);
+  background: rgba(0, 0, 0, 0);
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: rgba(var(--c-primary), 1);
+  background-color: rgba(0, 102, 255, 1);
   border-radius: 0;
   border: none;
 }
@@ -125,22 +115,8 @@ p {
 *:-webkit-autofill:hover,
 *:-webkit-autofill:focus,
 *:-webkit-autofill:active {
-  $box-shadow: 0 0 0 64px rgb(var(--c-background)) inset !important;
+  $box-shadow: 0 0 0 64px white inset !important;
   box-shadow: $box-shadow;
   -webkit-box-shadow: $box-shadow;
 }
-
-// a {
-//   appearance: none;
-//   outline: none;
-//   color: rgb(var(--secondary));
-//   text-decoration: none;
-//   cursor: pointer;
-
-//   &:focus,
-//   &:hover {
-//     text-decoration: underline;
-//     opacity: 0.9;
-//   }
-// }
 </style>

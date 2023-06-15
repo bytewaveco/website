@@ -1,53 +1,41 @@
 <template>
-  <section>
+  <section
+    :class="{
+      grid: true,
+      'grid-cols-1': true,
+      'items-center': true,
+      'justify-center': true,
+      'w-full': true,
+      'max-w-[992px]': true,
+      'mx-auto': true,
+      'pt-16': true,
+      'pb-32': true,
+      'text-center': true,
+      'gap-y-24': true,
+      'box-border': true,
+    }">
+    <img
+      src="~/assets/img/Bytewave-Text-Logo.svg"
+      alt="Bytewave text logo"
+      :class="{
+        'min-w-[100px]': true,
+        'w-[10vw]': true,
+        'max-w-[140px]': true,
+        'p-4': true,
+        'pointer-events-none': true,
+      }" />
     <img
       src="~/assets/img/hero.svg"
       height="600"
-      alt="Digital Marketing & Software Development" />
-    <p>BYTEWAVE SPECIALIZES IN CRAFTING ELEGANT & BOLD BRANDS</p>
+      alt="Digital Marketing & Software Development"
+      :class="{
+        'w-full': true,
+        'h-auto': true,
+        'pointer-events-none': true,
+        'user-select-none': true,
+        'p-4': true,
+        'box-border': true,
+      }" />
+    <p w-fit text-2xl mx-auto>BYTEWAVE SPECIALIZES IN CRAFTING ELEGANT & BOLD BRANDS</p>
   </section>
 </template>
-
-<style lang="scss" scoped>
-section {
-  position: relative;
-  display: grid;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  padding-top: 4rem;
-  padding-bottom: 8rem;
-  text-align: center;
-  row-gap: 6rem;
-
-  img {
-    height: auto;
-    pointer-events: none;
-    user-select: none;
-    padding: 1rem;
-    box-sizing: border-box;
-  }
-
-  p {
-    width: fit-content;
-    font-size: 1.5rem;
-  }
-}
-
-@media only screen and (max-width: 1260px) {
-  section {
-    img {
-      width: 100%;
-      margin: 0 auto;
-      box-sizing: border-box;
-    }
-
-    p {
-      width: 100%;
-      padding: 0 1rem;
-      box-sizing: border-box;
-    }
-  }
-}
-</style>
