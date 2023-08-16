@@ -5,8 +5,14 @@
       WE CREATED BYTEWAVE IN 2018 WITH THE INTENT TO EDUCATE BUSINESSES AND HELP THEM
       THRIVE ONLINE. WE CULTIVATE MEANINGFUL BRANDS USING DATA-BACKED STRATEGIES.
     </p>
-    <div flex flex-col gap-16 w-full mt-16 items-center>
-      <div aria-label="Kaden, Founder and Software Engineer" flex-1>
+    <div flex flex-col md:grid md:grid-cols-2 gap-16 w-full mt-16 items-center>
+      <div
+        aria-label="Kaden, Founder and Software Engineer"
+        flex-1
+        :class="{
+          'max-w-[350px]': true,
+          'mx-auto': true,
+        }">
         <div flex rounded p-2 bg-black box-border w-fit h-fit>
           <img
             src="~/assets/img/kaden.webp"
@@ -31,7 +37,13 @@
           TECHNOLOGY, AND THE MOUNTAINS.
         </p>
       </div>
-      <div aria-label="Winter, our Multi-media Creative Director" flex-1>
+      <div
+        aria-label="Winter, our Multi-media Creative Director"
+        flex-1
+        :class="{
+          'max-w-[350px]': true,
+          'mx-auto': true,
+        }">
         <div flex rounded p-2 bg-black box-border w-fit h-fit>
           <img
             src="~/assets/img/winter.webp"
@@ -55,7 +67,14 @@
           THINK THE HEAD OF PUPLICK RELATIONS IS CUTE AND KIND OF OBSESSED WITH ME.
         </p>
       </div>
-      <div aria-label="Koda, our Head of Puplick Relations" flex-1>
+      <div
+        aria-label="Koda, our Head of Puplick Relations"
+        flex-1
+        col-span-2
+        :class="{
+          'max-w-[350px]': true,
+          'mx-auto': true,
+        }">
         <div flex rounded p-2 bg-black box-border w-fit h-fit>
           <img
             src="~/assets/img/koda.webp"
