@@ -32,7 +32,7 @@
       <div>
         <h5>INFORMATION</h5>
         <ul list-none p-0 m-0 grid gap-y-2>
-          <li>SHERIDAN, WY</li>
+          <li>GILLETTE, WY</li>
           <li>bytewave.crypto</li>
           <li><footer-link to="tel:307-429-2163">(307) 429-2163</footer-link></li>
           <li><footer-link to="/terms">TERMS</footer-link></li>
@@ -45,7 +45,7 @@
           <li>
             <footer-link
               external
-              href="https://store.bytewave.co"
+              href="https://bytewaveco.gumroad.com/"
               aria-label="The Bytewave Store">
               STORE
             </footer-link>
@@ -154,6 +154,6 @@
         </ul>
       </div>
     </div>
-    <span>Copyright 2018-Present © Byte Wave LLC. All rights reserved.</span>
+    <span>© 2018 Bytewave. All rights reserved.</span>
   </footer>
 </template>

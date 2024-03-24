@@ -1,7 +1,7 @@
 <template>
   <a
     v-if="external"
-    target="_blank"
+    target="__blank"
     rel="noopener noreferrer"
     text-white
     transition-all

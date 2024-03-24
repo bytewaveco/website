@@ -14,6 +14,22 @@
       <div ref="projects" :class="{ relative: true, 'h-[500px]': true }">
         <app-project>
           <img
+            src="~/assets/img/projects/the-show-portal.webp"
+            alt="The Show Portal"
+            :class="{
+              'w-[20vw]': true,
+              'h-[20vw]': true,
+              'object-contain': true,
+              'object-center': true,
+            }"
+            :style="{
+              top: 'calc(50% - 10vw)',
+              left: 'calc(50% - 10vw)',
+            }" />
+          />
+        </app-project>
+        <app-project>
+          <img
             src="~/assets/img/projects/catfish.webp"
             alt="Catfish"
             :class="{

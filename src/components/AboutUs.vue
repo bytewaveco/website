@@ -67,38 +67,6 @@
           THINK THE HEAD OF PUPLICK RELATIONS IS CUTE AND KIND OF OBSESSED WITH ME.
         </p>
       </div>
-      <div
-        aria-label="Koda, our Head of Puplick Relations"
-        flex-1
-        col-span-2
-        :class="{
-          'max-w-[350px]': true,
-          'mx-auto': true,
-        }">
-        <div flex rounded p-2 bg-black box-border w-fit h-fit>
-          <img
-            src="~/assets/img/koda.webp"
-            alt="Koda, our Head of Puplick Relations"
-            loading="lazy"
-            :class="{
-              'w-[13vw]': true,
-              'h-[13vw]': true,
-              'min-w-[170px]': true,
-              'min-h-[170px]': true,
-              'max-w-[350px]': true,
-              'pointer-events-none': true,
-              'user-select-none': true,
-              'rounded-[3px]': true,
-            }" />
-        </div>
-        <h5 font-extrabold>KODA BEAR</h5>
-        <h5>HEAD OF PUPLICK RELATIONS</h5>
-        <p w-full>
-          HI, I'M KODA! I LOVE COOKIES, MY BABIES, AND SNUGGLING IN FRONT OF THE
-          FIREPLACE. I'M OBSESSED WITH MY PARENTS AND SPEND EVERY DAY SUPERVISING THEIR
-          EVERY MOVE.
-        </p>
-      </div>
     </div>
   </div>
 </template>

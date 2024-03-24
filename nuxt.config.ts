@@ -14,47 +14,16 @@ export default defineNuxtConfig({
   },
   app: {
     head: {
-      title: 'Bytewave of Sheridan, WY',
+      title: 'Bytewave of Gillette, WY',
       meta: [
         {
           name: 'description',
           content:
             /* eslint-disable-next-line max-len */
-            'Bytewave is a software company located in Sheridan, WY that offers website design, marketing, social media management, SEO optimization, and more.',
-        },
-      ],
-      link: [
-        {
-          rel: 'apple-touch-icon',
-          sizes: '180x180',
-          href: '/apple-touch-icon.png',
-        },
-        {
-          rel: 'icon',
-          type: 'image/png',
-          sizes: '32x32',
-          href: '/favicon-32x32.png',
-        },
-        {
-          rel: 'icon',
-          type: 'image/png',
-          sizes: '16x16',
-          href: '/favicon-16x16.png',
-        },
-        {
-          rel: 'icon',
-          type: 'image/svg+xml',
-          href: '/favicon.svg',
-        },
-        {
-          rel: 'manifest',
-          href: '/site.webmanifest',
+            'Bytewave is a software company located in Gillette, WY that offers website design, marketing, social media management, SEO optimization, and more.',
         },
       ],
     },
-  },
-  schemaOrg: {
-    canonicalHost: 'https://bytewave.co',
   },
   hooks: {
     'imports:dirs': (dirs: string[]) => {
@@ -63,4 +32,5 @@ export default defineNuxtConfig({
   },
   modules: ['@nuxt/content', '@nuxtjs/robots', 'nuxt-schema-org', '@unocss/nuxt'],
   telemetry: false,
+  devtools: { enabled: true, telemetry: false },
 })
