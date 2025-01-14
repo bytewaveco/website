@@ -154,6 +154,6 @@
         </ul>
       </div>
     </div>
-    <span>© 2018 Bytewave. All rights reserved.</span>
+    <span class="text-sm">Copyright © 2025 Bytewave. All rights reserved.</span>
   </footer>
 </template>
