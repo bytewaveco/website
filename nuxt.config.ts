@@ -37,7 +37,7 @@ export default defineNuxtConfig({
     },
   },
 
-  modules: ['@nuxt/content', '@nuxtjs/robots', 'nuxt-schema-org', '@unocss/nuxt'],
+  modules: ['@nuxtjs/robots', '@nuxt/content', 'nuxt-schema-org', '@unocss/nuxt'],
   telemetry: false,
   devtools: { enabled: true, telemetry: false },
   compatibilityDate: '2025-01-14',
