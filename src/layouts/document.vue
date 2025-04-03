@@ -1,11 +1,11 @@
 <template>
   <main>
-    <nuxt-link to="/">
-      <img src="~/assets/img/Bytewave-Text-Logo.svg" width="200" />
-    </nuxt-link>
+    <NuxtLink to="/">
+      <img src="/img/Bytewave-Text-Logo.svg" width="200" />
+    </NuxtLink>
     <slot />
   </main>
-  <app-footer />
+  <AppFooter />
 </template>
 
 <style lang="scss" scoped>

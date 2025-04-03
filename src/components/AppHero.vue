@@ -1,41 +1,20 @@
 <template>
   <section
-    :class="{
-      grid: true,
-      'grid-cols-1': true,
-      'items-center': true,
-      'justify-center': true,
-      'w-full': true,
-      'max-w-[992px]': true,
-      'mx-auto': true,
-      'pt-16': true,
-      'pb-32': true,
-      'text-center': true,
-      'gap-y-24': true,
-      'box-border': true,
-    }">
-    <img
-      src="~/assets/img/Bytewave-Text-Logo.svg"
+    class="grid grid-cols-1 items-center justify-center w-full max-w-[992px] mx-auto pt-16 pb-32 text-center gap-y-24 box-border"
+  >
+    <NuxtImg
+      src="/img/Bytewave-Text-Logo.svg"
       alt="Bytewave text logo"
-      :class="{
-        'min-w-[100px]': true,
-        'w-[10vw]': true,
-        'max-w-[140px]': true,
-        'p-4': true,
-        'pointer-events-none': true,
-      }" />
-    <img
-      src="~/assets/img/hero.svg"
+      class="min-w-[100px] w-[10vw] max-w-[140px] p-4 pointer-events-none"
+    />
+    <NuxtImg
+      src="/img/hero.svg"
       height="600"
       alt="Digital Marketing & Software Development"
-      :class="{
-        'w-full': true,
-        'h-auto': true,
-        'pointer-events-none': true,
-        'user-select-none': true,
-        'p-4': true,
-        'box-border': true,
-      }" />
-    <p w-fit text-2xl mx-auto>BYTEWAVE SPECIALIZES IN CRAFTING ELEGANT & BOLD BRANDS</p>
+      class="w-full h-auto pointer-events-none user-select-none p-4 box-border"
+    />
+    <p class="w-fit text-2xl mx-auto">
+      BYTEWAVE SPECIALIZES IN CRAFTING ELEGANT & BOLD BRANDS
+    </p>
   </section>
 </template>

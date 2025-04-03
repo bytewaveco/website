@@ -1,204 +1,151 @@
 <template>
   <section id="projects" w-full text-white bg-black>
-    <div
-      :class="{
-        'w-full': true,
-        'max-w-[992px]': true,
-        'py-32': true,
-        'px-4': true,
-        'mx-auto': true,
-        'box-border': true,
-        'lg:w-[80vw]': true,
-      }">
+    <div class="w-full max-w-[992px] py-32 px-4 mx-auto box-border lg:w-[80vw]">
       <h2>PROJECTS</h2>
-      <div ref="projects" :class="{ relative: true, 'h-[500px]': true }">
-        <app-project>
-          <img
-            src="~/assets/img/projects/the-show-portal.webp"
+      <div ref="projects" class="relative h-[500px]">
+        <AppProject>
+          <NuxtImg
+            src="/img/projects/trbo.svg"
+            alt="TRBO"
+            class="w-[20vw] h-[20vw] object-contain object-center"
+            :style="{
+              top: 'calc(50% - 10vw)',
+              left: 'calc(50% - 10vw)',
+            }"
+          />
+        </AppProject>
+        <AppProject>
+          <NuxtImg
+            src="/img/projects/the-show-portal.webp"
             alt="The Show Portal"
-            :class="{
-              'w-[20vw]': true,
-              'h-[20vw]': true,
-              'object-contain': true,
-              'object-center': true,
-            }"
+            class="w-[20vw] h-[20vw] object-contain object-center"
             :style="{
               top: 'calc(50% - 10vw)',
               left: 'calc(50% - 10vw)',
-            }" />
+            }"
           />
-        </app-project>
-        <app-project>
-          <img
-            src="~/assets/img/projects/catfish.webp"
+        </AppProject>
+        <AppProject>
+          <NuxtImg
+            src="/img/projects/catfish.webp"
             alt="Catfish"
-            :class="{
-              'w-full': true,
-              'h-full': true,
-              'object-cover': true,
-              'object-center': true,
-            }" />
+            class="w-full h-full object-contain object-center"
           />
-        </app-project>
-        <app-project>
-          <img
-            src="~/assets/img/projects/procar.svg"
-            alt="Procar"
-            :class="{
-              'w-[20vw]': true,
-              'h-[20vw]': true,
-              'object-contain': true,
-              'object-center': true,
-            }"
-            :style="{
-              top: 'calc(50% - 10vw)',
-              left: 'calc(50% - 10vw)',
-            }" />
-          <img
-            src="~/assets/img/projects/austin.svg"
-            alt="Procar - Austin Track"
-            :class="{
-              'w-[80vw]': true,
-              'object-contain': true,
-              'object-center': true,
-              'opacity-20': true,
-            }"
-            :style="{
-              top: 'calc(50% - 40vw)',
-              left: 'calc(50% - 40vw)',
-            }" />
-        </app-project>
-        <app-project>
-          <img
-            src="~/assets/img/projects/signal.webp"
+        </AppProject>
+        <AppProject>
+          <NuxtImg
+            src="/img/projects/signal.webp"
             alt="Signal"
-            :class="{
-              'w-[20vw]': true,
-              'h-[20vw]': true,
-              'object-contain': true,
-              'object-center': true,
-            }"
+            class="w-[20vw] h-[20vw] object-contain object-center"
             :style="{
               top: 'calc(50% - 10vw)',
               left: 'calc(50% - 10vw)',
-            }" />
-        </app-project>
-        <app-project>
-          <img
-            src="~/assets/img/projects/rogue-ocean.webp"
+            }"
+          />
+        </AppProject>
+        <AppProject>
+          <NuxtImg
+            src="/img/projects/rogue-ocean.webp"
             alt="Rogue Ocean"
-            :class="{
-              'w-full': true,
-              'h-full': true,
-              'object-cover': true,
-              'object-center': true,
-            }" />
-        </app-project>
-        <app-project>
-          <img
-            src="~/assets/img/projects/wilsons-lawn-landscape.svg"
+            class="w-[20vw] h-[20vw] object-contain object-center"
+          />
+        </AppProject>
+        <AppProject>
+          <NuxtImg
+            src="/img/projects/wilsons-lawn-landscape.svg"
             alt="Wilson's Lawn and Landscape"
-            :class="{
-              'w-[20vw]': true,
-              'h-[20vw]': true,
-              'object-contain': true,
-              'object-center': true,
-            }"
+            class="w-[20vw] h-[20vw] object-contain object-center"
             :style="{
               top: 'calc(50% - 10vw)',
               left: 'calc(50% - 10vw)',
-            }" />
-        </app-project>
-        <app-project dark>
-          <img
-            src="~/assets/img/projects/justin-time.svg"
+            }"
+          />
+        </AppProject>
+        <AppProject dark>
+          <NuxtImg
+            src="/img/projects/justin-time.svg"
             alt="Justin Time Tile & Design"
-            :class="{
-              'w-[20vw]': true,
-              'h-[20vw]': true,
-              'object-contain': true,
-              'object-center': true,
-            }"
+            class="w-[20vw] h-[20vw] object-contain object-center"
             :style="{
               top: 'calc(50% - 10vw)',
               left: 'calc(50% - 10vw)',
-            }" />
-        </app-project>
-        <app-project>
-          <img
-            src="~/assets/img/projects/broken-heart-stables.svg"
+            }"
+          />
+        </AppProject>
+        <AppProject>
+          <NuxtImg
+            src="/img/projects/procar.svg"
+            alt="Procar"
+            class="w-[20vw] h-[20vw] object-contain object-center"
+            :style="{
+              top: 'calc(50% - 10vw)',
+              left: 'calc(50% - 10vw)',
+            }"
+          />
+          <NuxtImg
+            src="/img/projects/austin.svg"
+            alt="Procar - Austin Track"
+            class="w-full left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-20"
+            :style="{
+              transform: 'scale(1.5)',
+            }"
+          />
+        </AppProject>
+        <AppProject>
+          <NuxtImg
+            src="/img/projects/broken-heart-stables.svg"
             alt="Broken Heart Stables"
-            :class="{
-              'w-[20vw]': true,
-              'h-[20vw]': true,
-              'object-contain': true,
-              'object-center': true,
-            }"
+            class="w-[20vw] h-[20vw] object-contain object-center"
             :style="{
               top: 'calc(50% - 10vw)',
               left: 'calc(50% - 10vw)',
-            }" />
-        </app-project>
-        <app-project dark>
-          <img
-            src="~/assets/img/projects/inorganic-audio.svg"
+            }"
+          />
+        </AppProject>
+        <AppProject dark>
+          <NuxtImg
+            src="/img/projects/inorganic-audio.svg"
             alt="Inorganic Audio"
-            :class="{
-              'w-[20vw]': true,
-              'h-[20vw]': true,
-              'object-contain': true,
-              'object-center': true,
-            }"
+            class="w-[20vw] h-[20vw] object-contain object-center"
             :style="{
               top: 'calc(50% - 10vw)',
               left: 'calc(50% - 10vw)',
-            }" />
-        </app-project>
-        <app-project>
-          <img
-            src="~/assets/img/projects/wyo-pruitt-writing.svg"
+            }"
+          />
+        </AppProject>
+        <AppProject>
+          <NuxtImg
+            src="/img/projects/wyo-pruitt-writing.svg"
             alt="Wyo Pruitt Writing"
-            :class="{
-              'w-[20vw]': true,
-              'h-[20vw]': true,
-              'object-contain': true,
-              'object-center': true,
-            }"
+            class="w-[20vw] h-[20vw] object-contain object-center"
             :style="{
               top: 'calc(50% - 10vw)',
               left: 'calc(50% - 10vw)',
-            }" />
-        </app-project>
-        <app-project>
-          <img
-            src="~/assets/img/projects/heidi-gross-ward-3.webp"
+            }"
+          />
+        </AppProject>
+        <AppProject>
+          <NuxtImg
+            src="/img/projects/heidi-gross-ward-3.webp"
             alt="Heidi Gross Ward 3 Campaign"
-            :class="{
-              'w-[20vw]': true,
-              'h-[20vw]': true,
-              'object-contain': true,
-              'object-center': true,
-            }"
+            class="w-[20vw] h-[20vw] object-contain object-center"
             :style="{
               top: 'calc(50% - 10vw)',
               left: 'calc(50% - 10vw)',
-            }" />
-        </app-project>
-        <app-project>
-          <img
-            src="~/assets/img/projects/nathan-mcleland-mayor.webp"
+            }"
+          />
+        </AppProject>
+        <AppProject>
+          <NuxtImg
+            src="/img/projects/nathan-mcleland-mayor.webp"
             alt="Nathan McLeland Mayoral Campaign"
-            :class="{
-              'w-[20vw]': true,
-              'h-[20vw]': true,
-              'object-contain': true,
-              'object-center': true,
-            }"
+            class="w-[20vw] h-[20vw] object-contain object-center"
             :style="{
               top: 'calc(50% - 10vw)',
               left: 'calc(50% - 10vw)',
-            }" />
-        </app-project>
+            }"
+          />
+        </AppProject>
       </div>
     </div>
   </section>
@@ -209,7 +156,8 @@ const interval = ref<number>()
 const projects = ref<HTMLDivElement>()
 
 onMounted(() => {
-  const projectElements = projects.value?.querySelectorAll<HTMLElement>('.project')
+  const projectElements =
+    projects.value?.querySelectorAll<HTMLElement>('.project')
 
   if (projectElements) {
     const projectArray = Array.from(projectElements)
@@ -246,7 +194,7 @@ onUnmounted(() => {
 
 <style lang="scss" scoped>
 :deep(.project) {
-  @for $i from 1 through 11 {
+  @for $i from 1 through 12 {
     &:nth-child(#{$i}) {
       $i: $i - 1;
       top: $i * -80px;

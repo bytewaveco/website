@@ -1,7 +1,9 @@
 <template>
-  <nuxt-layout>
-    <nuxt-page />
-  </nuxt-layout>
+  <UApp>
+    <NuxtLayout>
+      <NuxtPage />
+    </NuxtLayout>
+  </UApp>
 </template>
 
 <script lang="ts" setup>
@@ -64,7 +66,6 @@ useSchemaOrg([
   }),
 ])
 
-/* eslint-disable max-len */
 useSeoMeta({
   description:
     'Bytewave is a software company located in Gillette, WY that offers website design, marketing, social media management, SEO optimization, and more.',
@@ -89,7 +90,6 @@ useSeoMeta({
   },
   twitterCard: 'summary',
 })
-/* eslint-enable max-len */
 </script>
 
 <style lang="scss">

@@ -1,6 +1,6 @@
 <template>
   <section>
-    <content-doc />
+    <ContentRenderer v-if="page" :value="page" />
   </section>
 </template>
 
@@ -8,4 +8,8 @@
 definePageMeta({
   layout: 'document',
 })
+
+const { data: page } = await useAsyncData(() =>
+  queryCollection('content').path('/privacy').first(),
+)
 </script>

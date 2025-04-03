@@ -3,22 +3,16 @@
     v-if="external"
     target="__blank"
     rel="noopener noreferrer"
-    text-white
-    transition-all
-    decoration-none
-    hover:text-blue
-    hover:underline>
+    class="text-white transition-all decoration-none hover:text-blue-500 hover:underline"
+  >
     <slot />
   </a>
-  <nuxt-link
+  <NuxtLink
     v-else
-    text-white
-    transition-all
-    decoration-none
-    hover:text-blue
-    hover:underline>
+    class="text-white transition-all decoration-none hover:text-blue-500 hover:underline"
+  >
     <slot />
-  </nuxt-link>
+  </NuxtLink>
 </template>
 
 <script lang="ts" setup>

@@ -1,27 +1,17 @@
 <template>
   <div
+    class="project absolute w-[80vw] h-[500px] rounded-lg overflow-hidden shadow-lg user-select-none z-50 box-border lg:w-[40vw]"
     :class="{
-      project: true,
-      absolute: true,
-      'w-[80vw]': true,
-      'h-[500px]': true,
-      'rounded-lg': true,
-      'overflow-hidden': true,
       'bg-white': !dark,
-      'shadow-lg': true,
-      'user-select-none': true,
-      'z-50': true,
-      'bg-black': dark,
-      'border-solid': dark,
-      'border-3': dark,
-      'border-white': dark,
-      'box-border': true,
-      'lg:w-[40vw]': true,
+      'bg-black border-3 border-white': dark,
     }"
     :style="{
       transition: 'top 1000ms ease-in, left 1000ms ease-in',
-    }">
-    <slot />
+    }"
+  >
+    <div class="rounded-lg overflow-hidden">
+      <slot />
+    </div>
   </div>
 </template>
 

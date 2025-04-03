@@ -1,12 +1,12 @@
 <template>
-  <app-hero />
-  <water />
-  <explanatory1 />
-  <projects />
-  <services />
-  <bold-scroller />
-  <about-us />
-  <ride-the-wave />
+  <AppHero />
+  <Water />
+  <Explanatory1 />
+  <Projects />
+  <Services />
+  <BoldScroller />
+  <AboutUs />
+  <RideTheWave />
 </template>
 
 <style lang="scss" scoped>
