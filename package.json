@@ -1,4 +1,5 @@
 {
+  "name": "website",
   "private": true,
   "scripts": {
     "build": "npm run clean && nuxt build",
