@@ -1,9 +1,7 @@
 <template>
-  <section
-    class="flex justify-center justify-items-center items-center w-full bg-blue-500"
-  >
+  <section class="flex w-full place-items-center justify-center bg-blue-500">
     <h1
-      class="text-white text-xl whitespace-nowrap m-0 py-8 sm:text-4xl md:text-6xl cursor-default font-bold"
+      class="m-0 cursor-default whitespace-nowrap py-8 text-xl font-bold text-white sm:text-4xl md:text-6xl"
     >
       RIDE THE WAVE.
     </h1>

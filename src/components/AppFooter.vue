@@ -1,13 +1,13 @@
 <template>
   <footer
-    class="grid grid-cols-1 items-center justify-center justify-items-center row-gap-8 w-full bg-black text-white pt-8 pb-32 px-4 box-border"
+    class="box-border grid w-full grid-cols-1 place-items-center justify-center gap-8 bg-black px-4 pb-32 pt-8 text-white"
   >
     <div
-      class="w-full grid grid-cols-1 gap-y-10 gap-x-4 items-start self-start mb-16 lg:max-w-[992px] lg:mx-auto lg:grid-cols-4"
+      class="mb-16 grid w-full grid-cols-1 items-start gap-x-4 gap-y-10 self-start lg:mx-auto lg:max-w-[992px] lg:grid-cols-4"
     >
       <div>
         <h5>INFORMATION</h5>
-        <ul class="list-none p-0 m-0 grid gap-y-2">
+        <ul class="m-0 grid list-none gap-y-2 p-0">
           <li>GILLETTE, WY</li>
           <li>bytewave.crypto</li>
           <li>
@@ -19,7 +19,7 @@
       </div>
       <div>
         <h5>SITE MAP</h5>
-        <ul class="list-none p-0 m-0 grid gap-y-2">
+        <ul class="m-0 grid list-none gap-y-2 p-0">
           <li>
             <footer-link
               external
@@ -53,7 +53,7 @@
       </div>
       <div>
         <h5>ACCREDITATION</h5>
-        <ul class="list-none p-0 m-0">
+        <ul class="m-0 list-none p-0">
           <li>
             <a
               href="https://www.bbb.org/us/wy/sheridan/profile/graphic-designer/byte-wave-llc-0805-46128974/#sealclick"
@@ -74,7 +74,7 @@
       </div>
       <div>
         <h5>FOLLOW US</h5>
-        <ul class="list-none p-0 m-0 flex gap-x-2">
+        <ul class="m-0 flex list-none gap-x-2 p-0">
           <li>
             <SocialButton
               href="https://www.facebook.com/bytewaveco"
@@ -141,7 +141,7 @@
         </ul>
       </div>
     </div>
-    <span class="text-sm text-gray-300 font-medium">
+    <span class="text-sm font-medium text-gray-300">
       Copyright © 2025 Bytewave. All rights reserved.
     </span>
   </footer>

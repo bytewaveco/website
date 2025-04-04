@@ -42,4 +42,7 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@nuxt/eslint',
   ],
+  eslint: {
+    checker: true,
+  },
 })

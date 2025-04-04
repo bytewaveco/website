@@ -1,16 +1,16 @@
 <template>
   <section
     id="services"
-    class="w-[80vw] max-w-[992px] mx-auto py-32 px-4 box-border"
+    class="mx-auto box-border w-[80vw] max-w-[992px] px-4 py-32"
   >
     <h2>SERVICES</h2>
     <p>
       NEED A SERVICE THAT'S NOT LISTED BELOW? CONTACT US. WE LIKE A CHALLENGE!
     </p>
-    <div class="grid grid-cols-1 gap-y-16 gap-x-8 mt-16 md:grid-cols-2">
+    <div class="mt-16 grid grid-cols-1 gap-x-8 gap-y-16 md:grid-cols-2">
       <div>
         <UIcon class="text-8xl" name="i-ph:trend-up" />
-        <h5 class="text-blue-500 font-extrabold">SOCIAL MEDIA MARKETING</h5>
+        <h5 class="font-extrabold text-blue-500">SOCIAL MEDIA MARKETING</h5>
         <ul class="p-4">
           <li>CUSTOM PLANS DESIGNED FOR YOU</li>
           <li>COMPETITOR ANALYSIS</li>
@@ -28,7 +28,7 @@
       </div>
       <div>
         <UIcon class="text-8xl" name="i-ph:bag" />
-        <h5 class="text-blue-500 font-extrabold">BRAND DESIGN</h5>
+        <h5 class="font-extrabold text-blue-500">BRAND DESIGN</h5>
         <ul class="p-4">
           <li>PRIMARY LOGO, SECONDARY LOGO, SUBMARK, LOGO MARK</li>
           <li>COLOR PALETTE</li>
@@ -46,7 +46,7 @@
       </div>
       <div>
         <UIcon class="text-8xl" name="i-ph:browsers" />
-        <h5 class="text-blue-500 font-extrabold">WEBSITE DESIGN</h5>
+        <h5 class="font-extrabold text-blue-500">WEBSITE DESIGN</h5>
         <ul class="p-4">
           <li>DOMAIN NAME ACQUISITION AND MANAGEMENT</li>
           <li>SEO OPTIMIZED APPLICATION</li>
@@ -59,7 +59,7 @@
       </div>
       <div>
         <UIcon class="text-8xl" name="i-ph:code" />
-        <h5 class="text-blue-500 font-extrabold">SOFTWARE DEVELOPMENT</h5>
+        <h5 class="font-extrabold text-blue-500">SOFTWARE DEVELOPMENT</h5>
         <ul class="p-4">
           <li>ALWAYS CUSTOM TO FIT THE JOB</li>
           <li>MANAGED DEPLOYMENT</li>

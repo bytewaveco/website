@@ -1,19 +1,19 @@
 <template>
   <section
-    class="grid grid-cols-1 items-center justify-center justify-items-center gap-8 w-fit px-4 py-32 box-border md:flex"
+    class="box-border grid w-fit grid-cols-1 place-items-center justify-center gap-8 px-4 py-32 md:flex"
   >
-    <div class="flex rounded p-2 bg-black box-border w-fit h-fit">
+    <div class="box-border flex size-fit rounded bg-black p-2">
       <NuxtImg
         src="/img/us.webp"
         alt="Bytewave Staff"
         loading="lazy"
-        class="w-[13vw] h-[13vw] min-w-[170px] min-h-[170px] pointer-events-none user-select-none rounded-[3px]"
+        class="pointer-events-none size-[13vw] min-h-[170px] min-w-[170px] select-none rounded-[3px]"
       />
     </div>
     <h4 class="m-0 text-center md:text-left">
-      WE ARE <span class="text-blue">DARING</span> CREATORS <br />
+      WE ARE <span class="text-blue-500">DARING</span> CREATORS <br />
       &amp; EDUCATORS THAT HELP <br />
-      BUSINESSES <span class="text-blue">THRIVE</span> ONLINE
+      BUSINESSES <span class="text-blue-500">THRIVE</span> ONLINE
     </h4>
   </section>
 </template>

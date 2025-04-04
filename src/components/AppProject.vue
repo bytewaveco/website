@@ -1,15 +1,15 @@
 <template>
   <div
-    class="project absolute w-[80vw] h-[500px] rounded-lg overflow-hidden shadow-lg user-select-none z-50 box-border lg:w-[40vw]"
+    class="project absolute z-50 box-border h-[500px] w-[80vw] select-none overflow-hidden rounded-lg shadow-lg lg:w-[40vw]"
     :class="{
       'bg-white': !dark,
-      'bg-black border-3 border-white': dark,
+      'border-2 border-white bg-black': dark,
     }"
     :style="{
       transition: 'top 1000ms ease-in, left 1000ms ease-in',
     }"
   >
-    <div class="rounded-lg overflow-hidden">
+    <div class="overflow-hidden rounded-lg">
       <slot />
     </div>
   </div>

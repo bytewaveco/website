@@ -1,13 +1,13 @@
 <template>
   <section id="projects" w-full text-white bg-black>
-    <div class="w-full max-w-[992px] py-32 px-4 mx-auto box-border lg:w-[80vw]">
+    <div class="mx-auto box-border w-full max-w-[992px] px-4 py-32 lg:w-[80vw]">
       <h2>PROJECTS</h2>
       <div ref="projects" class="relative h-[500px]">
         <AppProject>
           <NuxtImg
             src="/img/projects/trbo.svg"
             alt="TRBO"
-            class="w-[20vw] h-[20vw] object-contain object-center"
+            class="size-[20vw] object-contain object-center"
             :style="{
               top: 'calc(50% - 10vw)',
               left: 'calc(50% - 10vw)',
@@ -18,7 +18,7 @@
           <NuxtImg
             src="/img/projects/the-show-portal.webp"
             alt="The Show Portal"
-            class="w-[20vw] h-[20vw] object-contain object-center"
+            class="size-[20vw] object-contain object-center"
             :style="{
               top: 'calc(50% - 10vw)',
               left: 'calc(50% - 10vw)',
@@ -29,14 +29,14 @@
           <NuxtImg
             src="/img/projects/catfish.webp"
             alt="Catfish"
-            class="w-full h-full object-contain object-center"
+            class="size-full object-contain object-center"
           />
         </AppProject>
         <AppProject>
           <NuxtImg
             src="/img/projects/signal.webp"
             alt="Signal"
-            class="w-[20vw] h-[20vw] object-contain object-center"
+            class="size-[20vw] object-contain object-center"
             :style="{
               top: 'calc(50% - 10vw)',
               left: 'calc(50% - 10vw)',
@@ -47,14 +47,14 @@
           <NuxtImg
             src="/img/projects/rogue-ocean.webp"
             alt="Rogue Ocean"
-            class="w-[20vw] h-[20vw] object-contain object-center"
+            class="size-[20vw] object-contain object-center"
           />
         </AppProject>
         <AppProject>
           <NuxtImg
             src="/img/projects/wilsons-lawn-landscape.svg"
             alt="Wilson's Lawn and Landscape"
-            class="w-[20vw] h-[20vw] object-contain object-center"
+            class="size-[20vw] object-contain object-center"
             :style="{
               top: 'calc(50% - 10vw)',
               left: 'calc(50% - 10vw)',
@@ -65,7 +65,7 @@
           <NuxtImg
             src="/img/projects/justin-time.svg"
             alt="Justin Time Tile & Design"
-            class="w-[20vw] h-[20vw] object-contain object-center"
+            class="size-[20vw] object-contain object-center"
             :style="{
               top: 'calc(50% - 10vw)',
               left: 'calc(50% - 10vw)',
@@ -76,7 +76,7 @@
           <NuxtImg
             src="/img/projects/procar.svg"
             alt="Procar"
-            class="w-[20vw] h-[20vw] object-contain object-center"
+            class="size-[20vw] object-contain object-center"
             :style="{
               top: 'calc(50% - 10vw)',
               left: 'calc(50% - 10vw)',
@@ -85,7 +85,7 @@
           <NuxtImg
             src="/img/projects/austin.svg"
             alt="Procar - Austin Track"
-            class="w-full left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-20"
+            class="left-1/2 top-1/2 w-full -translate-x-1/2 -translate-y-1/2 opacity-20"
             :style="{
               transform: 'scale(1.5)',
             }"
@@ -95,7 +95,7 @@
           <NuxtImg
             src="/img/projects/broken-heart-stables.svg"
             alt="Broken Heart Stables"
-            class="w-[20vw] h-[20vw] object-contain object-center"
+            class="size-[20vw] object-contain object-center"
             :style="{
               top: 'calc(50% - 10vw)',
               left: 'calc(50% - 10vw)',
@@ -106,7 +106,7 @@
           <NuxtImg
             src="/img/projects/inorganic-audio.svg"
             alt="Inorganic Audio"
-            class="w-[20vw] h-[20vw] object-contain object-center"
+            class="size-[20vw] object-contain object-center"
             :style="{
               top: 'calc(50% - 10vw)',
               left: 'calc(50% - 10vw)',
@@ -117,7 +117,7 @@
           <NuxtImg
             src="/img/projects/wyo-pruitt-writing.svg"
             alt="Wyo Pruitt Writing"
-            class="w-[20vw] h-[20vw] object-contain object-center"
+            class="size-[20vw] object-contain object-center"
             :style="{
               top: 'calc(50% - 10vw)',
               left: 'calc(50% - 10vw)',
@@ -128,7 +128,7 @@
           <NuxtImg
             src="/img/projects/heidi-gross-ward-3.webp"
             alt="Heidi Gross Ward 3 Campaign"
-            class="w-[20vw] h-[20vw] object-contain object-center"
+            class="size-[20vw] object-contain object-center"
             :style="{
               top: 'calc(50% - 10vw)',
               left: 'calc(50% - 10vw)',
@@ -139,7 +139,7 @@
           <NuxtImg
             src="/img/projects/nathan-mcleland-mayor.webp"
             alt="Nathan McLeland Mayoral Campaign"
-            class="w-[20vw] h-[20vw] object-contain object-center"
+            class="size-[20vw] object-contain object-center"
             :style="{
               top: 'calc(50% - 10vw)',
               left: 'calc(50% - 10vw)',

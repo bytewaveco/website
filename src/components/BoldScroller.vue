@@ -10,7 +10,7 @@
       <NuxtImg
         src="/img/Bytewave-Secondary-Logo.svg"
         alt="Bytewave logo"
-        class="h-[40px] my-auto mx-8"
+        class="mx-8 my-auto h-[40px]"
       />
     </UPageLogos>
   </div>

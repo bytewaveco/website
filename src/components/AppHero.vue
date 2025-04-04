@@ -1,19 +1,19 @@
 <template>
   <section
-    class="grid grid-cols-1 items-center justify-center w-full max-w-[992px] mx-auto pt-16 pb-32 text-center gap-y-24 box-border"
+    class="mx-auto box-border grid w-full max-w-[992px] grid-cols-1 items-center justify-center gap-y-24 pb-32 pt-16 text-center"
   >
     <NuxtImg
       src="/img/Bytewave-Text-Logo.svg"
       alt="Bytewave text logo"
-      class="min-w-[100px] w-[10vw] max-w-[140px] p-4 pointer-events-none"
+      class="pointer-events-none w-[10vw] min-w-[100px] max-w-[140px] p-4"
     />
     <NuxtImg
       src="/img/hero.svg"
       height="600"
       alt="Digital Marketing & Software Development"
-      class="w-full h-auto pointer-events-none user-select-none p-4 box-border"
+      class="pointer-events-none box-border h-auto w-full select-none p-4"
     />
-    <p class="w-fit text-2xl mx-auto">
+    <p class="mx-auto w-fit text-2xl">
       BYTEWAVE SPECIALIZES IN CRAFTING ELEGANT & BOLD BRANDS
     </p>
   </section>

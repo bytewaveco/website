@@ -1,5 +1,5 @@
 <template>
-  <div id="about-us" class="w-full max-w-[992px] mx-auto py-32 px-4 box-border">
+  <div id="about-us" class="mx-auto box-border w-full max-w-[992px] px-4 py-32">
     <h2>ABOUT US</h2>
     <p>
       WE CREATED BYTEWAVE IN 2018 WITH THE INTENT TO EDUCATE BUSINESSES AND HELP
@@ -7,18 +7,18 @@
       STRATEGIES.
     </p>
     <div
-      class="flex flex-col md:grid md:grid-cols-2 gap-16 w-full mt-16 items-center"
+      class="mt-16 flex w-full flex-col items-center gap-16 md:grid md:grid-cols-2"
     >
       <div
         aria-label="Kaden, Founder and Software Engineer"
-        class="flex-1 max-w-[350px] mx-auto"
+        class="mx-auto max-w-[350px] flex-1"
       >
-        <div class="flex rounded p-2 bg-black box-border w-fit h-fit">
+        <div class="box-border flex size-fit rounded bg-black p-2">
           <NuxtImg
             src="/img/kaden.webp"
             alt="Kaden, Founder and Software Engineer"
             loading="lazy"
-            class="w-[13vw] h-[13vw] min-w-[170px] min-h-[170px] max-w-[350px] pointer-events-none user-select-none rounded-[3px]"
+            class="pointer-events-none size-[13vw] min-h-[170px] min-w-[170px] max-w-[350px] select-none rounded-[3px]"
           />
         </div>
         <h5 class="font-extrabold">KADEN GRIFFITH</h5>
@@ -31,17 +31,17 @@
       </div>
       <div
         aria-label="Winter, our Multi-media Creative Director"
-        class="flex-1 max-w-[350px] mx-auto"
+        class="mx-auto max-w-[350px] flex-1"
       >
         <div
-          class="flex rounded p-2 bg-black box-border w-fit h-fit"
+          class="box-border flex size-fit rounded bg-black p-2"
           aria-label="Winter, our Multi-media Creative Director"
         >
           <NuxtImg
             src="/img/winter.webp"
             alt="Winter, our Multi-media Creative Director"
             loading="lazy"
-            class="w-[13vw] h-[13vw] min-w-[170px] min-h-[170px] max-w-[350px] pointer-events-none user-select-none rounded-[3px]"
+            class="pointer-events-none size-[13vw] min-h-[170px] min-w-[170px] max-w-[350px] select-none rounded-[3px]"
           />
         </div>
         <h5 class="font-extrabold">WINTER BLOCK</h5>

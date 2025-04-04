@@ -3,6 +3,6 @@
     src="/img/water.webp"
     height="500"
     alt="Moody water"
-    class="w-full h-[500px] pointer-events-none object-cover"
+    class="pointer-events-none h-[500px] w-full object-cover"
   />
 </template>
