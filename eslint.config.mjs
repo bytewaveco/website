@@ -1,22 +1,22 @@
 import withNuxt from './.nuxt/eslint.config.mjs'
-import eslintPluginTailwindCss from 'eslint-plugin-tailwindcss'
+// import eslintPluginTailwindCss from 'eslint-plugin-tailwindcss'
 import eslintPluginPrettier from 'eslint-plugin-prettier'
 
 export default withNuxt([
-  {
-    plugins: {
-      tailwindcss: eslintPluginTailwindCss,
-    },
-    rules: {
-      ...eslintPluginTailwindCss.configs.recommended.rules,
-      'tailwindcss/no-custom-classname': [
-        'warn',
-        {
-          whitelist: ['project', 'social'],
-        },
-      ],
-    },
-  },
+  // {
+  //   plugins: {
+  //     tailwindcss: eslintPluginTailwindCss,
+  //   },
+  //   rules: {
+  //     ...eslintPluginTailwindCss.configs.recommended.rules,
+  //     'tailwindcss/no-custom-classname': [
+  //       'warn',
+  //       {
+  //         whitelist: ['project', 'social'],
+  //       },
+  //     ],
+  //   },
+  // },
   {
     plugins: {
       prettier: eslintPluginPrettier,

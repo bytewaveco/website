@@ -12,3 +12,4 @@ coverage
 **/videos
 **/screenshots
 **/.DS_Store
+.eslintcache
