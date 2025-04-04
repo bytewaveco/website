@@ -1,5 +1,3 @@
-import path from 'path'
-
 export default defineNuxtConfig({
   compatibilityDate: '2025-01-14',
   telemetry: { enabled: false },
@@ -10,8 +8,14 @@ export default defineNuxtConfig({
     '/privacy': { prerender: true },
     '/terms': { prerender: true },
     '/': { prerender: true },
-    '/ingest/static/**': { proxy: 'https://us-assets.i.posthog.com/static/**' },
-    '/ingest/**': { proxy: 'https://us.i.posthog.com/**' },
+  },
+  nitro: {
+    routeRules: {
+      '/ingest/static/**': {
+        proxy: 'https://us-assets.i.posthog.com/static/**',
+      },
+      '/ingest/**': { proxy: 'https://us.i.posthog.com/**' },
+    },
   },
   app: {
     head: {
