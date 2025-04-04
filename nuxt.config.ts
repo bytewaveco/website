@@ -25,10 +25,8 @@ export default defineNuxtConfig({
       ],
     },
   },
-  hooks: {
-    'imports:dirs': (dirs: string[]) => {
-      dirs.push(path.resolve(__dirname, 'src/stores'))
-    },
+  colorMode: {
+    preference: 'light',
   },
   modules: [
     '@vueuse/nuxt',
