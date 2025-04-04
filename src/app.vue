@@ -48,10 +48,12 @@ useSchemaOrg([
     name: 'Bytewave',
     logo: '/logo.png',
     sameAs: [
+      'https://trbo.link',
       'https://www.facebook.com/bytewaveco',
       'https://www.instagram.com/bytewaveco',
       'https://www.tiktok.com/@bytewaveco',
       'https://linktr.ee/bytewaveco',
+      'https://trbo.link/at/bytewaveco',
       'https://github.com/bytewaveco',
       'https://ko-fi.com/bytewaveco',
       'https://bytewaveco.gumroad.com',
