@@ -5,7 +5,7 @@
     <NuxtImg
       src="/img/Bytewave-Text-Logo.svg"
       alt="Bytewave text logo"
-      class="pointer-events-none w-[10vw] min-w-[100px] max-w-[140px] p-4"
+      class="pointer-events-none w-[148px] p-4"
       loading="lazy"
     />
     <NuxtImg
