@@ -10,6 +10,8 @@ export default defineNuxtConfig({
     '/privacy': { prerender: true },
     '/terms': { prerender: true },
     '/': { prerender: true },
+    '/ingest/static/**': { proxy: 'https://us-assets.i.posthog.com/static/**' },
+    '/ingest/**': { proxy: 'https://us.i.posthog.com/**' },
   },
   app: {
     head: {
@@ -40,7 +42,10 @@ export default defineNuxtConfig({
   ],
   posthog: {
     publicKey: process.env.POSTHOG_API_KEY,
-    host: 'https://us.i.posthog.com',
+    clientOptions: {
+      api_host: 'https://bytewave.co/ingest',
+      ui_host: 'https://us.posthog.com',
+    },
     disabled: process.env.NODE_ENV === 'development',
   },
   eslint: {
