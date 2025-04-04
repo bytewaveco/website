@@ -47,7 +47,7 @@
           <NuxtImg
             src="/img/projects/rogue-ocean.webp"
             alt="Rogue Ocean"
-            class="size-[20vw] object-contain object-center"
+            class="size-full object-cover object-center"
           />
         </AppProject>
         <AppProject>
@@ -151,43 +151,55 @@
   </section>
 </template>
 
-<script lang="ts" setup>
-const interval = ref<number>()
-const projects = ref<HTMLDivElement>()
+<script setup>
+import { animate } from 'motion/mini'
+import { spring } from 'motion'
+
+const intervalMs = 4000
+let now = 0
+let then = 0
+let frame = 0
+let offset = 0
+
+function update() {
+  now = performance.now()
+
+  if (now - then > intervalMs) {
+    then = performance.now()
+
+    const projects = document.querySelectorAll('[data-motion]')
+    const length = projects.length
+
+    offset = (offset + 1) % length
+
+    projects.forEach((project, index) => {
+      const adjustedIndex = (index - offset + length) % length
+
+      animate(
+        project,
+        {
+          top: `-${adjustedIndex * 80}px`,
+          left: `${adjustedIndex * 300}px`,
+        },
+        {
+          type: spring,
+          bounce: 0.3,
+          duration: 2,
+        },
+      )
+    })
+  }
+
+  frame = window.requestAnimationFrame(update)
+}
 
 onMounted(() => {
-  const projectElements =
-    projects.value?.querySelectorAll<HTMLElement>('.project')
-
-  if (projectElements) {
-    const projectArray = Array.from(projectElements)
-
-    interval.value = window.setInterval(() => {
-      const newLast = projectArray.shift()
-      projectArray.push(newLast as HTMLElement)
-
-      newLast?.classList.add('blur')
-
-      for (const [index, project] of projectArray.entries()) {
-        project.style.setProperty('top', `-${index * 80}px`)
-        project.style.setProperty('left', `${index * 300}px`)
-      }
-
-      setTimeout(() => {
-        newLast?.classList.remove('blur')
-
-        for (const [index, project] of projectArray.entries()) {
-          project.style.setProperty('z-index', `${1000 - index}`)
-        }
-      }, 1000)
-    }, 5000)
-  }
+  frame = window.requestAnimationFrame(update)
 })
 
 onUnmounted(() => {
-  if (interval.value) {
-    window.clearInterval(interval.value)
-    interval.value = undefined
+  if (frame) {
+    window.cancelAnimationFrame(frame)
   }
 })
 </script>
@@ -197,25 +209,12 @@ onUnmounted(() => {
   @for $i from 1 through 12 {
     &:nth-child(#{$i}) {
       $i: $i - 1;
+
+      will-change: top, left;
       top: $i * -80px;
       left: $i * 300px;
       z-index: 1000 - $i;
     }
-  }
-
-  &.blur {
-    animation: blur 600ms ease-in forwards;
-  }
-
-  img {
-    position: absolute;
-    pointer-events: none;
-  }
-}
-
-@keyframes blur {
-  100% {
-    filter: blur(2px);
   }
 }
 </style>

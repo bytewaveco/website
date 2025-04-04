@@ -5,11 +5,11 @@
       'bg-white': !dark,
       'border-2 border-white bg-black': dark,
     }"
-    :style="{
-      transition: 'top 1000ms ease-in, left 1000ms ease-in',
-    }"
+    data-motion
   >
-    <div class="overflow-hidden rounded-lg">
+    <div
+      class="overflow-hidden rounded-lg [&>img]:pointer-events-none [&>img]:absolute"
+    >
       <slot />
     </div>
   </div>
