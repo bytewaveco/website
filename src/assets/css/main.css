@@ -1,2 +1,7 @@
-@import "tailwindcss";
+@import "tailwindcss" theme(static);
 @import "@nuxt/ui-pro";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --font-sans: "Raleway", sans-serif;
+}

@@ -1,8 +1,10 @@
 <template>
-  <section id="projects" w-full text-white bg-black>
-    <div class="mx-auto box-border w-full max-w-[992px] px-4 py-32 lg:w-[80vw]">
+  <section id="projects" class="w-full overflow-x-hidden bg-black prose-invert">
+    <div
+      class="mx-auto box-border w-full max-w-screen-lg px-4 py-32 lg:w-[80vw]"
+    >
       <h2>PROJECTS</h2>
-      <div ref="projects" class="relative h-[500px]">
+      <div ref="projects" class="not-prose relative h-[512px]">
         <AppProject>
           <NuxtImg
             src="/img/projects/trbo.svg"
@@ -12,6 +14,7 @@
               top: 'calc(50% - 10vw)',
               left: 'calc(50% - 10vw)',
             }"
+            loading="lazy"
           />
         </AppProject>
         <AppProject>
@@ -23,13 +26,15 @@
               top: 'calc(50% - 10vw)',
               left: 'calc(50% - 10vw)',
             }"
+            loading="lazy"
           />
         </AppProject>
         <AppProject>
           <NuxtImg
             src="/img/projects/catfish.webp"
             alt="Catfish"
-            class="size-full object-contain object-center"
+            class="size-full object-cover object-center"
+            loading="lazy"
           />
         </AppProject>
         <AppProject>
@@ -41,6 +46,7 @@
               top: 'calc(50% - 10vw)',
               left: 'calc(50% - 10vw)',
             }"
+            loading="lazy"
           />
         </AppProject>
         <AppProject>
@@ -48,6 +54,7 @@
             src="/img/projects/rogue-ocean.webp"
             alt="Rogue Ocean"
             class="size-full object-cover object-center"
+            loading="lazy"
           />
         </AppProject>
         <AppProject>
@@ -59,6 +66,7 @@
               top: 'calc(50% - 10vw)',
               left: 'calc(50% - 10vw)',
             }"
+            loading="lazy"
           />
         </AppProject>
         <AppProject dark>
@@ -70,6 +78,7 @@
               top: 'calc(50% - 10vw)',
               left: 'calc(50% - 10vw)',
             }"
+            loading="lazy"
           />
         </AppProject>
         <AppProject>
@@ -81,6 +90,7 @@
               top: 'calc(50% - 10vw)',
               left: 'calc(50% - 10vw)',
             }"
+            loading="lazy"
           />
           <NuxtImg
             src="/img/projects/austin.svg"
@@ -89,6 +99,7 @@
             :style="{
               transform: 'scale(1.5)',
             }"
+            loading="lazy"
           />
         </AppProject>
         <AppProject>
@@ -100,6 +111,7 @@
               top: 'calc(50% - 10vw)',
               left: 'calc(50% - 10vw)',
             }"
+            loading="lazy"
           />
         </AppProject>
         <AppProject dark>
@@ -111,6 +123,7 @@
               top: 'calc(50% - 10vw)',
               left: 'calc(50% - 10vw)',
             }"
+            loading="lazy"
           />
         </AppProject>
         <AppProject>
@@ -122,6 +135,7 @@
               top: 'calc(50% - 10vw)',
               left: 'calc(50% - 10vw)',
             }"
+            loading="lazy"
           />
         </AppProject>
         <AppProject>
@@ -133,6 +147,7 @@
               top: 'calc(50% - 10vw)',
               left: 'calc(50% - 10vw)',
             }"
+            loading="lazy"
           />
         </AppProject>
         <AppProject>
@@ -144,6 +159,7 @@
               top: 'calc(50% - 10vw)',
               left: 'calc(50% - 10vw)',
             }"
+            loading="lazy"
           />
         </AppProject>
       </div>
