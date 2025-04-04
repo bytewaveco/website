@@ -152,8 +152,7 @@
 </template>
 
 <script setup>
-import { animate } from 'motion/mini'
-import { spring } from 'motion'
+import { animate, spring } from 'motion'
 
 const intervalMs = 4000
 let now = 0
@@ -175,16 +174,29 @@ function update() {
     projects.forEach((project, index) => {
       const adjustedIndex = (index - offset + length) % length
 
+      project.dataset.index = adjustedIndex
+
       animate(
         project,
         {
-          top: `-${adjustedIndex * 80}px`,
-          left: `${adjustedIndex * 300}px`,
+          top: `${-80 * adjustedIndex}px`,
+          left: `${300 * adjustedIndex}px`,
         },
         {
           type: spring,
-          bounce: 0.3,
-          duration: 2,
+          bounce: 0.4,
+          duration: 1.8,
+          onComplete() {
+            const projects = Array.from(
+              document.querySelectorAll('[data-motion]'),
+            ).sort((a, b) => a.dataset.index - b.dataset.index)
+
+            for (let i = 0; i < projects.length; ++i) {
+              const project = projects[i]
+
+              project.style.setProperty('z-index', `${1000 - i}`)
+            }
+          },
         },
       )
     })
@@ -194,6 +206,22 @@ function update() {
 }
 
 onMounted(() => {
+  const projects = document.querySelectorAll('[data-motion]')
+
+  for (let i = 0; i < projects.length; ++i) {
+    const project = projects[i]
+
+    project.dataset.index = i
+    project.style.setProperty('will-change', 'top, left')
+    project.style.setProperty('top', `${-80 * i}px`)
+    project.style.setProperty('left', `${300 * i}px`)
+    project.style.setProperty('z-index', `${1000 - i}`)
+  }
+
+  for (let i = 0; i < projects.length; ++i) {
+    projects[i].style.setProperty('opacity', 1)
+  }
+
   frame = window.requestAnimationFrame(update)
 })
 
@@ -203,18 +231,3 @@ onUnmounted(() => {
   }
 })
 </script>
-
-<style lang="scss" scoped>
-:deep(.project) {
-  @for $i from 1 through 12 {
-    &:nth-child(#{$i}) {
-      $i: $i - 1;
-
-      will-change: top, left;
-      top: $i * -80px;
-      left: $i * 300px;
-      z-index: 1000 - $i;
-    }
-  }
-}
-</style>

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="project absolute z-50 box-border h-[500px] w-[80vw] select-none overflow-hidden rounded-lg shadow-lg lg:w-[40vw]"
+    class="project absolute opacity-0 z-50 box-border h-[500px] w-[80vw] select-none overflow-hidden rounded-lg shadow-lg lg:w-[40vw]"
     :class="{
       'bg-white': !dark,
       'border-2 border-white bg-black': dark,
