@@ -28,13 +28,9 @@ export default defineNuxtConfig({
       dirs.push(path.resolve(__dirname, 'src/stores'))
     },
   },
-  runtimeConfig: {
-    public: {
-      googleAnalyticsId: process.env.GOOGLE_ANALYTICS_ID,
-      isAnalyticsEnabled: process.env.ANALYTICS_ENABLED === 'true',
-    },
-  },
   modules: [
+    '@vueuse/nuxt',
+    'nuxt-posthog',
     '@nuxtjs/robots',
     '@nuxt/content',
     'nuxt-schema-org',
@@ -42,6 +38,11 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@nuxt/eslint',
   ],
+  posthog: {
+    publicKey: process.env.POSTHOG_API_KEY,
+    host: 'https://us.i.posthog.com',
+    disabled: process.env.NODE_ENV === 'development',
+  },
   eslint: {
     checker: true,
   },
