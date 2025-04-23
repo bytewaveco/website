@@ -9,7 +9,9 @@
 </template>
 
 <script lang="ts" setup>
-useHead({
+const route = useRoute()
+
+useHead(() => ({
   htmlAttrs: {
     lang: 'en',
   },
@@ -40,8 +42,12 @@ useHead({
       rel: 'manifest',
       href: '/site.webmanifest',
     },
+    {
+      rel: 'canonical',
+      href: `https://bytewave.co${route.path}`,
+    },
   ],
-})
+}))
 
 useSchemaOrg([
   defineOrganization({
