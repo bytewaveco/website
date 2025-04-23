@@ -2,8 +2,10 @@
   <section
     class="flex justify-center justify-items-center items-center w-full bg-blue-500"
   >
-    <h1 class="text-white whitespace-nowrap !m-0 py-8 cursor-default">
+    <h6
+      class="text-white text-4xl font-extrabold whitespace-nowrap !m-0 py-8 cursor-default"
+    >
       RIDE THE WAVE.
-    </h1>
+    </h6>
   </section>
 </template>

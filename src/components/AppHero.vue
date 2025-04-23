@@ -8,6 +8,7 @@
       class="pointer-events-none w-[148px] p-4"
       loading="lazy"
     />
+    <h1 class="hidden">Bytewave of Gillette, WY</h1>
     <NuxtImg
       src="/img/hero.svg"
       height="600"
@@ -15,8 +16,8 @@
       class="pointer-events-none box-border h-auto w-full select-none p-4"
       loading="lazy"
     />
-    <p class="mx-auto w-fit text-2xl">
+    <h2 class="mx-auto w-fit font-normal text-2xl">
       BYTEWAVE SPECIALIZES IN CRAFTING ELEGANT & BOLD BRANDS
-    </p>
+    </h2>
   </section>
 </template>
