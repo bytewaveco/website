@@ -19,12 +19,12 @@ export default defineNuxtConfig({
   },
   app: {
     head: {
-      title: 'Bytewave of Gillette, WY',
+      title: 'Bytewave of Gillette, WY. Your Digital Marketing Team.',
       meta: [
         {
           name: 'description',
           content:
-            'Bytewave is a software company located in Gillette, WY that offers website design, marketing, social media management, SEO optimization, and more.',
+            'Bytewave is a software company located in Gillette, WY. We offer website design, marketing, social media management, SEO optimization, Software Development, and more.',
         },
       ],
     },
