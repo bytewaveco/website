@@ -17,18 +17,6 @@ export default defineNuxtConfig({
       '/ingest/**': { proxy: 'https://us.i.posthog.com/**' },
     },
   },
-  app: {
-    head: {
-      title: 'Bytewave of Gillette, WY. Your Digital Marketing Team.',
-      meta: [
-        {
-          name: 'description',
-          content:
-            'Bytewave is a software company located in Gillette, WY. We offer website design, marketing, social media management, SEO optimization, Software Development, and more.',
-        },
-      ],
-    },
-  },
   colorMode: {
     preference: 'light',
   },
@@ -43,10 +31,6 @@ export default defineNuxtConfig({
     '@nuxt/eslint',
     '@nuxt/ui-pro',
   ],
-  site: {
-    url: 'https://bytewave.co',
-    name: 'Bytewave',
-  },
   posthog: {
     publicKey: process.env.POSTHOG_API_KEY,
     clientOptions: {
