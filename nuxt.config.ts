@@ -4,6 +4,13 @@ export default defineNuxtConfig({
   devtools: { enabled: true, telemetry: false },
   srcDir: 'src',
   css: ['~/assets/css/main.css'],
+  site: {
+    url: 'https://bytewave.co',
+    name: 'Bytewave',
+  },
+  dir: {
+    public: 'src/public',
+  },
   routeRules: {
     '/privacy': { prerender: true },
     '/terms': { prerender: true },
@@ -31,6 +38,22 @@ export default defineNuxtConfig({
     '@nuxt/eslint',
     '@nuxt/ui-pro',
   ],
+  sitemap: {
+    autoI18n: false,
+    strictNuxtContentPaths: true,
+    credits: false,
+    xsl: false,
+    exclude: ['/ingest/**'],
+    defaults: {
+      changefreq: 'monthly',
+      priority: 0.5,
+    },
+  },
+  robots: {
+    allow: ['/'],
+    disallow: ['/ingest/'],
+    sitemap: 'https://bytewave.co/sitemap.xml',
+  },
   posthog: {
     publicKey: process.env.POSTHOG_API_KEY,
     clientOptions: {

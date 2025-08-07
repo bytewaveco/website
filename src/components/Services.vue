@@ -85,6 +85,7 @@
           <AppListItem>
             IOS / ANDROID / WINDOWS / LINUX / MAC / CLOUD
           </AppListItem>
+          <AppListItem>AI AUTOMATION</AppListItem>
         </ul>
         <a class="w-fit" href="mailto:info@bytewave.co" aria-label="Contact us">
           <AppButton>CREATE WITH US</AppButton>

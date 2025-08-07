@@ -1,15 +1,14 @@
-<template>
-  <div class="!max-w-full prose lg:prose-xl prose-neutral">
-    <UApp>
-      <NuxtLayout>
-        <NuxtPage />
-      </NuxtLayout>
-    </UApp>
-  </div>
-</template>
-
-<script lang="ts" setup>
+<script setup>
 const route = useRoute()
+
+const siteUrl = 'https://bytewave.co'
+const currentPath = route.path || '/'
+const normalizedPath =
+  currentPath !== '/' && currentPath.endsWith('/')
+    ? currentPath.slice(0, -1)
+    : currentPath
+const canonicalUrl =
+  normalizedPath === '/' ? siteUrl : `${siteUrl}${normalizedPath}`
 
 useHead(() => ({
   htmlAttrs: {
@@ -24,6 +23,7 @@ useHead(() => ({
     },
   ],
   link: [
+    { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
     {
       rel: 'apple-touch-icon',
       sizes: '180x180',
@@ -41,19 +41,9 @@ useHead(() => ({
       sizes: '16x16',
       href: '/favicon-16x16.png',
     },
-    {
-      rel: 'icon',
-      type: 'image/svg+xml',
-      href: '/favicon.svg',
-    },
-    {
-      rel: 'manifest',
-      href: '/site.webmanifest',
-    },
-    {
-      rel: 'canonical',
-      href: `https://bytewave.co${route.path}`,
-    },
+    { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg', sizes: 'any' },
+    { rel: 'manifest', href: '/site.webmanifest' },
+    { rel: 'canonical', href: canonicalUrl },
   ],
 }))
 
@@ -63,8 +53,8 @@ useSchemaOrg([
     name: 'Bytewave',
     description:
       'Bytewave is a software company located in Gillette, WY. We offer website design, marketing, social media management, SEO optimization, Software Development, and more.',
-    url: 'https://bytewave.co',
-    logo: '/logo.png',
+    url: siteUrl,
+    logo: `${siteUrl}/logo.png`,
     sameAs: [
       'https://trbo.link',
       'https://www.facebook.com/bytewaveco',
@@ -87,10 +77,7 @@ useSchemaOrg([
   }),
   defineWebSite({
     name: 'Bytewave of Gillette, WY. Your Digital Marketing Team.',
-    url: 'https://bytewave.co',
-  }),
-  defineWebPage({
-    canonicalHost: 'https://bytewave.co',
+    url: siteUrl,
   }),
 ])
 
@@ -100,22 +87,33 @@ useSeoMeta({
   ogTitle: 'Bytewave of Gillette, WY. Your Digital Marketing Team.',
   ogDescription:
     'Bytewave is a software company located in Gillette, WY. We offer website design, marketing, social media management, SEO optimization, Software Development, and more.',
+  ogType: 'website',
   ogImage: {
     type: 'image/png',
-    url: 'https://bytewave.co/android-chrome-512x512.png',
-    width: 512,
-    height: 512,
+    url: 'https://bytewave.co/social-card.png',
+    width: 1200,
+    height: 675,
   },
-  ogUrl: 'https://bytewave.co',
+  ogUrl: canonicalUrl,
   twitterTitle: 'Bytewave of Gillette, WY. Your Digital Marketing Team.',
   twitterDescription:
     'Bytewave is a software company located in Gillette, WY. We offer website design, marketing, social media management, SEO optimization, Software Development, and more.',
   twitterImage: {
     type: 'image/png',
-    url: 'https://bytewave.co/android-chrome-512x512.png',
-    width: 512,
-    height: 512,
+    url: 'https://bytewave.co/social-card.png',
+    width: 1200,
+    height: 675,
   },
-  twitterCard: 'summary',
+  twitterCard: 'summary_large_image',
 })
 </script>
+
+<template>
+  <div class="!max-w-full prose lg:prose-xl prose-neutral">
+    <UApp>
+      <NuxtLayout>
+        <NuxtPage />
+      </NuxtLayout>
+    </UApp>
+  </div>
+</template>
