@@ -1,19 +1,19 @@
-FROM node:20-bullseye-slim AS builder
+FROM node:24-bullseye-slim AS builder
 
-WORKDIR /opt/app
-
-COPY package.json package-lock.json ./
-
-RUN npm install
+WORKDIR /workspace
 
 COPY . .
 
+RUN npm install
+
 RUN NODE_ENV=production npm run build
 
-FROM node:20-bullseye-slim
+FROM node:24-bullseye-slim
 
-WORKDIR /opt/app
+ENV NODE_ENV=production
 
-COPY --from=builder /opt/app/.output /opt/app/.output
+WORKDIR /workspace
 
-CMD ["node", ".output/server/index.mjs"]
+COPY --from=builder /workspace/.output ./
+
+CMD ["node", "./server/index.mjs"]
