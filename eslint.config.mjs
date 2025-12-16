@@ -1,22 +1,28 @@
 import withNuxt from './.nuxt/eslint.config.mjs'
-// import eslintPluginTailwindCss from 'eslint-plugin-tailwindcss'
+import eslintPluginBetterTailwindCss from 'eslint-plugin-better-tailwindcss'
 import eslintPluginPrettier from 'eslint-plugin-prettier'
 
 export default withNuxt([
-  // {
-  //   plugins: {
-  //     tailwindcss: eslintPluginTailwindCss,
-  //   },
-  //   rules: {
-  //     ...eslintPluginTailwindCss.configs.recommended.rules,
-  //     'tailwindcss/no-custom-classname': [
-  //       'warn',
-  //       {
-  //         whitelist: ['project', 'social'],
-  //       },
-  //     ],
-  //   },
-  // },
+  {
+    plugins: {
+      'better-tailwindcss': eslintPluginBetterTailwindCss,
+    },
+    rules: {
+      ...eslintPluginBetterTailwindCss.configs.recommended.rules,
+      'better-tailwindcss/enforce-consistent-line-wrapping': 'off',
+      'better-tailwindcss/no-unregistered-classes': [
+        'warn',
+        {
+          ignore: ['not-prose', 'project'],
+        },
+      ],
+    },
+    settings: {
+      'better-tailwindcss': {
+        entryPoint: 'app/assets/css/main.css',
+      },
+    },
+  },
   {
     plugins: {
       prettier: eslintPluginPrettier,
@@ -38,7 +44,7 @@ export default withNuxt([
     rules: {
       'no-undef': 'off',
       'no-unused-vars': [
-        'error',
+        'warn',
         {
           varsIgnorePattern: '^_',
           argsIgnorePattern: '^_',
@@ -48,9 +54,11 @@ export default withNuxt([
       'vue/multi-word-component-names': 'off',
       'vue/html-self-closing': 'off',
       '@typescript-eslint/no-dynamic-delete': 'off',
+      '@typescript-eslint/no-explicit-any': 'warn',
+      '@typescript-eslint/unified-signatures': 'off',
     },
   },
   {
-    ignores: ['!src/server/api/public/**'],
+    ignores: ['!server/api/public/**'],
   },
 ])

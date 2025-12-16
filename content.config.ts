@@ -6,7 +6,7 @@ export default defineContentConfig({
     content: defineCollection({
       type: 'page',
       source: {
-        cwd: resolve(__dirname, 'src', 'content'),
+        cwd: resolve(__dirname, 'app', 'content'),
         include: '**/*.md',
       },
     }),

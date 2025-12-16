@@ -1,14 +1,14 @@
-FROM node:24-bullseye-slim AS builder
+FROM oven/bun:1.3.4-slim AS builder
 
 WORKDIR /workspace
 
 COPY . .
 
-RUN npm install
+RUN bun install
 
-RUN NODE_ENV=production npm run build
+RUN NODE_ENV=production bun run build
 
-FROM node:24-bullseye-slim
+FROM oven/bun:1.3.4-slim
 
 ENV NODE_ENV=production
 
@@ -16,4 +16,4 @@ WORKDIR /workspace
 
 COPY --from=builder /workspace/.output ./
 
-CMD ["node", "./server/index.mjs"]
+CMD ["bun", "./server/index.mjs"]

@@ -1,15 +1,11 @@
 export default defineNuxtConfig({
-  compatibilityDate: '2025-01-14',
+  compatibilityDate: '2025-01-15',
   telemetry: { enabled: false },
   devtools: { enabled: true, telemetry: false },
-  srcDir: 'src',
   css: ['~/assets/css/main.css'],
   site: {
     url: 'https://bytewave.co',
     name: 'Bytewave',
-  },
-  dir: {
-    public: 'src/public',
   },
   routeRules: {
     '/privacy': { prerender: true },
@@ -25,9 +21,12 @@ export default defineNuxtConfig({
     },
   },
   colorMode: {
+    storageKey: 'bytewave-color-mode',
     preference: 'light',
   },
   modules: [
+    '@nuxt/eslint',
+    '@nuxt/ui',
     '@nuxt/content',
     '@nuxt/image',
     '@vueuse/nuxt',
@@ -35,8 +34,6 @@ export default defineNuxtConfig({
     'nuxt-schema-org',
     '@nuxtjs/sitemap',
     'nuxt-posthog',
-    '@nuxt/eslint',
-    '@nuxt/ui-pro',
   ],
   sitemap: {
     autoI18n: false,
@@ -61,8 +58,5 @@ export default defineNuxtConfig({
       ui_host: 'https://us.posthog.com',
     },
     disabled: process.env.NODE_ENV === 'development',
-  },
-  eslint: {
-    checker: true,
   },
 })

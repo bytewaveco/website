@@ -1,0 +1,18 @@
+[
+  {
+    "fileName": "main-overview.mdc",
+    "description": "Complete system overview with architecture and key frontend components, focusing on the custom animation and interaction systems"
+  },
+  {
+    "fileName": "project-showcase-algorithm.mdc",
+    "description": "Detailed documentation of the carousel animation system including timing mechanisms, z-index management, and positioning calculations"
+  },
+  {
+    "fileName": "scroll-interactions.mdc",
+    "description": "Technical specification of scroll-based effects including the water parallax system and position-based animations"
+  },
+  {
+    "fileName": "seo-schema-implementation.mdc",
+    "description": "Documentation of the business entity schema structure and SEO metadata implementation including canonical URL handling logic"
+  }
+]

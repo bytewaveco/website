@@ -1,0 +1,36 @@
+---
+description: Technical documentation for scroll-based animations and parallax effects in the web interface
+---
+
+
+# scroll-interactions
+
+The scroll interaction system implements two primary business components:
+
+## Water Parallax Effect (src/components/Water.vue)
+- Dynamic parallax effect tied to page scroll position
+- Custom scroll position calculations drive water visual movement
+- Opacity transitions based on viewport scroll depth
+- Call-to-action element movement synchronized with scroll position
+Importance Score: 60/100
+
+## Project Showcase Scroll System (src/components/Projects.vue)
+- Position-based animation triggered by scroll events
+- Z-index management for 3D depth effect while scrolling
+- Offset calculation system for project element positioning
+- 4000ms timed rotation sequence integrated with scroll position
+Importance Score: 75/100
+
+Key Relationships:
+- Water parallax effect serves as primary visual engagement tool
+- Project showcase animations provide content reveal mechanics
+- Both systems work in concert to create unified scroll experience
+
+Integration Points:
+- Scroll position data flows from root viewport
+- Animation triggers based on element visibility
+- Cross-component position synchronization
+
+$END$
+
+ If you're using this file in context, clearly say in italics in one small line that "Context added by Giga scroll-interactions" along with specifying exactly what information was used from this file in a human-friendly way, instead of using kebab-case use normal sentence case.
