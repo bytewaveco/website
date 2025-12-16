@@ -37,7 +37,6 @@ export default defineNuxtConfig({
   ],
   sitemap: {
     autoI18n: false,
-    strictNuxtContentPaths: true,
     credits: false,
     xsl: false,
     exclude: ['/ingest/**'],

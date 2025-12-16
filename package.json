@@ -2,12 +2,12 @@
   "name": "website",
   "private": true,
   "scripts": {
-    "build": "bun run --bun nuxt build",
-    "dev": "bun run --bun nuxt dev",
-    "generate": "bun run --bun nuxt generate",
-    "lint": "bun run --bun eslint --fix .",
-    "prepare": "bun run --bun nuxt prepare",
-    "preview": "bun run --bun nuxt preview"
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "lint": "eslint --fix .",
+    "prepare": "nuxt prepare",
+    "preview": "nuxt preview"
   },
   "dependencies": {
     "@nuxt/content": "^3.9.0",
