@@ -121,16 +121,16 @@
   </footer>
 </template>
 
-<style lang="scss" scoped>
+<style scoped>
 ul {
   margin: 0 !important;
   padding: 0 !important;
   list-style: none !important;
   font-size: 1rem !important;
+}
 
-  li {
-    margin: 0 !important;
-    padding: 0 !important;
-  }
+ul > li {
+  margin: 0 !important;
+  padding: 0 !important;
 }
 </style>

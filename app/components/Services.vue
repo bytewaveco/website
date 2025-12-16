@@ -95,16 +95,14 @@
   </section>
 </template>
 
-<style lang="scss" scoped>
-ul {
-  margin: 0 !important;
-  padding: 0 !important;
-  list-style: none !important;
-  font-size: 1rem !important;
+<style scoped>
+@reference "~/assets/css/main.css";
 
-  li {
-    margin: 0 !important;
-    padding: 0 !important;
-  }
+ul {
+  @apply m-0 p-0 list-none text-base;
+}
+
+ul > li {
+  @apply m-0 p-0;
 }
 </style>

@@ -9,8 +9,10 @@
   <RideTheWave />
 </template>
 
-<style lang="scss" scoped>
+<style scoped>
+@reference "~/assets/css/main.css";
+
 section {
-  width: 100%;
+  @apply w-full;
 }
 </style>
