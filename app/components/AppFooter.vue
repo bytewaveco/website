@@ -84,7 +84,7 @@
           </li>
           <li>
             <SocialButton
-              href="https://trbo.link/at/creator"
+              href="https://trbo.link/at/bytewaveco"
               aria-label="Bytewave's TRBO Profile"
               target="_blank"
               rel="nofollow"
